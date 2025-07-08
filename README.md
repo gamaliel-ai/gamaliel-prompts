@@ -1,4 +1,4 @@
-` # Gamaliel Prompts & Transparency
+# Gamaliel Prompts & Transparency
 
 **Your Questions. Biblical Answers. Open Source.**
 
