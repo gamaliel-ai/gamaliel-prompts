@@ -30,6 +30,13 @@ Partners include churches, ministries, nonprofits, Bible study groups, and other
 - **About Information**: Your organization's story and mission (markdown)
 - **Theological Perspective**: Choose from available theological guardrails
 
+### Christian Identity and Theology Selection
+
+The `is_christian` field determines whether your audience can select their theological perspective:
+
+- **`is_christian: true`**: If your audience identifies as Christian, they can choose from available theological perspectives (Reformed, Catholic, Lutheran, etc.)
+- **`is_christian: false`**: If your audience includes non-Christians, they will receive responses using the default theology, as they wouldn't have a specific Christian theological preference
+
 ### What Remains Consistent
 
 - **Core Theological Guardrails**: All responses maintain essential Christian orthodoxy
@@ -69,7 +76,7 @@ Create a YAML file following this structure:
 slug: "your-organization"
 name: "Your Organization Name"
 description: "Brief description of your audience and mission"
-is_christian: true/false
+is_christian: true/false  # Whether your target audience identifies as Christian
 
 instructions: |
   Detailed instructions for how Gamaliel should adapt responses for your audience:

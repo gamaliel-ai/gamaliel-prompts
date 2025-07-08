@@ -27,15 +27,31 @@ All responses must affirm the essential beliefs shared by Nicene-affirming Chris
 
 These guardrails ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives.
 
+### Respect for Other Perspectives
+
+We recognize and respect that there are many theological perspectives and spiritual traditions that may not align with these specific guardrails. Different faith communities, denominations, and individual believers may hold equally sincere and thoughtful views about Scripture, theology, and spiritual practice.
+
+**Gamaliel's Focused Mission**: Our system is specifically designed to serve users who seek biblical study within the framework of historic Christian orthodoxy and biblical inerrancy. This focused scope allows us to provide consistent, theologically coherent responses while maintaining the highest standards of biblical fidelity.
+
+We believe this focused approach serves our users best by providing clear, trustworthy guidance within a well-defined theological framework. While we respect that others may hold different beliefs or interpret Scripture differently, Gamaliel is intentionally designed to serve those seeking biblical study within these specific theological guardrails.
+
 **📋 Complete Theological Guardrails**: See [guardrails.md](guardrails.md) for the complete, authoritative list of mandatory core theological guardrails that all responses must follow.
+
+### How Guardrails Are Enforced
+
+The `guardrails.md` file serves as the **highest-level theological authority** in the Gamaliel system:
+
+1. **AI System Integration**: The guardrails are automatically included in all AI system prompts (see [templates/chat_agent/instructions.j2](templates/chat_agent/instructions.j2) as an example) to enforce theological boundaries at the highest level
+2. **Validation Framework**: All new or modified theologies, partner configurations, and user profiles are validated against these core guardrails to ensure they don't contradict essential Christian doctrines
+3. **Non-Negotiable Foundation**: These guardrails cannot be overridden by any specific theology, partner configuration, or user profile - they form the unchangeable foundation of all responses
 
 ## Why Transparency?
 
-Just as open source builds trust in software, we believe open prompts and theological guardrails build trust in AI-powered biblical study. All system instructions, prompt templates, and theological perspectives are public, so that scholars, theologians, and the community can audit, improve, and verify the system's biblical fidelity and theological soundness. See our [AI Transparency Strategy](../docs/ai-transparency-strategy.md) for more details.
+Just as open source builds trust in software, we believe open prompts and theological guardrails build trust in AI-powered biblical study. All system instructions, prompt templates, and theological perspectives are public, so that scholars, theologians, and the community can audit, improve, and verify the system's biblical fidelity and theological soundness. In addition, users can audit any question they ask in Gamaliel to see the precise input, tool results, output, and model used to generate their answer.
 
 ## Repository Structure
 
-- `templates/` — Jinja2 prompt templates for all system interactions (Q&A, suggestions, translation, etc.)
+- `templates/` — [Jinja2](https://jinja.palletsprojects.com/en/stable/) prompt templates for all system interactions (Q&A, suggested questions, etc.)
 - `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences
 - `theologies/` — Theological guardrails (YAML) for denominational and doctrinal perspectives
 

@@ -36,6 +36,13 @@ Profiles influence:
 - **Question Suggestions**: Profile influences suggested follow-up questions
 - **Theology Compatibility**: Profiles work with any theological perspective
 
+### Christian Identity and Theology Selection
+
+The `is_christian` field determines whether users can select their theological perspective:
+
+- **`is_christian: true`**: Users who identify as Christian can choose from available theological perspectives (Reformed, Catholic, Lutheran, etc.)
+- **`is_christian: false`**: Non-Christian users receive responses using the default theology, as they wouldn't have a specific Christian theological preference
+
 ## Current Profiles
 
 ### Beginners & Seekers (Levels 0-2)
@@ -58,7 +65,7 @@ Profiles influence:
 ```yaml
 name: "Profile Name"
 description: "Brief description of the user type"
-is_christian: true/false
+is_christian: true/false  # Whether the target user identifies as Christian
 experience_level: 0-5
 instructions: |
   Detailed instructions for adapting responses to this user type:
