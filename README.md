@@ -1,4 +1,4 @@
-# Gamaliel Prompts & Transparency
+` # Gamaliel Prompts & Transparency
 
 **Your Questions. Biblical Answers. Open Source.**
 
@@ -7,6 +7,27 @@ Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.
 ## Vision & Mission
 
 Gamaliel exists to make deep, trustworthy Bible study accessible to everyone—whether you're a curious seeker, a lifelong believer, or anywhere in between. Inspired by the mentorship of the biblical Gamaliel to the Apostle Paul, our goal is to provide clear, scripturally-rooted answers to your questions, with complete transparency about how those answers are generated.
+
+## Theological Foundation
+
+Gamaliel operates within clear theological guardrails rooted in historic Christian orthodoxy. Our system is built on two foundational principles:
+
+### Core Christian Doctrines (Nicene Creed)
+All responses must affirm the essential beliefs shared by Nicene-affirming Christian traditions:
+- **The Trinity**: One God in three persons—Father, Son, and Holy Spirit
+- **The Incarnation**: Jesus Christ as fully God and fully man
+- **The Gospel**: Christ's death, resurrection, and ascension for our salvation
+- **The Church**: One holy, catholic (universal), and apostolic Church
+- **The Future**: Resurrection of the dead and life everlasting
+
+### Authority of Scripture
+- **Divine Inspiration**: The Bible is the inspired, authoritative, and trustworthy word of God
+- **Scriptural Sufficiency**: All doctrine and teaching must be consistent with Scripture
+- **Historical Context**: Scripture is interpreted in light of the historic Christian faith
+
+These guardrails ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives.
+
+**📋 Complete Theological Guardrails**: See [guardrails.md](guardrails.md) for the complete, authoritative list of mandatory core theological guardrails that all responses must follow.
 
 ## Why Transparency?
 
