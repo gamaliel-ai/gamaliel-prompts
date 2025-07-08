@@ -1,0 +1,52 @@
+{% if bible_id and book and chapter %}
+<section type="scripture-context">
+<translation>{{ bible_id }}</translation>
+<reference>{{ book }} {{ chapter }}{% if verses %}:{{ verses|join(',') }}{% endif %}</reference>
+
+{% if chapter_content %}
+<chapter-content>{{ chapter_content }}</chapter-content>
+{% endif %}
+
+{% if verses %}
+{% for verse in verses %}
+<verse number="{{ verse.verse }}">{{ verse.text }}</verse>
+{% endfor %}
+{% endif %}
+</section>
+{% endif %}
+
+{% if commentary %}
+<section type="commentary-context">
+<commentary-type>{{ commentary.type }}</commentary-type>
+<commentary-content>{{ commentary.content }}</commentary-content>
+</section>
+{% endif %}
+
+{% if profile %}
+<section type="user-profile">
+<profile-name>{{ profile.name }}</profile-name>
+<profile-description>{{ profile.description }}</profile-description>
+{% if profile.instructions %}
+<profile-instructions>{{ profile.instructions }}</profile-instructions>
+{% endif %}
+</section>
+{% endif %}
+
+{% if chat_history %}
+<section type="chat-transcript">
+{% for message in chat_history %}
+<message role="{{ message.role|title }}">
+{% if message.book and message.chapter %}
+<context book="{{ message.book }}" chapter="{{ message.chapter }}"/>
+{% endif %}
+{{ message.content }}
+</message>
+{% endfor %}
+</section>
+{% endif %}
+
+<section type="user-question">
+{{ prompt }}
+</section>
+
+Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.{% if commentary %} Consider the provided commentary context in your response, but prioritize Scripture itself as the primary authority.{% endif %} Be sure to strictly follow the provided theological guardrails.

@@ -1,0 +1,25 @@
+<current_context>
+<reference book="{{ book }}" chapter="{{ chapter }}" translation="{{ bible_id }}">
+{{ chapter_content }}
+</reference>
+</current_context>
+
+{% if profile %}
+<user_profile>
+<profile_name>{{ profile.name }}</profile_name>
+<profile_description>{{ profile.description }}</profile_description>
+<profile_instructions>{{ profile.instructions }}</profile_instructions>
+</user_profile>
+{% endif %}
+
+<user_history>
+{% if user_history and user_history|length > 0 %}
+{% for question in user_history %}
+<question book_id="{{ question.book_id }}" chapter="{{ question.chapter }}">
+{{ question.content }}
+</question>
+{% endfor %}
+{% else %}
+<!-- No previous questions from this user -->
+{% endif %}
+</user_history> 
