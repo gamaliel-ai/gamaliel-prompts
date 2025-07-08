@@ -4,7 +4,7 @@ Thank you for your interest in contributing to the open-source heart of Gamaliel
 
 ## Theological Guardrails
 
-All contributions must align with our foundational theological principles:
+All contributions must align with our foundational theological principles, which are non-negotiable and binding for all content:
 
 ### Core Christian Doctrines
 Contributions must affirm the essential beliefs of the Nicene Creed:
@@ -19,7 +19,7 @@ Contributions must affirm the essential beliefs of the Nicene Creed:
 - **Scriptural Sufficiency**: All doctrine and teaching must be consistent with Scripture
 - **Historical Context**: Scripture is interpreted in light of the historic Christian faith
 
-These guardrails ensure biblical fidelity while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives.
+These guardrails ensure biblical fidelity while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives and our [core guardrails](guardrails.md) for the foundational principles that cannot be overridden.
 
 ## What You Can Contribute
 - **Prompt Templates**: Improve or add new Jinja2 templates for Q&A, suggestions, translation, and more.
@@ -39,16 +39,8 @@ These guardrails ensure biblical fidelity while respecting the diversity of Chri
 - **Theological Fidelity**: All contributions must align with core Christian doctrines and the authority of Scripture
 - **Transparency**: All changes must be clearly documented and open for review.
 - **Biblical Foundation**: All prompts and guardrails must be rooted in Scripture and respect the intended theological perspective.
-- **Respect & Inclusion**: We welcome contributors from all backgrounds. Engage with humility, respect, and a spirit of learning.
+- **Respectful Collaboration**: We welcome contributors from diverse Christian backgrounds who share our commitment to biblical fidelity. Engage with humility, respect, and a spirit of learning while honoring our theological foundations.
 - **No Proselytizing**: This is a space for open, honest, and respectful dialogue—not for promoting any one tradition over others.
-
-## Resources
-- [About Gamaliel](../client/src/components/About.jsx)
-- [AI Transparency Strategy](../docs/ai-transparency-strategy.md)
-- [README](README.md)
-
-## Questions?
-Open an issue or start a discussion! We're here to help you make your contribution impactful.
 
 ---
 
