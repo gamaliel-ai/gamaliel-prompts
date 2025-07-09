@@ -12,6 +12,14 @@ Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.
 
 Gamaliel exists to make deep, trustworthy Bible study accessible to everyone—whether you're a curious seeker, a lifelong believer, or anywhere in between. Inspired by the mentorship of the biblical Gamaliel to the Apostle Paul, our goal is to provide clear, scripturally-rooted answers to your questions, with complete transparency about how those answers are generated.
 
+## What Makes Gamaliel Different?
+
+- **Completely Anonymous**: No login, no signup, no tracking—just open and ask.
+- **100% Bible-Based**: Every answer is rooted in Scripture, with clear theological boundaries.
+- **Tailored to You**: Profiles adapt responses to your spiritual background and needs.
+- **Free & Open Source**: No paywalls, no hidden fees. All prompt logic is open for review and improvement.
+- **Radical Transparency**: Every AI response is auditable, with full prompt and context disclosure.
+
 ## Theological Foundation
 
 Gamaliel operates within clear theological guidelines rooted in historic Christian orthodoxy. Our system is built on the authority of Scripture and core Christian doctrines shared by Nicene-affirming traditions.
@@ -31,14 +39,6 @@ of which are provided in this open source repository:
 - `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences. See [profiles/README.md](profiles/README.md) for details.
 - `theologies/` — Theological guidelines (YAML) for denominational and doctrinal perspectives. See [theologies/README.md](theologies/README.md) for details.
 - `partners/` — Partner-specific configurations and customizations for organizations who want to customize gamaliel for their customers, congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
-
-## What Makes Gamaliel Different?
-
-- **Completely Anonymous**: No login, no signup, no tracking—just open and ask.
-- **100% Bible-Based**: Every answer is rooted in Scripture, with clear theological boundaries.
-- **Tailored to You**: Profiles adapt responses to your spiritual background and needs.
-- **Free & Open Source**: No paywalls, no hidden fees. All prompt logic is open for review and improvement.
-- **Radical Transparency**: Every AI response is auditable, with full prompt and context disclosure.
 
 ## Contributing
 
