@@ -36,8 +36,8 @@ jobs:
             git diff --name-only HEAD~1...HEAD > changed_files.txt
           fi
           
-          # Filter for gamaliel-prompts files only
-          grep "^gamaliel-prompts/" changed_files.txt > filtered_files.txt || true
+          # In this repo, just use all changed files
+          cp changed_files.txt filtered_files.txt
           
           # Create JSON array of changed files
           echo "changed_files=$(cat filtered_files.txt | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
