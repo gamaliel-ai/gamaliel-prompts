@@ -1,0 +1,24 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Test and temp files
+*.tmp
+*.log
+*.bak
+*.swp
+.DS_Store
+
+# Jupyter and IPython
+.ipynb_checkpoints/
+
+# VSCode and editor settings
+.vscode/
+.idea/
+
+# OS generated files
+Thumbs.db
+
+# Ignore test output directories
+.gameliel-test-tmp/ 
