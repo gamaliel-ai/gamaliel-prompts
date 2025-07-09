@@ -5,6 +5,7 @@ This directory contains theological perspective files that shape how Gamaliel in
 ## What is a Theology?
 
 A theology file is a YAML configuration that defines:
+
 - **Doctrinal distinctives** of a specific Christian tradition
 - **Interpretive principles** for understanding Scripture
 - **Response guidelines** for addressing theological questions
@@ -17,6 +18,7 @@ Theologies work alongside the mandatory core guardrails to provide nuanced, trad
 ### Hierarchy of Guardrails
 
 1. **Mandatory Core Guardrails** (always in effect)
+
    - Core Christian Doctrines (Nicene Creed)
    - Authority of Scripture
    - Guardrails Against Common Errors
@@ -38,21 +40,21 @@ Theologies work alongside the mandatory core guardrails to provide nuanced, trad
 ### File Structure
 
 ```yaml
-name: "Theology Name"
-description: "Brief description of the theological perspective"
+name: 'Theology Name'
+description: 'Brief description of the theological perspective'
 instructions: |
   Detailed theological instructions that include:
-  
+
   1. Core Distinctives
      - Key doctrinal beliefs unique to this tradition
      - Interpretive principles
      - Theological emphases
-  
+
   2. Response Guidelines
      - How to approach Scripture from this perspective
      - Language and terminology preferences
      - Areas of emphasis or caution
-  
+
   3. Additional Doctrines
      - Secondary beliefs that define this tradition
      - Practical applications
@@ -64,11 +66,13 @@ instructions: |
 #### ✅ What to Include
 
 1. **Denominational Distinctives**
+
    - Unique doctrinal beliefs that define the tradition
    - Interpretive approaches specific to the tradition
    - Theological emphases and priorities
 
 2. **Response Guidelines**
+
    - How to present biblical truth from this perspective
    - Language preferences and terminology
    - Areas of emphasis or special focus
@@ -81,11 +85,13 @@ instructions: |
 #### Not necessary for inclusion
 
 1. **Core Christian Doctrines** (already covered by mandatory guardrails)
+
    - Trinity, Incarnation, Gospel, Church, Future
    - Authority of Scripture
    - Basic Nicene Creed content
 
 2. **Common Errors** (already covered by mandatory guardrails)
+
    - Denial of Trinity, Christ's divinity, etc.
    - Heresies and false teachings
 
@@ -96,6 +102,7 @@ instructions: |
 ### Quality Standards
 
 1. **Theological Accuracy**
+
    - Faithfully represent the tradition's actual beliefs
    - Use accurate terminology and concepts
    - Avoid caricatures or misrepresentations
@@ -110,11 +117,13 @@ instructions: |
 ### Guidelines for Changes
 
 1. **Maintain Tradition Fidelity**
+
    - Changes should reflect actual denominational teaching
    - Consult official denominational documents
    - Preserve the tradition's unique voice
 
 2. **Avoid Redundancy**
+
    - Don't repeat content covered by mandatory guardrails
    - Focus on distinctive elements
    - Keep content concise and focused
@@ -127,11 +136,13 @@ instructions: |
 ### Review Process
 
 1. **Theological Review**
+
    - Verify accuracy with denominational sources
    - Check for theological consistency
    - Ensure respectful representation
 
 2. **Technical Review**
+
    - Validate YAML syntax
    - Test integration with the system
    - Verify no conflicts with core guardrails
@@ -141,35 +152,21 @@ instructions: |
    - Address concerns respectfully
    - Iterate based on input
 
-## Mandatory Core Guardrails (Summary)
+## Mandatory Core Guardrails
 
-All theologies must operate within these non-negotiable boundaries. **For the complete, authoritative list, see [../guardrails.md](../guardrails.md).**
+All theologies must operate within the mandatory core guardrails. **For the complete, authoritative list, see [../guardrails.md](../guardrails.md).**
 
-### Core Christian Doctrines (Nicene Creed)
-- **The Trinity**: One God in three persons—Father, Son, and Holy Spirit
-- **The Incarnation**: Jesus Christ as fully God and fully man
-- **The Gospel**: Christ's death, resurrection, and ascension for our salvation
-- **The Church**: One holy, catholic (universal), and apostolic Church
-- **The Future**: Resurrection of the dead and life everlasting
+These guardrails include:
 
-### Authority of Scripture
-- **Divine Inspiration**: The Bible is the inspired, authoritative, and trustworthy word of God
-- **Scriptural Sufficiency**: All doctrine and teaching must be consistent with Scripture
-- **Historical Context**: Scripture is interpreted in light of the historic Christian faith
+- Core Christian Doctrines (Nicene Creed)
+- Authority of Scripture
+- Guardrails Against Common Errors
 
-### Guardrails Against Common Errors
-- Reject any denial of the Trinity, Christ's divinity/humanity, physical resurrection
-- Reject universalism, syncretism, moral relativism, prosperity gospel
-- Reject any denial of the authority of Scripture or reality of sin
-- Reject unitarianism, gnosticism, and other heresies
+No theology can override these essential boundaries.
 
 ## Contributing
 
-1. **Fork the repository** and create a feature branch
-2. **Create or edit** theology files following the guidelines above
-3. **Test your changes** to ensure they work with the system
-4. **Submit a pull request** with clear description of changes
-5. **Participate in review** and address feedback
+As the project matures, we will welcome contributions to improve theological perspectives. See [CONTRIBUTING.md](../CONTRIBUTING.md) for general contribution guidelines.
 
 ## Resources
 
@@ -179,4 +176,4 @@ All theologies must operate within these non-negotiable boundaries. **For the co
 
 ---
 
-*The goal is to provide accurate, respectful representation of Christian traditions while maintaining the essential unity of the faith.* 
+_The goal is to provide accurate, respectful representation of Christian traditions while maintaining the essential unity of the faith._

@@ -2,7 +2,11 @@
 
 **Your Questions. Biblical Answers. Open Source.**
 
-Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a next-generation, AI-powered Bible study companion. This repository contains all the prompt templates, user profiles, and theological guardrails that power the biblical reasoning and transparency of the Gamaliel system.
+> **⚠️ Note: We are in Early Development**
+>
+> This project is currently under early development. We expect many changes as we refine our approach, prompt engineering, and theological frameworks. We will begin actively engaging with contributors, accepting PRs, and expanding community involvement once the project matures and stabilizes. Thank you for your patience and understanding during this research phase.
+
+Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guardrails that power the biblical reasoning and transparency of the Gamaliel system.
 
 ## Vision & Mission
 
@@ -10,40 +14,9 @@ Gamaliel exists to make deep, trustworthy Bible study accessible to everyone—w
 
 ## Theological Foundation
 
-Gamaliel operates within clear theological guardrails rooted in historic Christian orthodoxy. Our system is built on two foundational principles:
+Gamaliel operates within clear theological guardrails rooted in historic Christian orthodoxy. Our system is built on the authority of Scripture and core Christian doctrines shared by Nicene-affirming traditions.
 
-### Core Christian Doctrines (Nicene Creed)
-All responses must affirm the essential beliefs shared by Nicene-affirming Christian traditions:
-- **The Trinity**: One God in three persons—Father, Son, and Holy Spirit
-- **The Incarnation**: Jesus Christ as fully God and fully man
-- **The Gospel**: Christ's death, resurrection, and ascension for our salvation
-- **The Church**: One holy, catholic (universal), and apostolic Church
-- **The Future**: Resurrection of the dead and life everlasting
-
-### Authority of Scripture
-- **Divine Inspiration**: The Bible is the inspired, authoritative, and trustworthy word of God
-- **Scriptural Sufficiency**: All doctrine and teaching must be consistent with Scripture
-- **Historical Context**: Scripture is interpreted in light of the historic Christian faith
-
-These guardrails ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives.
-
-### Respect for Other Perspectives
-
-We recognize and respect that there are many theological perspectives and spiritual traditions that may not align with these specific guardrails. Different faith communities, denominations, and individual believers may hold equally sincere and thoughtful views about Scripture, theology, and spiritual practice.
-
-**Gamaliel's Focused Mission**: Our system is specifically designed to serve users who seek biblical study within the framework of historic Christian orthodoxy and biblical inerrancy. This focused scope allows us to provide consistent, theologically coherent responses while maintaining the highest standards of biblical fidelity.
-
-We believe this focused approach serves our users best by providing clear, trustworthy guidance within a well-defined theological framework. While we respect that others may hold different beliefs or interpret Scripture differently, Gamaliel is intentionally designed to serve those seeking biblical study within these specific theological guardrails.
-
-**📋 Complete Theological Guardrails**: See [guardrails.md](guardrails.md) for the complete, authoritative list of mandatory core theological guardrails that all responses must follow.
-
-### How Guardrails Are Enforced
-
-The `guardrails.md` file serves as the **highest-level theological authority** in the Gamaliel system:
-
-1. **AI System Integration**: The guardrails are automatically included in all AI system prompts (see [templates/chat_agent/instructions.j2](templates/chat_agent/instructions.j2) as an example) to enforce theological boundaries at the highest level
-2. **Validation Framework**: All new or modified theologies, partner configurations, and user profiles are validated against these core guardrails to ensure they don't contradict essential Christian doctrines
-3. **Non-Negotiable Foundation**: These guardrails cannot be overridden by any specific theology, partner configuration, or user profile - they form the unchangeable foundation of all responses
+These guardrails ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guardrails](theologies/) for specific denominational perspectives and [guardrails.md](guardrails.md) for the complete list of mandatory core doctrines.
 
 ## Why Transparency?
 
@@ -51,11 +24,16 @@ Just as open source builds trust in software, we believe open prompts and theolo
 
 ## Repository Structure
 
-- `templates/` — [Jinja2](https://jinja.palletsprojects.com/en/stable/) prompt templates for all system interactions (Q&A, suggested questions, etc.)
-- `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences
-- `theologies/` — Theological guardrails (YAML) for denominational and doctrinal perspectives
+Gamaliel prompts are customized and composed from various sources, all
+of which are provided in this open source repository:
+
+- `templates/` — [Jinja2](https://jinja.palletsprojects.com/en/stable/) prompt templates that are used to generate instructions (system prompts) and input (user prompts) for the the Gamaliel agents that power the system. See [templates/README.md](templates/README.md) for details.
+- `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences. See [profiles/README.md](profiles/README.md) for details.
+- `theologies/` — Theological guardrails (YAML) for denominational and doctrinal perspectives. See [theologies/README.md](theologies/README.md) for details.
+- `partners/` — Partner-specific configurations and customizations for organizations who want to customize gamaliel for their customers, congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
 
 ## What Makes Gamaliel Different?
+
 - **Completely Anonymous**: No login, no signup, no tracking—just open and ask.
 - **100% Bible-Based**: Every answer is rooted in Scripture, with clear theological boundaries.
 - **Tailored to You**: Profiles adapt responses to your spiritual background and needs.
@@ -64,7 +42,8 @@ Just as open source builds trust in software, we believe open prompts and theolo
 
 ## Contributing
 
-We welcome contributions from biblical scholars, theologians, AI researchers, and anyone passionate about trustworthy, transparent Bible study. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to:
+As the project matures, we will welcome contributions from biblical scholars, theologians, AI researchers, and anyone passionate about trustworthy, transparent Bible study. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to:
+
 - Improve or add prompt templates
 - Expand user profiles for new audiences
 - Refine or add theological guardrails
@@ -75,10 +54,11 @@ We welcome contributions from biblical scholars, theologians, AI researchers, an
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Learn More
+
 - [About Gamaliel](../client/src/components/About.jsx)
 - [AI Transparency Strategy](../docs/ai-transparency-strategy.md)
 - [Gamaliel.ai Website](https://gamaliel.ai)
 
 ---
 
-*Gamaliel: Helping you discover, understand, and grow in faith—openly, honestly, and together.*
+_Gamaliel: Helping you discover, understand, and grow in faith—openly, honestly, and together._

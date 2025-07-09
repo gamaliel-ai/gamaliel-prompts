@@ -1,10 +1,15 @@
 # Partner Subdomains
 
+> **⚠️ Note: Early Development Stage**
+>
+> Partner subdomains are currently in early development. We expect changes to the partner system as we refine our approach. We will begin actively onboarding new partners once the system matures and stabilizes.
+
 This directory contains partner configuration files that enable organizations to create their own branded subdomain of Gamaliel. Partners can provide their audience with a customized Bible study experience while maintaining the core theological integrity and transparency of the Gamaliel system.
 
 ## What is a Partner Subdomain?
 
 A partner subdomain is a customized version of Gamaliel that:
+
 - **Bears your organization's branding** (logo, messaging)
 - **Targets your specific audience** (custom instructions and example questions)
 - **Maintains full transparency** (all prompts and guardrails remain open source)
@@ -52,17 +57,20 @@ The `is_christian` field determines whether your audience can select their theol
 Gather the following information about your organization:
 
 #### Basic Information
+
 - **Organization name** and brief description
 - **Target audience** (who you serve and their needs)
 - **Mission and values** (what drives your work)
 - **Website URL** and contact information
 
 #### Visual Assets
+
 - **Logo** (SVG or high-resolution PNG, ideally with transparent background)
 - **Icon** (square format, 512x512px recommended)
 - **Brand colors** (if you want to customize the interface)
 
 #### Audience Understanding
+
 - **Primary user type** (experience level, spiritual background)
 - **Common questions** your audience asks
 - **Specific challenges** they face
@@ -73,14 +81,14 @@ Gather the following information about your organization:
 Create a YAML file following this structure:
 
 ```yaml
-slug: "your-organization"
-name: "Your Organization Name"
-description: "Brief description of your audience and mission"
-is_christian: true/false  # Whether your target audience identifies as Christian
+slug: 'your-organization'
+name: 'Your Organization Name'
+description: 'Brief description of your audience and mission'
+is_christian: true/false # Whether your target audience identifies as Christian
 
 instructions: |
   Detailed instructions for how Gamaliel should adapt responses for your audience:
-  
+
   - Who your audience is and what they're dealing with
   - How to approach biblical questions for your community
   - Language and tone preferences
@@ -88,26 +96,26 @@ instructions: |
   - How to connect Scripture to your audience's specific needs
 
 partner:
-  logo_url: "https://your-domain.com/logo.svg"
-  icon_url: "https://your-domain.com/icon.png"
-  website: "https://your-organization.org"
-  description: "Brief description for the interface"
+  logo_url: 'https://your-domain.com/logo.svg'
+  icon_url: 'https://your-domain.com/icon.png'
+  website: 'https://your-organization.org'
+  description: 'Brief description for the interface'
   about_text: |
     # Your Organization's Story
-    
+
     [Your organization's mission, values, and how you help people]
-    
+
     ## Why We Partnered with Gamaliel
-    
+
     [Explain why you chose to provide biblical study resources]
-    
+
     ## How Gamaliel Can Help
-    
+
     [How your audience can benefit from exploring Scripture]
 
 example_questions:
-  - "Question your audience commonly asks"
-  - "Another typical question from your community"
+  - 'Question your audience commonly asks'
+  - 'Another typical question from your community'
   - "Questions that reflect your audience's needs and concerns"
 ```
 
@@ -133,16 +141,19 @@ example_questions:
 ### Required Elements
 
 1. **Clear Audience Definition**
+
    - Specific description of who you serve
    - Their spiritual background and experience level
    - Common questions and concerns
 
 2. **Appropriate Instructions**
+
    - How to adapt responses for your audience
    - Language and tone preferences
    - Areas of emphasis or special focus
 
 3. **Relevant Example Questions**
+
    - Questions your audience actually asks
    - Topics relevant to your mission
    - Issues your community faces
@@ -155,11 +166,13 @@ example_questions:
 ### Quality Standards
 
 1. **Audience-Focused**
+
    - Instructions clearly serve your specific audience
    - Example questions reflect real user needs
    - Approach matches your organization's values
 
 2. **Theologically Sound**
+
    - Compatible with core Christian guardrails
    - Respectful of biblical authority
    - Aligns with your organization's beliefs
@@ -172,11 +185,13 @@ example_questions:
 ### What to Avoid
 
 1. **Generic Content**
+
    - Instructions that could apply to any organization
    - Example questions that aren't specific to your audience
    - Vague or unclear descriptions
 
 2. **Theological Conflicts**
+
    - Instructions that contradict core guardrails
    - Approaches that deny essential Christian doctrines
    - Content that undermines biblical authority
@@ -209,11 +224,13 @@ example_questions:
 ### What Partners Provide
 
 1. **Clear Audience Definition**
+
    - Detailed understanding of who you serve
    - Common questions and concerns
    - Appropriate language and approach
 
 2. **Quality Content**
+
    - Professional branding assets
    - Well-written organization information
    - Relevant example questions
@@ -226,11 +243,13 @@ example_questions:
 ### What Gamaliel Provides
 
 1. **Technical Infrastructure**
+
    - Subdomain hosting and routing
    - System maintenance and updates
    - Security and performance optimization
 
 2. **Theological Integrity**
+
    - Core guardrails and biblical authority
    - Quality assurance and review
    - Ongoing theological oversight
@@ -279,12 +298,11 @@ example_questions:
 
 ## Contact
 
-Ready to create your partner subdomain? Contact us to get started:
+As the partner system matures, we will begin onboarding new partners. For now, you can:
 
-- **Email**: [partnerships@gamaliel.ai](mailto:partnerships@gamaliel.ai)
-- **GitHub**: Submit an issue or pull request
-- **Website**: [gamaliel.ai/partners](https://gamaliel.ai/partners)
+- **GitHub**: Submit an issue or pull request to express interest
+- **Website**: [gamaliel.ai](https://gamaliel.ai) for general information
 
 ---
 
-*Partner with Gamaliel to provide your community with trustworthy, transparent, and accessible Bible study resources.* 
+_Partner with Gamaliel to provide your community with trustworthy, transparent, and accessible Bible study resources._
