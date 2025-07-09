@@ -1,4 +1,4 @@
-name: Theological Guardrails Review
+name: Theological Guidelines Review
 
 on:
   pull_request:
@@ -60,7 +60,7 @@ jobs:
             const violations = '${{ steps.review.outputs.violations }}';
             const details = '${{ steps.review.outputs.details }}';
             
-            const comment = `## ⚠️ Theological Guardrails Violation Detected
+            const comment = `## ⚠️ Theological Guidelines Violation Detected
 
             This PR contains changes that violate the mandatory core theological guardrails defined in \`guardrails.md\`.
 
@@ -73,7 +73,7 @@ jobs:
             **Action Required:** Please review and revise the content to ensure it aligns with the core Christian doctrines and theological guardrails before this PR can be merged.
 
             ---
-            *This review was performed by the Theological Guardrails Review system.*`;
+            *This review was performed by the Theological Guidelines Review system.*`;
 
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -85,12 +85,12 @@ jobs:
       - name: Fail on violations
         if: steps.review.outputs.violations != ''
         run: |
-          echo "❌ Theological guardrails violations detected. PR cannot be merged."
+          echo "❌ Theological guidelines violations detected. PR cannot be merged."
           echo "Violations: ${{ steps.review.outputs.violations }}"
           exit 1
 
       - name: Success message
         if: steps.review.outputs.violations == ''
         run: |
-          echo "✅ All changes comply with theological guardrails"
+          echo "✅ All changes comply with theological guidelines"
           echo "PR is approved from a theological perspective" 

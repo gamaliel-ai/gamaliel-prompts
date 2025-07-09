@@ -5,7 +5,7 @@ This directory contains [Jinja2](https://jinja.palletsprojects.com/en/stable/) p
 ## Directory Structure
 
 - `chat_agent/` — Templates for the main Q&A chat interface
-  - `instructions.j2` — Core system instructions and theological guardrails
+  - `instructions.j2` — Core system instructions and theological guidelines
   - `input.j2` — Template for formatting user questions and context
 - `home/` — Templates for the home page and initial interactions
   - `instructions.j2` — Instructions for home page AI interactions

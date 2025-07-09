@@ -1,4 +1,4 @@
-# Theological Guardrails
+# Theological Guidelines
 
 This directory contains theological perspective files that shape how Gamaliel interprets Scripture and responds to user questions. Each theology represents a specific Christian tradition or denominational perspective while operating within mandatory core guardrails.
 
@@ -22,18 +22,19 @@ Theologies work alongside the mandatory core guardrails to provide nuanced, trad
    - Core Christian Doctrines (Nicene Creed)
    - Authority of Scripture
    - Guardrails Against Common Errors
+   - See [guardrails.md](../guardrails.md) for the definitive list of mandatory core guardrails. This text is copied verbatim into the system instructions.
 
-2. **Specific Theology Guardrails** (conditional)
+2. **Specific Theology Guidelines** (user-selectable)
    - Denominational distinctives
    - Tradition-specific interpretations
    - Unique doctrinal emphases
+   - The default theology is defined in [default.yaml](default.yaml) but users can select a different theology from the list of available theologies.
 
 ### Integration with the System
 
-- **Instructions Template**: Theologies are injected into `templates/chat_agent/instructions.j2`
-- **User Selection**: Users can choose a theology that matches their tradition
-- **Response Shaping**: The AI adapts its responses to reflect the chosen theological perspective
-- **Core Protection**: No theology can override the mandatory core guardrails
+- **Instructions Template**: Theologies are injected into [templates/chat_agent/instructions.j2](../templates/chat_agent/instructions.j2).
+- **User Selection**: Users who self-identify as Christian can choose a theology that matches their tradition. Non-Christian users are assigned the [default](./default.yml) (ecumenical) theology.
+- **Core Protection**: No theology can override or conflict with the mandatory core [guardrails](../guardrails.md).
 
 ## Creating a New Theology
 
@@ -167,12 +168,6 @@ No theology can override these essential boundaries.
 ## Contributing
 
 As the project matures, we will welcome contributions to improve theological perspectives. See [CONTRIBUTING.md](../CONTRIBUTING.md) for general contribution guidelines.
-
-## Resources
-
-- [Main README](../README.md) - Overview of the project
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - General contribution guidelines
-- [AI Transparency Strategy](../../docs/ai-transparency-strategy.md) - Project transparency approach
 
 ---
 

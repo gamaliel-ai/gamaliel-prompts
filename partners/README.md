@@ -33,7 +33,7 @@ Partners include churches, ministries, nonprofits, Bible study groups, and other
 - **Audience Targeting**: Custom instructions for your specific users
 - **Example Questions**: Questions relevant to your community
 - **About Information**: Your organization's story and mission (markdown)
-- **Theological Perspective**: Choose from available theological guardrails
+- **Theological Perspective**: Choose from available theological guidelines
 
 ### Christian Identity and Theology Selection
 
