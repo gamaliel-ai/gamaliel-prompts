@@ -15,7 +15,7 @@ import json
 import urllib.request
 from pathlib import Path
 
-API_BASE_URL = "https://gameliel-staging-client-nmwtd.ondigitalocean.app"
+API_BASE_URL = "https://gamaliel.ai"
 VALIDATION_ENDPOINT = f"{API_BASE_URL}/api/validate"
 
 VALID_EXTENSIONS = {".yml", ".yaml", ".j2", ".md"}
@@ -63,7 +63,9 @@ def guess_file_type(filepath):
 def main():
     if len(sys.argv) != 2:
         print("Usage: python validate.py <file_or_directory>")
+        print(f"Using API: {API_BASE_URL}")
         sys.exit(2)
+    print(f"Using API: {API_BASE_URL}")
     files = detect_files(sys.argv[1])
     any_violations = False
     for f in files:
