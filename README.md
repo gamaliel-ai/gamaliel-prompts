@@ -2,11 +2,11 @@
 
 **Your Questions. Biblical Answers. Open Source.**
 
+Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
+
 > **⚠️ Note: We are in Early Development**
 >
 > This project is currently under early development. We expect many changes as we refine our approach, prompt engineering, and theological frameworks. We will begin actively engaging with contributors, accepting PRs, and expanding community involvement once the project matures and stabilizes. Thank you for your patience and understanding during this research phase.
-
-Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
 
 ## Vision & Mission
 
