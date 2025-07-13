@@ -2,7 +2,7 @@
 
 **Your Questions. Biblical Answers. Open Source.**
 
-Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
+Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, Open, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
 
 > **⚠️ Note: We are in Early Development**
 >
@@ -53,12 +53,24 @@ As the project matures, we will welcome contributions from biblical scholars, th
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
+## Bible Copyrights
+
+We are in discussions with license holders of several popular Bible
+translations and intend to include them in a later release. We also intend to support other languages in the future. For now, we are using the World English Bible (WEB) and the King James Version (KJV) as both are in the public domain.
+
+### World English Bible (WEB)
+
+https://ebible.org/eng-web/webfaq.htm
+
+### King James Version (KJV)
+
+https://www.cambridge.org/gb/bibles/about/rights-and-permissions/rights-and-permissions-kjv
+
+> Scripture quotations from The Authorized (King James) Version. Rights in the Authorized Version in the United Kingdom are vested in the Crown. Reproduced by permission of the Crown’s patentee, Cambridge University Press
+
 ## Learn More
 
-- [About Gamaliel](../client/src/components/About.jsx)
-- [AI Transparency Strategy](../docs/ai-transparency-strategy.md)
-- [Gamaliel.ai Website](https://gamaliel.ai)
+- [About Gamaliel](https://gamaliel.ai/about)
+- [Isaiah 40:8](https://gamaliel.ai/eng-web/ISA/40?verse=8)
 
 ---
-
-_Gamaliel: Helping you discover, understand, and grow in faith—openly, honestly, and together._
