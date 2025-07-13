@@ -28,17 +28,17 @@ These guidelines ensure that Gamaliel provides biblically faithful responses whi
 
 ## Why Transparency?
 
-Just as open source builds trust in software, we believe open prompts and theological guidelines build trust in AI-powered biblical study. All system instructions, prompt templates, and theological perspectives are public, so that scholars, theologians, and the community can audit, improve, and verify the system's biblical fidelity and theological soundness. In addition, users can audit any question they ask in Gamaliel to see the precise input, tool results, output, and model used to generate their answer.
+Just as open source builds trust in software, we believe open prompts and theological guidelines build trust in AI-powered biblical study. All system instructions, prompt templates, and theological perspectives are public, so that scholars, theologians, and the community can audit, improve, and verify the system's biblical fidelity and theological soundness. In addition, users will be able to audit any question they ask in Gamaliel to see the precise input, tool results, output, and model used to generate their answer.
 
 ## Repository Structure
 
 Gamaliel prompts are customized and composed from various sources, all
 of which are provided in this open source repository:
 
-- `templates/` — [Jinja2](https://jinja.palletsprojects.com/en/stable/) prompt templates that are used to generate instructions (system prompts) and input (user prompts) for the the Gamaliel agents that power the system. See [templates/README.md](templates/README.md) for details.
+- `templates/` — [Jinja](https://jinja.palletsprojects.com/en/stable/) prompt templates that are used to generate instructions (system prompts) and input (user prompts) for the the Gamaliel agents that power the system. See [templates/README.md](templates/README.md) for details.
 - `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences. See [profiles/README.md](profiles/README.md) for details.
 - `theologies/` — Theological guidelines (YAML) for denominational and doctrinal perspectives. See [theologies/README.md](theologies/README.md) for details.
-- `partners/` — Partner-specific configurations and customizations for organizations who want to customize gamaliel for their customers, congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
+- `partners/` — Partner-specific configurations and customizations for ministires, churches or organizations who want to customize Gamaliel for their congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
 
 ## Contributing
 
@@ -51,9 +51,9 @@ As the project matures, we will welcome contributions from biblical scholars, th
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+These prompts and configuation files are licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Bible Copyrights
+## Bible Copyright Notices
 
 We are in discussions with license holders of several popular Bible
 translations and intend to include them in a later release. We also intend to support other languages in the future. For now, we are using the World English Bible (WEB) and the King James Version (KJV) as both are in the public domain.
@@ -71,6 +71,6 @@ https://www.cambridge.org/gb/bibles/about/rights-and-permissions/rights-and-perm
 ## Learn More
 
 - [About Gamaliel](https://gamaliel.ai/about)
-- [Isaiah 40:8](https://gamaliel.ai/eng-web/ISA/40?verse=8)
+- [Why Gameliel?](https://gamaliel.ai/eng-web/ISA/40?verse=8)
 
 ---
