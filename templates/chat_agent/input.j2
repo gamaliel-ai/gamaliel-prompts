@@ -32,6 +32,26 @@
 </section>
 {% endif %}
 
+{% if reading_plan_step %}
+<section type="reading-plan-context">
+<reading-plan name="{{ reading_plan_step.plan_name }}">
+<plan-description>{{ reading_plan_step.plan_description }}</plan-description>
+<plan-theme>{{ reading_plan_step.plan_theme }}</plan-theme>
+
+<current-step day="{{ reading_plan_step.day_index }}" step-order="{{ reading_plan_step.step_order }}">
+<verse-range>{{ reading_plan_step.verse_range }}</verse-range>
+<step-title>{{ reading_plan_step.title }}</step-title>
+<step-theme>{{ reading_plan_step.theme }}</step-theme>
+<reflection-question>{{ reading_plan_step.reflection_question }}</reflection-question>
+<book>{{ reading_plan_step.book }}</book>
+<start-reference>{{ reading_plan_step.start_chapter }}:{{ reading_plan_step.start_verse }}</start-reference>
+<end-reference>{{ reading_plan_step.end_chapter }}:{{ reading_plan_step.end_verse }}</end-reference>
+</current-step>
+
+</reading-plan>
+</section>
+{% endif %}
+
 {% if chat_history %}
 <section type="chat-transcript">
 {% for message in chat_history %}
