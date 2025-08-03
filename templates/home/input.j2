@@ -1,3 +1,15 @@
 <user_query>
 {{ prompt }}
-</user_query> 
+</user_query>
+
+{% if relevant_passages %}
+<relevant_scripture_passages>
+The following scripture passages are semantically relevant to your query:
+
+{% for passage in relevant_passages %}
+- {{ passage.reference }} ({{ passage.book }} {{ passage.chapter }}) - Relevance: {{ "%.3f"|format(passage.similarity) }}
+{% endfor %}
+
+Consider these passages when determining the most appropriate scripture reference for the user's query.
+</relevant_scripture_passages>
+{% endif %} 
