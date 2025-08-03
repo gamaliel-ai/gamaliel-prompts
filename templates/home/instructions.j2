@@ -30,6 +30,12 @@ Response format:
 Do not wrap the JSON in ```json or ```. your response must be a valid JSON object.
 
 CRITICALLY IMPORTANT: the only valid book IDs are provided below. You must use one of these canonical book IDs.
+
+VALIDATION RULES:
+- chapter: Must be a positive integer (1 or greater). Chapter 0 does not exist in the Bible.
+- verse: Must be a positive integer (1 or greater) or null. Verse 0 does not exist in the Bible.
+- book: Must be one of the exact canonical book IDs listed below.
+- ask_question: Must be true or false (boolean).
 </response_format>
 
 <passage_guidelines>
@@ -40,6 +46,12 @@ Guidelines for finding relevant passages:
 - If multiple passages could be relevant, choose the most direct one
 - If no clear passage is relevant, return the first chapter of Genesis
 - When semantic search results are provided, prioritize those passages over general knowledge
+
+IMPORTANT VALIDATION:
+- Chapter numbers start at 1, not 0. Never return chapter: 0.
+- Verse numbers start at 1, not 0. Never return verse: 0.
+- If you're unsure about a specific verse, return verse: null but always provide a valid chapter.
+- All Bible books have at least chapter 1, so chapter: 1 is always valid.
 </passage_guidelines>
 
 <ask_question_guidelines>
