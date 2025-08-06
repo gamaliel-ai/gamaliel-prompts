@@ -28,7 +28,7 @@ Theologies work alongside the mandatory core guardrails to provide nuanced, trad
    - Denominational distinctives
    - Tradition-specific interpretations
    - Unique doctrinal emphases
-   - The default theology is defined in [default.yaml](default.yaml) but users can select a different theology from the list of available theologies.
+   - The default theology is defined in [default.yml](default.yml), but users can select a different theology from the list of available theologies.
 
 ### Integration with the System
 
