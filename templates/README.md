@@ -23,7 +23,7 @@ Each template directory contains two main files:
 
 ## Key Features
 
-- **Theological Consistency**: All templates include mandatory theological guardrails
+- **Theological Consistency**: All templates include mandatory theological guidelines
 - **Contextual Adaptation**: Templates adapt based on user profiles and theological perspectives
 - **Transparency**: All prompt logic is open source and auditable
 - **Modularity**: Templates can be customized for different use cases and partners
@@ -36,7 +36,7 @@ Templates are processed by the Gamaliel system to generate prompts that include:
 - Selected user profile settings
 - Chosen theological perspective
 - Relevant biblical content and commentary
-- System instructions and guardrails
+- System instructions and guidelines
 
 ## Customization
 

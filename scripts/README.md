@@ -2,9 +2,9 @@
 
 This directory contains utility scripts for contributors and maintainers of the Gamaliel Prompts repository.
 
-### `validate.py`: Validate Files Against Theological Guardrails
+### `validate.py`: Validate Files Against Theological Guidelines
 
-`validate.py` is a zero-dependency Python 3 script that checks YAML, Markdown, and Jinja2 files for compliance with the core theological guardrails defined by the Gamaliel project. It uses the remote validator API to ensure all content aligns with essential Christian doctrines and project standards.
+`validate.py` is a zero-dependency Python 3 script that checks YAML, Markdown, and Jinja2 files for compliance with the core theological guidelines defined by the Gamaliel project. It uses the remote validator API to ensure all content aligns with essential Christian doctrines and project standards.
 
 Use this tool to validate any content you are authoring. We will not consider any 
 contributions that fail validation.
@@ -43,7 +43,7 @@ This will check all `.yml`, `.yaml`, `.j2`, and `.md` files in the directory and
   Violations in profiles/problematic_profile.yml:
   - Trinity Denial
   - Universalist Claims
-  Summary: Profile contains violations of core guardrails.
+  Summary: Profile contains violations of core guidelines.
   ```
   The script will exit with code 1 if any violations are found, or 0 if all files are compliant.
 

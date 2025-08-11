@@ -12,7 +12,7 @@ A partner subdomain is a customized version of Gamaliel that:
 
 - **Bears your organization's branding** (logo, messaging)
 - **Targets your specific audience** (custom instructions and example questions)
-- **Maintains full transparency** (all prompts and guardrails remain open source)
+- **Maintains full transparency** (all prompts and guidelines remain open source)
 - **Provides your own URL** (e.g., `your-org.gamaliel.ai`)
 
 Partners include churches, ministries, nonprofits, Bible study groups, and other organizations that want to provide their community with trustworthy, AI-powered Bible study.
@@ -25,7 +25,7 @@ Partners include churches, ministries, nonprofits, Bible study groups, and other
 2. **Partner Detection**: The system detects the subdomain and loads your partner configuration
 3. **Custom Branding**: Your logo, colors, and messaging are displayed
 4. **Audience Adaptation**: Responses are tailored to your specific audience
-5. **Full Transparency**: All prompts, guardrails, and responses remain auditable
+5. **Full Transparency**: All prompts, guidelines, and responses remain auditable
 
 ### What Partners Can Customize
 
@@ -44,7 +44,7 @@ The `is_christian` field determines whether your audience can select their theol
 
 ### What Remains Consistent
 
-- **Core Theological Guardrails**: All responses maintain essential Christian orthodoxy
+- **Core Theological Guidelines**: All responses maintain essential Christian orthodoxy
 - **Biblical Authority**: Scripture remains the primary source of truth
 - **Transparency**: All prompts and responses are open for review
 - **Privacy**: No user data collection or tracking
@@ -131,7 +131,7 @@ example_questions:
 
 ### Step 4: Review and Launch
 
-1. **Theological Review**: We'll verify your configuration aligns with core guardrails
+1. **Theological Review**: We'll verify your configuration aligns with core guidelines
 2. **Technical Review**: We'll test the integration and branding
 3. **Launch**: Once approved, your subdomain will be activated
 4. **Promotion**: We'll help you announce your partnership
@@ -173,7 +173,7 @@ example_questions:
 
 2. **Theologically Sound**
 
-   - Compatible with core Christian guardrails
+   - Compatible with core Christian guidelines
    - Respectful of biblical authority
    - Aligns with your organization's beliefs
 
@@ -192,7 +192,7 @@ example_questions:
 
 2. **Theological Conflicts**
 
-   - Instructions that contradict core guardrails
+   - Instructions that contradict core guidelines
    - Approaches that deny essential Christian doctrines
    - Content that undermines biblical authority
 
@@ -250,7 +250,7 @@ example_questions:
 
 2. **Theological Integrity**
 
-   - Core guardrails and biblical authority
+   - Core guidelines and biblical authority
    - Quality assurance and review
    - Ongoing theological oversight
 

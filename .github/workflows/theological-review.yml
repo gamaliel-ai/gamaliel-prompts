@@ -62,7 +62,7 @@ jobs:
             
             const comment = `## ⚠️ Theological Guidelines Violation Detected
 
-            This PR contains changes that violate the mandatory core theological guardrails defined in \`guardrails.md\`.
+            This PR contains changes that violate the mandatory core theological guidelines defined in \`guidelines.md\`.
 
             ### Violations Found:
             ${violations}
@@ -70,7 +70,7 @@ jobs:
             ### Details:
             ${details}
 
-            **Action Required:** Please review and revise the content to ensure it aligns with the core Christian doctrines and theological guardrails before this PR can be merged.
+            **Action Required:** Please review and revise the content to ensure it aligns with the core Christian doctrines and theological guidelines before this PR can be merged.
 
             ---
             *This review was performed by the Theological Guidelines Review system.*`;

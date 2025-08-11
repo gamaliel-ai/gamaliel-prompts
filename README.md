@@ -24,7 +24,7 @@ Gamaliel exists to make deep, trustworthy Bible study accessible to everyone—w
 
 Gamaliel operates within clear theological guidelines rooted in historic Christian orthodoxy. Our system is built on the authority of Scripture and core Christian doctrines shared by Nicene-affirming traditions.
 
-These guidelines ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guidelines](theologies/) for specific denominational perspectives and [guardrails.md](guardrails.md) for the complete list of mandatory core doctrines.
+These guidelines ensure that Gamaliel provides biblically faithful responses while respecting the diversity of Christian traditions. See our [theological guidelines](theologies/) for specific denominational perspectives and [guidelines.md](guidelines.md) for the complete list of mandatory core doctrines.
 
 ## Why Transparency?
 
@@ -38,7 +38,7 @@ of which are provided in this open source repository:
 - `templates/` — [Jinja](https://jinja.palletsprojects.com/en/stable/) prompt templates that are used to generate instructions (system prompts) and input (user prompts) for the the Gamaliel agents that power the system. See [templates/README.md](templates/README.md) for details.
 - `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences. See [profiles/README.md](profiles/README.md) for details.
 - `theologies/` — Theological guidelines (YAML) for denominational and doctrinal perspectives. See [theologies/README.md](theologies/README.md) for details.
-- `partners/` — Partner-specific configurations and customizations for ministires, churches or organizations who want to customize Gamaliel for their congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
+- `partners/` — Partner-specific configurations and customizations for ministires, churches or organizations who want to customize Gamaliel for their congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guidelines](guidelines.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
 
 ## Contributing
 

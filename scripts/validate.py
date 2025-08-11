@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-validate.py - Validate a file or directory of files against theological guardrails using the remote API.
+validate.py - Validate a file or directory of files against theological guidelines using the remote API.
 
 Usage:
   python validate.py <file_or_directory> [-fix] [-h/-H HOST]
@@ -91,7 +91,7 @@ def guess_file_type(filepath):
 VALID_EXTENSIONS = {".yml", ".yaml", ".j2", ".md"}
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate files against theological guardrails")
+    parser = argparse.ArgumentParser(description="Validate files against theological guidelines")
     parser.add_argument("target", help="File or directory to validate")
     parser.add_argument("-fix", action="store_true", help="Automatically fix violations")
     parser.add_argument("-H", "--host", action=HostAction, dest="host", default="https://gamaliel.ai", help="API host (default: https://gamaliel.ai)")
