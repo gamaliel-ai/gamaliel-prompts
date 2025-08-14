@@ -71,6 +71,6 @@ https://www.cambridge.org/gb/bibles/about/rights-and-permissions/rights-and-perm
 ## Learn More
 
 - [About Gamaliel](https://gamaliel.ai/about)
-- [Why Gameliel?](https://gamaliel.ai/eng-web/ISA/40?verse=8)
+- [Why Gameliel?](https://gamaliel.ai/read/ISA/40?verse=8)
 
 ---
