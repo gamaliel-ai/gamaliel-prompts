@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to the open-source heart of Gamaliel.ai! Our mission is to make trustworthy, transparent, and biblically faithful AI-powered Bible study accessible to all. Your expertise and passion can help us build a resource that serves seekers, believers, and scholars worldwide.
 
-## Theological Guardrails
+## Theological Guidelines
 
 All contributions must align with our foundational theological principles, which are non-negotiable and binding for all content:
 
@@ -22,7 +22,7 @@ Contributions must affirm the essential beliefs of the Nicene Creed:
 - **Scriptural Sufficiency**: All doctrine and teaching must be consistent with Scripture
 - **Historical Context**: Scripture is interpreted in light of the historic Christian faith
 
-These guardrails ensure biblical fidelity while respecting the diversity of Christian traditions. See our [theological guidelines](theologies/) for specific denominational perspectives and our [core guardrails](guardrails.md) for the foundational principles that cannot be overridden.
+These guidelines ensure biblical fidelity while respecting the diversity of Christian traditions. See our [theological guidelines](theologies/) for specific denominational perspectives and our [core guidelines](guidelines.md) for the foundational principles that cannot be overridden.
 
 ## What You Can Contribute
 
@@ -44,7 +44,7 @@ These guardrails ensure biblical fidelity while respecting the diversity of Chri
 
 - **Theological Fidelity**: All contributions must align with core Christian doctrines and the authority of Scripture
 - **Transparency**: All changes must be clearly documented and open for review.
-- **Biblical Foundation**: All prompts and guardrails must be rooted in Scripture and respect the intended theological perspective.
+- **Biblical Foundation**: All prompts and guidelines must be rooted in Scripture and respect the intended theological perspective.
 - **Respectful Collaboration**: We welcome contributors from diverse Christian backgrounds who share our commitment to biblical fidelity. Engage with humility, respect, and a spirit of learning while honoring our theological foundations.
 - **No Proselytizing**: This is a space for open, honest, and respectful dialogue—not for promoting any one tradition over others.
 
