@@ -21,4 +21,16 @@ __pycache__/
 Thumbs.db
 
 # Ignore test output directories
-.gameliel-test-tmp/ 
+.gameliel-test-tmp/
+
+# Python package build artifacts
+*.egg-info/
+*.egg
+dist/
+build/ 
+.venv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
