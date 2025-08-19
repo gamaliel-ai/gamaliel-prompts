@@ -29,6 +29,7 @@ Examples:
   %(prog)s scripture get "John 3:16"
   %(prog)s scripture search "love your enemies"
   %(prog)s validate
+  %(prog)s clean-cache
         """
     )
     
@@ -89,10 +90,20 @@ Examples:
     validate_parser.add_argument("--host", default="https://gamaliel.ai", help="API host for validation")
     validate_parser.add_argument("--backup", action="store_true", default=True, help="Create backup files before fixing")
     
+    # Clean cache command
+    clean_cache_parser = subparsers.add_parser("clean-cache", help="Remove all cached BSB data")
+    
     args = parser.parse_args()
     
     if not args.command:
         parser.print_help()
+        return 1
+    
+    # Check if running from project root directory
+    if not _check_project_root():
+        print("Error: This CLI tool must be run from the project root directory.")
+        print("Please navigate to the gamaliel-prompts directory and try again.")
+        print("Current working directory:", Path.cwd())
         return 1
     
     # Set environment variables from CLI args
@@ -115,6 +126,8 @@ Examples:
             return handle_scripture(args)
         elif args.command == "validate":
             return handle_validate(args, config)
+        elif args.command == "clean-cache":
+            return handle_clean_cache(args)
         else:
             print(f"Unknown command: {args.command}")
             return 1
@@ -220,8 +233,8 @@ def handle_scripture_get(args: argparse.Namespace) -> int:
     chapter = int(match.group(2))
     verse = int(match.group(3)) if match.group(3) else None
     
-    # Get scripture
-    result = execute_tool("get_scripture", book=book, chapter=chapter, verse=verse)
+    # Get scripture (always fetch entire chapter, ignore verse parameter)
+    result = execute_tool("get_scripture", book=book, chapter=chapter)
     
     if "error" in result:
         print(f"Error: {result['error']}")
@@ -229,11 +242,12 @@ def handle_scripture_get(args: argparse.Namespace) -> int:
     
     # Format output
     if verse:
-        print(f"{result['reference']}")
-        print(f"{result['text']}")
-    else:
-        print(f"{result['reference']}")
-        print(f"{result['text']}")
+        print(f"{book} {chapter}:{verse}")
+        print(f"Note: System fetches entire chapters. Showing full chapter {chapter} of {book}:")
+        print()
+    
+    print(f"{result['reference']}")
+    print(result['text'])
     
     return 0
 
@@ -419,6 +433,49 @@ def _guess_file_type(filepath):
     if name.endswith(".md"):
         return "Markdown"
     return "Other"
+
+
+def handle_clean_cache(args: argparse.Namespace) -> int:
+    """Handle clean-cache command."""
+    import shutil
+    from pathlib import Path
+    
+    # Get the cache directory path (same logic as in BSBParser)
+    cache_dir = Path(__file__).parent.parent / ".cli-cache"
+    
+    if not cache_dir.exists():
+        print("No cache directory found. Nothing to clean.")
+        return 0
+    
+    try:
+        # Remove the entire cache directory
+        shutil.rmtree(cache_dir)
+        print(f"Cache cleaned successfully. Removed: {cache_dir}")
+        return 0
+    except Exception as e:
+        print(f"Error cleaning cache: {e}")
+        return 1
+
+
+def _check_project_root() -> bool:
+    """Check if the CLI is running from the project root directory."""
+    current_dir = Path.cwd()
+    
+    # Look for theologies/default.yml relative to current working directory
+    theology_file = current_dir / "theologies" / "default.yml"
+    
+    if theology_file.exists():
+        return True
+    
+    # Also check if we're in a subdirectory that might be the project root
+    # (e.g., if someone runs from cli/ subdirectory)
+    parent_dir = current_dir.parent
+    parent_theology_file = parent_dir / "theologies" / "default.yml"
+    
+    if parent_theology_file.exists():
+        return True
+    
+    return False
 
 
 if __name__ == "__main__":

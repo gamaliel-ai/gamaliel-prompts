@@ -14,21 +14,23 @@ class TestScriptureTools:
     """Test cases for scripture tool functions."""
     
     @patch('cli.tools.get_bsb_parser')
-    def test_get_scripture_verse_success(self, mock_get_parser):
-        """Test successful verse retrieval."""
+    def test_get_scripture_chapter_success_with_verse_param(self, mock_get_parser):
+        """Test successful chapter retrieval when verse is provided (verse is highlighted in response)."""
         # Mock parser
         mock_parser = Mock()
-        mock_parser.get_verse.return_value = "For God so loved the world..."
+        mock_parser.get_chapter.return_value = "For God so loved the world..."
+        mock_parser.get_verse.return_value = "For God so loved the world that He gave His one and only Son..."
         mock_get_parser.return_value = mock_parser
         
         result = get_scripture("John", 3, 16, "bsb")
         
         assert result["book"] == "John"
         assert result["chapter"] == 3
-        assert result["verse"] == 16
+        assert result["highlighted_verse"] == 16
         assert result["text"] == "For God so loved the world..."
         assert result["reference"] == "John 3:16"
         assert result["bible_id"] == "bsb"
+        mock_parser.get_chapter.assert_called_once_with("John", 3)
         mock_parser.get_verse.assert_called_once_with("John", 3, 16)
     
     @patch('cli.tools.get_bsb_parser')
@@ -87,10 +89,11 @@ class TestScriptureTools:
         """Test successful semantic search."""
         # Mock parser
         mock_parser = Mock()
-        mock_parser.search_text.return_value = [
-            ("John", 3, 16, "For God so loved the world..."),
-            ("1 John", 4, 8, "God is love...")
+        mock_parser.search_semantic.return_value = [
+            ("John", 3, 0.8, "For God so loved the world that He gave His one and only Son..."),
+            ("1 John", 4, 0.7, "Whoever does not love does not know God, because God is love.")
         ]
+        mock_parser.get_chapter.return_value = "For God so loved the world that He gave His one and only Son..."
         mock_get_parser.return_value = mock_parser
         
         result = search_scripture_semantic("love", "bsb", 2)
@@ -104,11 +107,11 @@ class TestScriptureTools:
         first_result = result["results"][0]
         assert first_result["book"] == "John"
         assert first_result["chapter"] == 3
-        assert first_result["verse"] == 16
-        assert first_result["text"] == "For God so loved the world..."
-        assert first_result["reference"] == "John 3:16"
+        assert first_result["similarity"] == 0.8
+        assert "For God so loved the world" in first_result["text"]
+        assert first_result["reference"] == "John 3"
         
-        mock_parser.search_text.assert_called_once_with("love", 2)
+        mock_parser.search_semantic.assert_called_once_with("love", 2)
     
     def test_search_scripture_unsupported_bible(self):
         """Test error handling for unsupported Bible in search."""

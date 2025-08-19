@@ -1,98 +1,139 @@
 # Gamaliel Prompts CLI Tool
+The Gamaliel Prompts CLI Tool allows you to test prompt templates, chat with AI agents, and validate theological content locally before submitting changes to the main project. It provides a simplified reference implementation that mimics the production Gamaliel system's behavior.
+
 
 A simplified reference implementation for testing and validating changes to prompts in the `gamaliel-prompts` project.
 
 ## Quick Start
 
-The CLI tool is designed to be run using the module syntax:
+After installation with pipx, use the global `gamaliel-prompts` command:
 
 ```bash
-python -m cli <command> [options]
+gamaliel-prompts <command> [options]
 ```
 
-This is the standard and recommended way to invoke all CLI commands.
+> **Alternative**: You can also run using the module syntax: `python -m cli <command> [options]`
 
 ## Installation
 
-1. Create and activate a virtual environment:
+### 🚀 Super Simple Setup (Recommended)
+
+Just one command to install globally - works on Linux, macOS, and Windows:
+
+```bash
+pipx install -e .
+```
+
+That's it! The `gamaliel-prompts` command is now available everywhere.
+
+> **Don't have pipx?** Install it first: `pip install --user pipx && pipx ensurepath`
+
+### 🎯 Quick Start
+
+1. **Install the CLI:**
+   ```bash
+   pipx install -e .
+   ```
+
+2. **Set your OpenAI API key:**
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   # Or create a .env file with: OPENAI_API_KEY=your-key-here
+   ```
+
+3. **Test it works:**
+   ```bash
+   gamaliel-prompts --help
+   ```
+
+### 🔧 Alternative Installation Methods
+
+<details>
+<summary>Click here if pipx doesn't work for you</summary>
+
+**Option 1: Virtual Environment (Traditional)**
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -e .
 ```
 
-2. Install dependencies using uv (recommended):
+**Option 2: System Install (macOS/some Linux)**
 ```bash
-uv pip install -e .
+pip install -e .  # May work on macOS with Homebrew Python
 ```
 
-3. Set your OpenAI API key:
+**Option 3: User Install (if system is locked down)**
 ```bash
-export OPENAI_API_KEY="your-api-key-here"
-# Or create a .env file with: OPENAI_API_KEY=your-key-here
+pip install --user -e .
+# You may need to add ~/.local/bin to your PATH
 ```
+
+</details>
 
 ## Usage
 
 ### Basic Chat
 ```bash
 # Simple chat
-python -m cli chat "What does John 3:16 mean?"
+gamaliel-prompts chat "What does John 3:16 mean?"
 
 # Chat with specific context (book and chapter)
-python -m cli chat --book John --chapter 3 "Explain this chapter"
+gamaliel-prompts chat --book John --chapter 3 "Explain this chapter"
 
 # Chat with profile and theology
-python -m cli chat --profile curious_explorer --theology reformed "What is salvation?"
+gamaliel-prompts chat --profile curious_explorer --theology reformed "What is salvation?"
 
 # Verbose output (shows instructions, input, tool queries, and results)
-python -m cli --verbose chat "What does John 3:16 mean?"
+gamaliel-prompts --verbose chat "What does John 3:16 mean?"
 ```
 
 ### Test Templates
 ```bash
 # Test template rendering only
-python -m cli test-template chat_agent --input "Hello" --render-only
+gamaliel-prompts test-template chat_agent --input "Hello" --render-only
 
 # Test template with LLM response
-python -m cli test-template chat_agent --input "Hello"
+gamaliel-prompts test-template chat_agent --input "Hello"
 
 # Test with custom parameters
-python -m cli test-template chat_agent --params '{"input": "Hello", "context": "test"}'
+gamaliel-prompts test-template chat_agent --params '{"input": "Hello", "context": "test"}'
 ```
 
 ### Scripture Operations
 ```bash
 # Get specific verse/chapter
-python -m cli scripture get "John 3:16"
+gamaliel-prompts scripture get "John 3:16"
 
 # Get chapter
-python -m cli scripture get "Genesis 1"
+gamaliel-prompts scripture get "Genesis 1"
 
 # Search scripture
-python -m cli scripture search "love your enemies"
+gamaliel-prompts scripture search "love your enemies"
 
 # Build search index
-python -m cli scripture index
+gamaliel-prompts scripture index
 ```
 
 ### Validation
 ```bash
 # Validate all components
-python -m cli validate
+gamaliel-prompts validate
 
 # Validate specific directory
-python -m cli validate templates/
+gamaliel-prompts validate templates/
 
 # Validate only profiles
-python -m cli validate --profiles-only
+gamaliel-prompts validate --profiles-only
 ```
+
+> **Note**: If you installed using a virtual environment instead of pipx, replace `gamaliel-prompts` with `python -m cli` in all examples above.
 
 ## Environment Variables
 
 - `OPENAI_API_KEY`: Your OpenAI API key (required)
 - `GAMALIEL_MODEL`: LLM model to use (default: gpt-4o-mini)
-- `GAMALIEL_MAX_TOKENS`: Maximum tokens for responses (default: 1000)
-- `GAMALIEL_PROFILE`: Default user profile (default: curious_explorer)
+- `GAMALIEL_PROFILE`: Default user profile (default: universal_explorer)
 - `GAMALIEL_THEOLOGY`: Default theology guidelines (default: default)
 
 ## Key Features

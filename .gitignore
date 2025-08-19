@@ -30,6 +30,9 @@ dist/
 build/ 
 .venv/
 
+# CLI cache directory
+.cli-cache/
+
 # Environment variables
 .env
 .env.local

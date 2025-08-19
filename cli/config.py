@@ -17,11 +17,10 @@ class Config:
         return {
             "llm": {
                 "model": os.getenv("GAMALIEL_MODEL", "gpt-4o-mini"),
-                "api_key": os.getenv("OPENAI_API_KEY"),
-                "max_tokens": int(os.getenv("GAMALIEL_MAX_TOKENS", "1000"))
+                "api_key": os.getenv("OPENAI_API_KEY")
             },
             "defaults": {
-                "profile": os.getenv("GAMALIEL_PROFILE", "curious_explorer"),
+                "profile": os.getenv("GAMALIEL_PROFILE", "universal_explorer"),
                 "theology": os.getenv("GAMALIEL_THEOLOGY", "default"),
                 "max_words": int(os.getenv("GAMALIEL_MAX_WORDS", "300"))
             }
