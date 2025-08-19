@@ -18,15 +18,27 @@ gamaliel-prompts <command> [options]
 
 ### 🚀 Super Simple Setup (Recommended)
 
-Just one command to install globally - works on Linux, macOS, and Windows:
+#### macOS (with Homebrew)
 
 ```bash
+# Install pipx if you don't have it
+brew install pipx
+
+# Install the CLI globally
+pipx install -e .
+```
+
+#### Linux/Windows or Alternative macOS
+
+```bash
+# Install pipx if you don't have it
+pip install --user pipx && pipx ensurepath
+
+# Install the CLI globally
 pipx install -e .
 ```
 
 That's it! The `gamaliel-prompts` command is now available everywhere.
-
-> **Don't have pipx?** Install it first: `pip install --user pipx && pipx ensurepath`
 
 ### 🎯 Quick Start
 
