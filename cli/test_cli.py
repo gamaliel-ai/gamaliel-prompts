@@ -24,6 +24,7 @@ class TestCLIHandlers:
         args.prompt = "What does this mean?"
         args.profile = "curious_explorer"
         args.theology = "default"
+        args.verbose = False
         
         # Mock config
         config = Mock()
@@ -41,7 +42,8 @@ class TestCLIHandlers:
             prompt="What does this mean?",
             context={"book": "John", "chapter": 3, "max_words": 100},
             profile="curious_explorer",
-            theology="default"
+            theology="default",
+            verbose=False
         )
     
     @patch('cli.cli.SimpleAgent')
@@ -80,9 +82,8 @@ class TestCLIHandlers:
         mock_execute_tool.return_value = {
             "book": "John",
             "chapter": 3,
-            "verse": 16,
             "text": "For God so loved the world...",
-            "reference": "John 3:16"
+            "reference": "John 3"
         }
         
         # Test
@@ -90,7 +91,7 @@ class TestCLIHandlers:
         
         assert result == 0
         mock_execute_tool.assert_called_once_with(
-            "get_scripture", book="John", chapter=3, verse=16
+            "get_scripture", book="John", chapter=3
         )
     
     @patch('cli.cli.execute_tool')

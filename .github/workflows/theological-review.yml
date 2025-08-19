@@ -23,7 +23,25 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pyyaml
+          pip install -e .
+          # Ensure all required dependencies are available
+          pip install openai jinja2 requests pyyaml python-dotenv
+
+      - name: Debug environment
+        run: |
+          echo "Current working directory: $(pwd)"
+          echo "Repository contents:"
+          ls -la
+          echo "CLI package installed:"
+          pip list | grep gamaliel || echo "CLI not found in pip list"
+          echo "Python path:"
+          python -c "import sys; print('\n'.join(sys.path))"
+
+      - name: Test CLI import
+        run: |
+          echo "Testing CLI imports..."
+          python -c "from cli.cli import main; print('CLI imports successfully')" || echo "CLI import failed"
+          python -c "from cli.config import Config; print('Config imports successfully')" || echo "Config import failed"
 
       - name: Get changed files
         id: changed-files
@@ -47,33 +65,35 @@ jobs:
 
       - name: Review theological content
         id: review
+        timeout-minutes: 10
         run: |
-          python scripts/validate.py
+          # Use the CLI validate command instead of the old script
+          echo "Starting theological validation..."
+          python -m cli validate . --all
+          validation_exit_code=$?
+          
+          if [ $validation_exit_code -eq 0 ]; then
+            echo "✅ Validation completed successfully - no violations found"
+          else
+            echo "❌ Validation found violations or failed"
+            exit $validation_exit_code
+          fi
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Comment on PR
-        if: github.event_name == 'pull_request' && steps.review.outputs.violations != ''
+        if: github.event_name == 'pull_request' && failure()
         uses: actions/github-script@v7
         with:
           script: |
-            const violations = '${{ steps.review.outputs.violations }}';
-            const details = '${{ steps.review.outputs.details }}';
-            
             const comment = `## ⚠️ Theological Guidelines Violation Detected
 
             This PR contains changes that violate the mandatory core theological guardrails defined in \`guardrails.md\`.
 
-            ### Violations Found:
-            ${violations}
-
-            ### Details:
-            ${details}
-
             **Action Required:** Please review and revise the content to ensure it aligns with the core Christian doctrines and theological guardrails before this PR can be merged.
 
             ---
-            *This review was performed by the Theological Guidelines Review system.*`;
+            *This review was performed by the Theological Guidelines Review system using the Gamaliel CLI.*`;
 
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -82,15 +102,8 @@ jobs:
               body: comment
             });
 
-      - name: Fail on violations
-        if: steps.review.outputs.violations != ''
-        run: |
-          echo "❌ Theological guidelines violations detected. PR cannot be merged."
-          echo "Violations: ${{ steps.review.outputs.violations }}"
-          exit 1
-
       - name: Success message
-        if: steps.review.outputs.violations == ''
+        if: success()
         run: |
           echo "✅ All changes comply with theological guidelines"
           echo "PR is approved from a theological perspective" 
