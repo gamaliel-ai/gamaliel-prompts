@@ -24,14 +24,14 @@ def get_scripture(
     if begin_verse or end_verse:
         start_verse = begin_verse or 1
         end_verse = end_verse or start_verse
-        
+
         # Get the verse range text for reference
         verse_texts = []
         for v in range(start_verse, end_verse + 1):
             verse_text = parser.get_verse(book, chapter, v)
             if verse_text:
                 verse_texts.append(f"{v}: {verse_text}")
-        
+
         if verse_texts:
             return {
                 "book": book,
