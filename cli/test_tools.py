@@ -20,22 +20,21 @@ class TestScriptureTools:
 
     @patch("cli.tools.get_bsb_parser")
     def test_get_scripture_chapter_success_with_verse_param(self, mock_get_parser):
-        """Test successful chapter retrieval when verse is provided (verse is highlighted in response)."""
+        """Test successful chapter retrieval with verse parameter."""
         # Mock parser
         mock_parser = Mock()
         mock_parser.get_chapter.return_value = "For God so loved the world..."
-        mock_parser.get_verse.return_value = (
-            "For God so loved the world that He gave His one and only Son..."
-        )
+        mock_parser.get_verse.return_value = "For God so loved the world that He gave His one and only Son..."
         mock_get_parser.return_value = mock_parser
 
         result = get_scripture("John", 3, 16)
 
         assert result["book"] == "John"
         assert result["chapter"] == 3
-        assert result["highlighted_verse"] == 16
+        assert result["verse_range"] == "16-16"
+        assert result["highlighted_text"] == "16: For God so loved the world that He gave His one and only Son..."
         assert result["text"] == "For God so loved the world..."
-        assert result["reference"] == "John 3:16"
+        assert result["reference"] == "John 3:16-16"
         mock_parser.get_chapter.assert_called_once_with("John", 3)
         mock_parser.get_verse.assert_called_once_with("John", 3, 16)
 
@@ -60,13 +59,14 @@ class TestScriptureTools:
         """Test verse not found scenario."""
         # Mock parser
         mock_parser = Mock()
+        mock_parser.get_chapter.return_value = "For God so loved the world..."
         mock_parser.get_verse.return_value = None
         mock_get_parser.return_value = mock_parser
 
         result = get_scripture("John", 3, 999)
 
         assert "error" in result
-        assert "Verse not found" in result["error"]
+        assert "Verse range not found: John 3:999-999" in result["error"]
 
     @patch("cli.tools.get_bsb_parser")
     def test_get_scripture_chapter_not_found(self, mock_get_parser):
@@ -105,7 +105,7 @@ class TestScriptureTools:
         )
         mock_get_parser.return_value = mock_parser
 
-        result = search_scripture_semantic("love", 2)
+        result = search_scripture_semantic("love")
 
         assert result["query"] == "love"
         assert result["count"] == 2
@@ -119,7 +119,7 @@ class TestScriptureTools:
         assert "For God so loved the world" in first_result["text"]
         assert first_result["reference"] == "John 3"
 
-        mock_parser.search_semantic.assert_called_once_with("love", 2)
+        mock_parser.search_semantic.assert_called_once_with("love", 5)
 
     @patch("cli.tools.get_bsb_parser")
     def test_list_bible_books_success(self, mock_get_parser):
@@ -294,7 +294,7 @@ class TestToolSchema:
     def test_scripture_tools_schema_structure(self):
         """Test that SCRIPTURE_TOOLS has correct structure."""
         assert isinstance(SCRIPTURE_TOOLS, list)
-        assert len(SCRIPTURE_TOOLS) == 4
+        assert len(SCRIPTURE_TOOLS) == 3
 
         # Check each tool has required fields
         for tool in SCRIPTURE_TOOLS:
@@ -314,24 +314,25 @@ class TestToolSchema:
         assert get_scripture_tool["function"]["name"] == "get_scripture"
         assert "book" in get_scripture_tool["function"]["parameters"]["properties"]
         assert "chapter" in get_scripture_tool["function"]["parameters"]["properties"]
-        assert "verse" in get_scripture_tool["function"]["parameters"]["properties"]
+        assert "begin_verse" in get_scripture_tool["function"]["parameters"]["properties"]
 
         required = get_scripture_tool["function"]["parameters"]["required"]
         assert "book" in required
         assert "chapter" in required
-        assert "verse" not in required  # Optional
+        assert "begin_verse" not in required  # Optional
 
     def test_search_scripture_tool_schema(self):
         """Test search_scripture_semantic tool schema."""
         search_tool = next(
             t
-            for t in SCRIPTURE_TOOLS
+            for t
+            in SCRIPTURE_TOOLS
             if t["function"]["name"] == "search_scripture_semantic"
         )
 
         assert search_tool["function"]["name"] == "search_scripture_semantic"
         assert "query" in search_tool["function"]["parameters"]["properties"]
-        assert "n_results" in search_tool["function"]["parameters"]["properties"]
+        assert "bible_id" in search_tool["function"]["parameters"]["properties"]
 
         required = search_tool["function"]["parameters"]["required"]
         assert "query" in required
