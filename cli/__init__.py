@@ -11,6 +11,7 @@ __author__ = "Gamaliel Team"
 # Load environment variables from .env file
 try:
     from dotenv import load_dotenv
+
     load_dotenv()
 except ImportError:
     # python-dotenv not installed, continue without it
