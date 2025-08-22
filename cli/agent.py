@@ -253,9 +253,13 @@ class SimpleAgent:
                         }
                     )
 
+                # Handle selected verses if provided
+                if "verses" in context:
+                    template_context["verses"] = context["verses"]
+
                 # Add other context fields
                 for key, value in context.items():
-                    if key not in ["book", "chapter", "chapter_content"]:
+                    if key not in ["book", "chapter", "chapter_content", "verses"]:
                         template_context[key] = value
 
             # Add profile data if available

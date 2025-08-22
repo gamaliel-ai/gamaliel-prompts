@@ -8,9 +8,7 @@
 {% endif %}
 
 {% if verses %}
-{% for verse in verses %}
-<verse number="{{ verse.verse }}">{{ verse.text }}</verse>
-{% endfor %}
+<selected-verses>{{ verses|join(',') }}</selected-verses>
 {% endif %}
 </section>
 {% endif %}
@@ -69,4 +67,16 @@
 {{ prompt }}
 </section>
 
-Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.{% if commentary %} Consider the provided commentary context in your response, but prioritize Scripture itself as the primary authority.{% endif %} Be sure to strictly follow the provided theological guidelines.
+<instructions>
+Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.
+
+If the transcript is not empty, your reponse is a continuation of the conversation. Bear the conversation in mind as you respond and don't repeat yourself.
+{% if commentary %}
+Consider the provided commentary context in your response, but prioritize Scripture itself as the primary authority.
+{% endif %}
+{% if verses %}
+Pay particular attention to the selected verses ({{ verses|join(',') }}) since the user has specifically highlighted these passages for discussion.
+{% endif %} 
+
+Be sure to strictly follow the provided theological guidelines and guardrails.
+</instructions>

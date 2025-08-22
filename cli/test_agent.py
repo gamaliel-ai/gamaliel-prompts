@@ -60,6 +60,46 @@ class TestSimpleAgentIntegration:
         assert isinstance(result, str)
         assert len(result) > 0
 
+    def test_template_rendering_with_verses(self):
+        """Test that templates render correctly with selected verses."""
+        # Test with selected verses using _build_user_message which uses input.j2
+        result = self.agent._build_user_message(
+            "Explain these specific verses", 
+            context={"book": "John", "chapter": 3, "verses": [16, 17, 18]},
+            profile_data={"name": "Test Profile"}
+        )
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "16,17,18" in result
+        assert "selected-verses" in result
+        assert "Pay particular attention to the selected verses (16,17,18)" in result
+
+    def test_template_rendering_with_empty_verses(self):
+        """Test that templates render correctly with empty verses list."""
+        # Test with empty verses using _build_user_message which uses input.j2
+        result = self.agent._build_user_message(
+            "Explain this chapter", 
+            context={"book": "John", "chapter": 3, "verses": []},
+            profile_data={"name": "Test Profile"}
+        )
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "selected-verses" not in result
+        assert "Pay particular attention to the selected verses" not in result
+
+    def test_template_rendering_with_none_verses(self):
+        """Test that templates render correctly with None verses."""
+        # Test with None verses using _build_user_message which uses input.j2
+        result = self.agent._build_user_message(
+            "Explain this chapter", 
+            context={"book": "John", "chapter": 3, "verses": None},
+            profile_data={"name": "Test Profile"}
+        )
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "selected-verses" not in result
+        assert "Pay particular attention to the selected verses" not in result
+
     def test_basic_chat_functionality(self):
         """Test basic chat functionality with a simple question."""
         response = self.agent.chat(
@@ -114,7 +154,38 @@ class TestSimpleAgentUnit:
             mock_glob.return_value = []
 
             mock_env = Mock()
-            mock_env.get_template.return_value.render.return_value = "Mocked template"
+            # Mock template rendering to return actual template-like content
+            def mock_template_render(**kwargs):
+                if "verses" in kwargs and kwargs["verses"]:
+                    return f"""<section type="scripture-context">
+<translation>BSB</translation>
+<reference>{kwargs.get('book', '')} {kwargs.get('chapter', '')}:{','.join(map(str, kwargs['verses']))}</reference>
+<selected-verses>{','.join(map(str, kwargs['verses']))}</selected-verses>
+</section>
+
+<section type="user-question">
+{kwargs.get('prompt', '')}
+</section>
+
+<instructions>
+Please provide a biblical response that addresses the user's question.
+Pay particular attention to the selected verses ({','.join(map(str, kwargs['verses']))}) since the user has specifically highlighted these passages for discussion.
+</instructions>"""
+                else:
+                    return f"""<section type="scripture-context">
+<translation>BSB</translation>
+<reference>{kwargs.get('book', '')} {kwargs.get('chapter', '')}</reference>
+</section>
+
+<section type="user-question">
+{kwargs.get('prompt', '')}
+</section>
+
+<instructions>
+Please provide a biblical response that addresses the user's question.
+</instructions>"""
+            
+            mock_env.get_template.return_value.render.side_effect = mock_template_render
             mock_env_class.return_value = mock_env
 
             return SimpleAgent(mock_config)
@@ -221,6 +292,70 @@ class TestSimpleAgentUnit:
             assert isinstance(response, str)
             assert len(response) > 0
 
+    def test_build_user_message_with_verses(self):
+        """Test that _build_user_message properly includes verses in template context."""
+        # Create a real agent (not mocked) to test actual template rendering
+        config = Config()
+        if not config.validate():
+            pytest.skip("Configuration validation failed")
+        
+        agent = SimpleAgent(config)
+        
+        # Test with selected verses
+        result = agent._build_user_message(
+            "Explain these verses",
+            context={"book": "John", "chapter": 3, "verses": [16, 17, 18]},
+            profile_data={"name": "Test Profile"}
+        )
+        
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "16,17,18" in result
+        assert "selected-verses" in result
+        assert "Pay particular attention to the selected verses (16,17,18)" in result
+
+    def test_build_user_message_without_verses(self):
+        """Test that _build_user_message handles missing verses correctly."""
+        # Create a real agent (not mocked) to test actual template rendering
+        config = Config()
+        if not config.validate():
+            pytest.skip("Configuration validation failed")
+        
+        agent = SimpleAgent(config)
+        
+        # Test without verses
+        result = agent._build_user_message(
+            "Explain this chapter",
+            context={"book": "John", "chapter": 3},
+            profile_data={"name": "Test Profile"}
+        )
+        
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "selected-verses" not in result
+        assert "Pay particular attention to the selected verses" not in result
+
+    def test_build_user_message_with_empty_verses(self):
+        """Test that _build_user_message handles empty verses list correctly."""
+        # Create a real agent (not mocked) to test actual template rendering
+        config = Config()
+        if not config.validate():
+            pytest.skip("Configuration validation failed")
+        
+        agent = SimpleAgent(config)
+        
+        # Test with empty verses list
+        result = agent._build_user_message(
+            "Explain this chapter",
+            context={"book": "John", "chapter": 3, "verses": []},
+            profile_data={"name": "Test Profile"}
+        )
+        
+        assert isinstance(result, str)
+        assert len(result) > 0
+        assert "selected-verses" not in result
+        assert "Pay particular attention to the selected verses" not in result
+
     def test_verbose_chat_mocked(self):
         """Test verbose chat mode with mocked API."""
         with patch("openai.OpenAI") as mock_openai_class, patch(
@@ -246,6 +381,37 @@ class TestSimpleAgentUnit:
             assert len(response) > 0
             # Verify that print was called (verbose mode)
             mock_print.assert_called()
+
+    def test_chat_with_verses_context_mocked(self):
+        """Test chat with verses context using mocked API."""
+        with patch("openai.OpenAI") as mock_openai_class, patch(
+            "cli.agent.execute_tool"
+        ) as mock_execute_tool:
+
+            # Mock OpenAI response
+            mock_response = Mock()
+            mock_response.choices = [Mock()]
+            mock_response.choices[0].message.content = "Mocked response about specific verses"
+            mock_response.choices[0].message.tool_calls = None
+
+            mock_client = Mock()
+            mock_client.chat.completions.create.return_value = mock_response
+            mock_openai_class.return_value = mock_client
+
+            # Mock tool execution for scripture
+            mock_execute_tool.return_value = {"text": "For God so loved the world..."}
+
+            agent = self.create_mock_agent()
+            response = agent.chat(
+                "What do these specific verses mean?",
+                context={"book": "John", "chapter": 3, "verses": [16, 17, 18]},
+                profile="universal_explorer",
+            )
+
+            assert isinstance(response, str)
+            assert len(response) > 0
+            # The response should indicate that verses were processed
+            assert "Mocked response about specific verses" in response
 
 
 class TestSimpleAgentEdgeCases:
