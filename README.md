@@ -2,7 +2,7 @@
 
 **Your Questions. Biblical Answers. Open Source.**
 
-Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, Open, AI-powered Bible study companion. This repository contains all the prompt templates, user and partner profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
+Gamaliel Prompts is the open-source heart of the [Gamaliel.ai](https://gamaliel.ai) project—a free, Open, AI-powered Bible study companion. This repository contains all the prompt templates, user profiles, and theological guidelines that power the biblical reasoning and transparency of the Gamaliel system.
 
 > **⚠️ Note: We are in Early Development**
 >
@@ -38,7 +38,6 @@ of which are provided in this open source repository:
 - `templates/` — [Jinja](https://jinja.palletsprojects.com/en/stable/) prompt templates that are used to generate instructions (system prompts) and input (user prompts) for the the Gamaliel agents that power the system. See [templates/README.md](templates/README.md) for details.
 - `profiles/` — User profile YAMLs that shape the AI's tone, depth, and approach for different audiences. See [profiles/README.md](profiles/README.md) for details.
 - `theologies/` — Theological guidelines (YAML) for denominational and doctrinal perspectives. See [theologies/README.md](theologies/README.md) for details.
-- `partners/` — Partner-specific configurations and customizations for ministires, churches or organizations who want to customize Gamaliel for their congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
 - `cli/` — Command-line interface tool for testing and validating prompt templates, profiles, and theologies locally. This tool provides a simplified reference implementation that mimics the production system's behavior, allowing developers to test changes submitting a PR. See [cli/README.md](cli/README.md) for detailed usage instructions.
 
 ## Contributing
