@@ -1,0 +1,124 @@
+slug: "groundwire"
+name: "Groundwire"
+description: "You're hurting, anxious, or feeling lost. Life feels heavy, but you want hope and someone who truly cares—no judgment, just compassion."
+is_christian: false
+instructions: |
+  You are helping a young person (Gen Z) who is hurting, feeling lost, or struggling with depression, anxiety, or emotional pain. They may feel isolated, misunderstood, or overwhelmed by life's challenges. They are open to exploring spiritual answers and are curious about what hope, healing, and purpose the Bible and Christian faith might offer, but may be skeptical, cautious, or unfamiliar with religious language. Be radically empathetic, non-judgmental, and trauma-informed. Use simple, caring language. Focus on themes of hope, belonging, unconditional love, and healing. Gently introduce how faith and Scripture can speak to pain, mental health, and life's big questions. Respect their journey and doubts. Offer practical encouragement and resources for emotional and spiritual well-being. Help them see that they are not alone and that there is hope for a better future.
+
+partner:
+  logo_url: "https://static.showit.co/file/WSYQ1D34XiKlqduq2V9X6w/shared/gw_color.svg"
+  icon_url: "https://static.showit.co/200/DWxwBUkgEnpuJIKdHUqMIA/288398/gw_icon_4x.png"
+  website: "https://groundwire.net"
+  description: "Real people who care about you, available 24/7 when you need hope and support"
+  about_text: |
+    # You're Not Alone
+
+    We know life can feel overwhelming. Maybe you're dealing with anxiety, depression, or just feeling lost. Maybe you're questioning everything or wondering if anyone really cares. We get it. And we're here for you.
+
+    ## Real People, Real Support
+
+    Groundwire connects you with caring coaches who understand what you're going through. No judgment, no pressure—just someone who genuinely cares about you and wants to help you find hope and healing.
+
+    ## Available 24/7
+
+    Life doesn't wait for business hours, and neither do we. Whether it's 3 AM and you can't sleep because of anxiety, or you're feeling overwhelmed during the day, our coaches are here to listen and support you.
+
+    ## No Strings Attached
+
+    This is completely free. No sign-ups, no commitments, no pressure. Just genuine care and support when you need it most. We believe everyone deserves access to hope and healing, regardless of their circumstances.
+
+    ## What You Can Expect
+
+    - **Real conversations** with people who understand
+    - **Safe space** to share what you're really feeling
+    - **Practical support** for anxiety, depression, and life's challenges
+    - **Spiritual guidance** if you're open to exploring faith
+    - **Connection to resources** that can help you heal and grow
+
+    ## Why We Partnered with Gamaliel
+
+    We believe that the Bible has real answers for the struggles you're facing. Whether you're dealing with anxiety, depression, relationship issues, or just feeling lost, Scripture offers wisdom that has helped people for thousands of years.
+
+    That's why we partnered with Gamaliel—to give you a safe, private way to explore what the Bible actually says about your questions. No judgment, no pressure, just honest answers from Scripture that might help you find the hope and healing you're looking for.
+
+    ## How Gamaliel Can Help
+
+    - **Ask anything** about what the Bible says regarding your struggles
+    - **Get biblical answers** to questions about anxiety, depression, relationships, and more
+    - **Explore Scripture** in a way that's relevant to your life right now
+    - **Find hope** in passages that speak directly to pain and healing
+    - **Understand context** so you know what the Bible really means, not just what people say it means
+
+    Whether you're curious about faith, struggling with mental health, or just want to understand what the Bible actually says about your situation, Gamaliel is here to help you explore Scripture in a way that makes sense for where you are right now.
+
+    ## You Matter
+
+    Whatever you're going through, whatever questions you have, whatever doubts you're wrestling with—you matter. Your pain matters. Your questions matter. Your journey matters.
+
+    We're here to remind you that you're not alone, that there is hope, and that healing is possible. Sometimes the bravest thing you can do is reach out for help.
+
+    Ready to talk? We're here for you.
+
+example_questions:
+  - "Does God care about my pain and struggles?"
+  - "How can I find hope when I feel hopeless or depressed?"
+  - "What does the Bible say about anxiety and mental health?"
+  - "Is it okay to have doubts or feel lost?"
+  - "How can faith help with depression or anxiety?"
+  - "What does Christianity say about my worth and value?"
+  - "How do I know I'm not alone in what I'm feeling?"
+  - "Can prayer help with my mental health?"
+  - "What does the Bible say about feeling overwhelmed or anxious?"
+  - "How can I find peace in the middle of chaos?"
+  - "Is it wrong to feel sad or broken?"
+  - "How do I deal with loneliness and isolation?"
+  - "What does Jesus say to people who are hurting?"
+  - "How can I experience healing from past trauma or pain?"
+  - "What does the Bible say about suicide or self-harm?"
+  - "How can I find purpose when life feels meaningless?"
+  - "What does Christianity teach about forgiveness and letting go of shame?"
+  - "How do I talk to God when I don't know what to say?"
+  - "What if I feel like I don't belong anywhere?"
+  - "How can I build real connections and community?"
+  - "What does the Bible say about being authentic and honest with my feelings?"
+  - "How can I find strength to keep going when I want to give up?"
+  - "Is it okay to ask for help or see a counselor?"
+  - "How do I handle pressure from social media and expectations?"
+  - "What does the Bible say about my identity?"
+  - "How can I find hope for my future?"
+  - "What does Christianity say about dealing with grief and loss?"
+  - "How do I know if God is real or cares about me?"
+  - "How can I experience unconditional love?"
+  - "What does the Bible say about fear and worry?"
+  - "How can I start exploring faith if I'm not sure what I believe?"
+  - "What does it mean to have a relationship with God?"
+  - "How can I find light in the darkness?"
+  - "What does Christianity say about being different or not fitting in?"
+  - "How do I move forward after making mistakes?"
+  - "How can I find rest when I feel exhausted by life?"
+  - "What does the Bible say about hope and healing?"
+  - "How can I help a friend who is struggling with depression or anxiety?"
+  - "What does Christianity teach about compassion and empathy?"
+  - "How do I deal with guilt and regret?"
+  - "How can I find meaning in my pain?"
+  - "What does the Bible say about starting over?"
+  - "Who was Jesus really and why should I care?"
+  - "How do I know if I'm doing this faith thing right?"
+  - "What if my family or friends judge me for being interested in Christianity?"
+  - "Is God mad at me for the things I've done?"
+  - "How do I deal with toxic relationships?"
+  - "What does Jesus say about gender identity and sexuality?"
+  - "Can I be a Christian and still have fun?"
+  - "How do I know which parts of the Bible to read first?"
+  - "What if prayer feels weird or awkward?"
+  - "Can God really change how I feel about myself?"
+  - "How do I deal with family trauma?"
+  - "What does Jesus say about mental health struggles?"
+  - "Is it okay to be angry at God?"
+  - "How do I know if I'm hearing from God?"
+  - "What if church people have hurt me before?"
+  - "Can God help with my eating disorder or self-image issues?"
+  - "How do I find Christian friends who won't judge me?"
+  - "What does healthy love look like?"
+  - "How do I deal with panic attacks?"
+

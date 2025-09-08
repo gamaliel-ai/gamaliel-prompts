@@ -43,6 +43,7 @@ Templates are processed by the Gamaliel system to generate prompts that include:
 Templates can be customized for:
 
 - Different AI models and capabilities
+- Partner-specific requirements
 - New interaction types
 - Enhanced theological frameworks
 
