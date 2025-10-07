@@ -1,6 +1,9 @@
 <current_context>
-<reference book="{{ book }}" chapter="{{ chapter }}" translation="{{ bible_id }}">
+<reference book="{{ book }}" chapter="{{ chapter }}"{% if verse %} verse="{{ verse }}"{% endif %} translation="{{ bible_id }}">
 {{ chapter_content }}
+{% if verse %}
+<!-- NOTE: Focus specifically on verse {{ verse }} when generating questions -->
+{% endif %}
 </reference>
 </current_context>
 
