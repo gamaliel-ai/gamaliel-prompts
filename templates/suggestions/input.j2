@@ -7,6 +7,13 @@
 </reference>
 </current_context>
 
+{% if preferred_language %}
+<user_language>
+<language_code>{{ preferred_language.code }}</language_code>
+<language_name>{{ preferred_language.name }}</language_name>
+</user_language>
+{% endif %}
+
 {% if profile %}
 <user_profile>
 <profile_name>{{ profile.name }}</profile_name>
