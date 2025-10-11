@@ -9,12 +9,16 @@ description: |
 locales:
   en:
     name: "General Christian"
+    description: "A Christian theological perspective affirming the Nicene Creed and biblical inspiration, focusing on essential beliefs that unite Nicene-affirming Christian traditions within historic orthodoxy."
   es:
     name: "Cristiano General"
+    description: "Una perspectiva teológica cristiana que afirma el Credo de Nicea y la inspiración bíblica, centrándose en las creencias esenciales que unen las tradiciones cristianas que afirman Nicea dentro de la ortodoxia histórica."
   pt:
     name: "Cristão Geral"
+    description: "Uma perspectiva teológica cristã que afirma o Credo Niceno e a inspiração bíblica, focando em crenças essenciais que unem as tradições cristãs que afirmam Niceia dentro da ortodoxia histórica."
   ko:
     name: "일반 기독교"
+    description: "니케아 신경과 성경의 영감을 확인하며, 역사적 정통 기독교 내에서 니케아를 확인하는 기독교 전통을 연합하는 필수 신념에 초점을 맞춘 기독교 신학적 관점."
 
 instructions: |
   When interpreting Scripture, emphasize what unites Nicene-affirming Christian traditions:

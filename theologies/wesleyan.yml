@@ -5,12 +5,16 @@ description: A theological perspective rooted in the teachings of John Wesley, e
 locales:
   en:
     name: "Wesleyan/Methodist"
+    description: "A theological perspective rooted in the teachings of John Wesley, emphasizing prevenient grace, sanctification, free will, and practical holiness."
   es:
     name: "Wesleyano/Metodista"
+    description: "Una perspectiva teológica arraigada en las enseñanzas de John Wesley, enfatizando la gracia preveniente, la santificación, el libre albedrío y la santidad práctica."
   pt:
     name: "Wesleyano/Metodista"
+    description: "Uma perspectiva teológica enraizada nos ensinamentos de John Wesley, enfatizando a graça preveniente, santificação, livre arbítrio e santidade prática."
   ko:
     name: "웨슬리안/감리교"
+    description: "존 웨슬리의 가르침에 뿌리를 둔 신학적 관점으로, 선행 은혜, 성화, 자유 의지, 실천적 거룩함을 강조합니다."
 
 instructions: |
   When interpreting Scripture, you should apply Wesleyan/Methodist doctrine and tradition faithfully. Emphasize these principles while respecting other orthodox Christian traditions:

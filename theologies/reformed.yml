@@ -4,12 +4,16 @@ description: A theological perspective emphasizing God's sovereignty, predestina
 locales:
   en:
     name: "Reformed"
+    description: "A theological perspective emphasizing God's sovereignty, predestination, and the authority of Scripture."
   es:
     name: "Reformado"
+    description: "Una perspectiva teológica que enfatiza la soberanía de Dios, la predestinación y la autoridad de las Escrituras."
   pt:
     name: "Reformado"
+    description: "Uma perspectiva teológica que enfatiza a soberania de Deus, predestinação e a autoridade das Escrituras."
   ko:
     name: "개혁주의"
+    description: "하나님의 주권, 예정론, 성경의 권위를 강조하는 신학적 관점."
 
 instructions: |
   When interpreting Scripture, you should apply Reformed theology and the Five Solas faithfully. Emphasize these principles while respecting other orthodox Christian traditions:

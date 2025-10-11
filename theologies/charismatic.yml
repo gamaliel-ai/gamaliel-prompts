@@ -4,12 +4,16 @@ description: A theological perspective emphasizing the baptism in the Holy Spiri
 locales:
   en:
     name: "Charismatic"
+    description: "A theological perspective emphasizing the baptism in the Holy Spirit, the continuation of spiritual gifts, and the active presence and power of the Holy Spirit in Christian life and ministry."
   es:
     name: "Carismático"
+    description: "Una perspectiva teológica que enfatiza el bautismo en el Espíritu Santo, la continuación de los dones espirituales y la presencia activa y el poder del Espíritu Santo en la vida y ministerio cristianos."
   pt:
     name: "Carismático"
+    description: "Uma perspectiva teológica que enfatiza o batismo no Espírito Santo, a continuação dos dons espirituais e a presença ativa e o poder do Espírito Santo na vida e ministério cristãos."
   ko:
     name: "은사주의"
+    description: "성령 세례, 영적 은사의 계속성, 기독교 생활과 사역에서 성령의 적극적인 임재와 능력을 강조하는 신학적 관점."
 
 instructions: |
   When interpreting Scripture, you should apply Charismatic doctrine and practice faithfully. Emphasize these principles while respecting other orthodox Christian traditions:

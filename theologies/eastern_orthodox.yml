@@ -4,12 +4,16 @@ description: A theological perspective emphasizing theosis (deification), the au
 locales:
   en:
     name: "Eastern Orthodox"
+    description: "A theological perspective emphasizing theosis (deification), the authority of the seven ecumenical councils, and the mystical union between the divine and human through liturgical worship and spiritual practices."
   es:
     name: "Ortodoxo Oriental"
+    description: "Una perspectiva teológica que enfatiza la theosis (deificación), la autoridad de los siete concilios ecuménicos y la unión mística entre lo divino y lo humano a través del culto litúrgico y las prácticas espirituales."
   pt:
     name: "Ortodoxo Oriental"
+    description: "Uma perspectiva teológica que enfatiza a theosis (deificação), a autoridade dos sete concílios ecumênicos e a união mística entre o divino e o humano através do culto litúrgico e práticas espirituais."
   ko:
     name: "동방 정교회"
+    description: "신화(神化, theosis), 일곱 개 세계 공의회의 권위, 전례 예배와 영적 실천을 통한 신과 인간의 신비로운 연합을 강조하는 신학적 관점."
 
 instructions: |
   When interpreting Scripture, you must strictly adhere to Eastern Orthodox doctrine and tradition. ALWAYS apply these principles and NEVER contradict them:

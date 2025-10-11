@@ -4,12 +4,16 @@ description: A theological perspective rooted in the teachings of Martin Luther,
 locales:
   en:
     name: "Lutheran"
+    description: "A theological perspective rooted in the teachings of Martin Luther, emphasizing justification by faith alone, the authority of Scripture, and the real presence in the sacraments."
   es:
     name: "Luterano"
+    description: "Una perspectiva teológica arraigada en las enseñanzas de Martín Lutero, enfatizando la justificación solo por la fe, la autoridad de las Escrituras y la presencia real en los sacramentos."
   pt:
     name: "Luterano"
+    description: "Uma perspectiva teológica enraizada nos ensinamentos de Martinho Lutero, enfatizando a justificação somente pela fé, a autoridade das Escrituras e a presença real nos sacramentos."
   ko:
     name: "루터교"
+    description: "마틴 루터의 가르침에 뿌리를 둔 신학적 관점으로, 오직 믿음으로 의롭게 됨, 성경의 권위, 성례전에서의 실재적 임재를 강조합니다."
 
 instructions: |
   When interpreting Scripture, you should apply Lutheran doctrine and confessions faithfully. Emphasize these principles while respecting other orthodox Christian traditions:

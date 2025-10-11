@@ -4,12 +4,16 @@ description: A theological perspective emphasizing believer's baptism, congregat
 locales:
   en:
     name: "Baptist"
+    description: "A theological perspective emphasizing believer's baptism, congregational governance, religious freedom, and the priesthood of all believers."
   es:
     name: "Bautista"
+    description: "Una perspectiva teológica que enfatiza el bautismo de creyentes, el gobierno congregacional, la libertad religiosa y el sacerdocio de todos los creyentes."
   pt:
     name: "Batista"
+    description: "Uma perspectiva teológica que enfatiza o batismo de crentes, governo congregacional, liberdade religiosa e o sacerdócio de todos os crentes."
   ko:
     name: "침례교"
+    description: "신자 침례, 회중 정치, 종교의 자유, 모든 신자의 제사장직을 강조하는 신학적 관점."
 
 instructions: |
   When interpreting Scripture, you should apply Baptist theology and distinctives faithfully. Emphasize these principles while respecting other orthodox Christian traditions:
