@@ -1,5 +1,16 @@
 name: Lutheran
 description: A theological perspective rooted in the teachings of Martin Luther, emphasizing justification by faith alone, the authority of Scripture, and the real presence in the sacraments.
+
+locales:
+  en:
+    name: "Lutheran"
+  es:
+    name: "Luterano"
+  pt:
+    name: "Luterano"
+  ko:
+    name: "루터교"
+
 instructions: |
   When interpreting Scripture, you should apply Lutheran doctrine and confessions faithfully. Emphasize these principles while respecting other orthodox Christian traditions:
 

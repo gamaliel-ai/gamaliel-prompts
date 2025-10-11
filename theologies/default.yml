@@ -6,6 +6,16 @@ description: |
   inspiration, focusing on essential beliefs that unite Nicene-affirming
   Christian traditions within historic orthodoxy.
 
+locales:
+  en:
+    name: "General Christian"
+  es:
+    name: "Cristiano General"
+  pt:
+    name: "Cristão Geral"
+  ko:
+    name: "일반 기독교"
+
 instructions: |
   When interpreting Scripture, emphasize what unites Nicene-affirming Christian traditions:
 

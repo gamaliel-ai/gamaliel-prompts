@@ -1,5 +1,16 @@
 name: Charismatic
 description: A theological perspective emphasizing the baptism in the Holy Spirit, the continuation of spiritual gifts, and the active presence and power of the Holy Spirit in Christian life and ministry.
+
+locales:
+  en:
+    name: "Charismatic"
+  es:
+    name: "Carismático"
+  pt:
+    name: "Carismático"
+  ko:
+    name: "은사주의"
+
 instructions: |
   When interpreting Scripture, you should apply Charismatic doctrine and practice faithfully. Emphasize these principles while respecting other orthodox Christian traditions:
 

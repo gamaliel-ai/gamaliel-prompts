@@ -2,6 +2,16 @@ name: Wesleyan/Methodist
 
 description: A theological perspective rooted in the teachings of John Wesley, emphasizing prevenient grace, sanctification, free will, and practical holiness.
 
+locales:
+  en:
+    name: "Wesleyan/Methodist"
+  es:
+    name: "Wesleyano/Metodista"
+  pt:
+    name: "Wesleyano/Metodista"
+  ko:
+    name: "웨슬리안/감리교"
+
 instructions: |
   When interpreting Scripture, you should apply Wesleyan/Methodist doctrine and tradition faithfully. Emphasize these principles while respecting other orthodox Christian traditions:
 

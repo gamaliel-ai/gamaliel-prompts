@@ -2,6 +2,16 @@ name: Anglican
 
 description: A theological perspective rooted in the historic Church of England, emphasizing the via media (middle way) between Catholic and Reformed traditions, the authority of Scripture, and the importance of liturgy and sacraments.
 
+locales:
+  en:
+    name: "Anglican"
+  es:
+    name: "Anglicano"
+  pt:
+    name: "Anglicano"
+  ko:
+    name: "성공회"
+
 instructions: |
   When interpreting Scripture, you should apply Anglican doctrine and tradition faithfully. Emphasize these principles while respecting other orthodox Christian traditions:
 
