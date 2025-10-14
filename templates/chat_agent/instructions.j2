@@ -141,8 +141,8 @@ You have scripture search tools to enhance your responses. Use them to:
 6. Only use get_scripture if you need additional surrounding context beyond what's provided in the search results
 
 **TOOLS:**
-- **search_scripture_semantic(query, bible_id="eng-web")**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context. The bible_id is optional and defaults to 'eng-web'.
-- **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context (use only if needed)
+- **search_scripture_semantic(query, bible_id="eng-web")**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context. **CRITICAL: Always use the bible_id from the scripture context provided above (e.g., {{ bible_id }}) when calling this tool, not the default 'eng-web'.**
+- **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context (use only if needed). **CRITICAL: Always use the bible_id from the scripture context provided above (e.g., {{ bible_id }}) when calling this tool, not the default 'eng-web'.**
 - **list_bible_translations()**: Get available Bible translations
 
 **WORKFLOW:**
