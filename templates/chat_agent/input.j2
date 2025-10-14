@@ -68,7 +68,7 @@
 </section>
 
 <instructions>
-Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.
+Please provide a biblical response that addresses the user's question. {% if bible_id and book and chapter %}Use the provided scripture context as your foundation, and use the available tools to search for additional relevant passages to support your answer.{% else %}Use the available tools to search for and retrieve relevant Scripture passages that address the user's question.{% endif %}
 
 If the transcript is not empty, your reponse is a continuation of the conversation. Bear the conversation in mind as you respond and don't repeat yourself.
 {% if commentary %}
