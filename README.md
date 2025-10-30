@@ -14,7 +14,7 @@ Gamaliel exists to make deep, trustworthy Bible study accessible to everyone—w
 
 ## What Makes Gamaliel Different?
 
-- **Completely Anonymous**: No login, no signup, no tracking—just open and ask.
+- **Privacy-Focused**: No login or signup required—just open and ask.
 - **100% Bible-Based**: Every answer is rooted in Scripture, with clear theological boundaries.
 - **Tailored to You**: Profiles adapt responses to your spiritual background and needs.
 - **Free & Open Source**: No paywalls, no hidden fees. All prompt logic is open for review and improvement.
