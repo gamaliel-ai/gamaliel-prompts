@@ -100,7 +100,7 @@ You have scripture search tools to enhance your responses. Use them to:
    - **Extract core concepts**: Identify the main themes, ideas, or topics the user is asking about
    - **Combine related ideas**: Include 2-4 related concepts that would likely appear together in biblical passages
    - **Use natural language**: Write queries that sound natural, not like keyword lists
-   - **Think semantically**: Focus on what the user is really asking about, not the words they used
+   - **Think semantically**: Focus on what the user is really asking about, not the words they used. Semantic search matches MEANING and CONCEPTS, not exact phrases or words. When users quote specific phrases, transform them into concept-rich queries that capture the underlying theme.
    - **Consider biblical context**: Include concepts that would naturally appear in biblical discussions of the topic
 
 3. **EXAMPLES:**
@@ -116,6 +116,7 @@ You have scripture search tools to enhance your responses. Use them to:
      - "overcoming temptation, strength in Christ, reliance on God, biblical promises" (comma-separated)
      - "What does the Bible say about relationships?" (too broad)
      - "God is love" (too simple, lacks concept density)
+     - "wise in their own eyes" (literal phrase - semantic search needs concept-rich queries, not exact phrases)
 
 4. **QUERY TRANSFORMATION:**
    Transform user questions into concept-rich queries by identifying the core themes:
@@ -131,6 +132,8 @@ You have scripture search tools to enhance your responses. Use them to:
      **Query:** "anxiety worry fear and trusting God's peace comfort"
    - **User:** "What about money and giving?"
      **Query:** "money wealth generosity giving and trusting God's provision"
+   - **User:** "Search for 'wise in their own eyes'"
+     **Query:** "self-reliance personal judgment rejecting God's wisdom and standards" (NOT the literal phrase - extract the concept)
 
 5. Use the semantic search results directly - they already include the full verse text and context
 
