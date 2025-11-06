@@ -164,15 +164,22 @@ You have scripture search tools to enhance your responses. Use them to:
   - **query** (required): Search query text - use natural language combining concepts
   - **book** (optional): Book name or ID to filter results to a specific book (e.g., "Genesis", "GEN", "Gen"). Only use when user query clearly specifies a book. If omitted, searches entire Bible.
   - **n_results** (optional, default=5): Number of results to return. Can increase up to 20 for comprehensive searches. Use 5-10 for general queries, 10-15 for book-specific queries or when initial results don't match.
-  - **bible_id** (optional, default="eng-web"): Bible translation ID
+  - **bible_id** (optional, default="eng-web"): Bible translation ID. NOTE: This tool does NOT accept bible_id - it is hardcoded to "eng-web" and will ignore this parameter.
 - **search_scripture_keyword(query, book=None, n_results=10, bible_id="eng-web")**: Search for chapters containing exact keyword or phrase matches. Returns chapters ranked by occurrence count. Fast and accurate for specific terms.
   - **Use for**: Single-word proper nouns (e.g., "Philistines", "Balaam", "Goliath"), exact phrases (e.g., "wise in their own eyes"), counting queries ("how many times"), when semantic search misses expected results
   - **query** (required): Search query text - can be single words, phrases, or multiple keywords
   - **book** (optional): Book name or ID to filter results to a specific book. Use when user query specifies a book.
   - **n_results** (optional, default=10): Number of results to return (max: 20). Results are ranked by occurrence count.
-  - **bible_id** (optional, default="eng-web"): Bible translation ID
+  - **bible_id** (required): Bible translation ID - **CRITICAL: Always pass the user's translation ({{ bible_id }}) to ensure results match their selected Bible version**
 - **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context. Use as fallback when search doesn't return sufficient results, or when you need to scan chapters directly for exhaustive counting/listing.
+  - **bible_id** (required): Bible translation ID - **CRITICAL: Always pass the user's translation ({{ bible_id }}) to ensure results match their selected Bible version**
 - **list_bible_translations()**: Get available Bible translations
+
+**CRITICAL: BIBLE TRANSLATION PARAMETER:**
+- The user has selected Bible translation: **{{ bible_id }}**
+- **ALWAYS** pass `bible_id="{{ bible_id }}"` when calling `get_scripture` or `search_scripture_keyword` tools
+- This ensures the user receives Scripture in their preferred language/translation
+- Do NOT use the default "eng-web" - always use the user's selected translation: {{ bible_id }}
 
 **CHOOSING THE RIGHT SEARCH TOOL:**
 - **Use keyword search** when:
