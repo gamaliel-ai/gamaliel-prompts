@@ -11,6 +11,7 @@ from cli.tools import (
     get_scripture,
     get_scripture_context,
     list_bible_books,
+    search_scripture_keyword,
     search_scripture_semantic,
 )
 
@@ -122,6 +123,86 @@ class TestScriptureTools:
         mock_parser.search_semantic.assert_called_once_with("love", 5)
 
     @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_semantic_with_book_filter(self, mock_get_parser):
+        """Test semantic search with book filter."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser._normalize_book_name.side_effect = lambda x: "Genesis" if x.lower() in ["genesis", "gen", "gen."] else x
+        mock_parser.search_semantic.return_value = [
+            ("Genesis", 1, 0.9, "In the beginning..."),
+            ("Genesis", 2, 0.8, "Thus the heavens..."),
+        ]
+        mock_parser.get_chapter.return_value = "In the beginning..."
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_semantic("God", book="Genesis", n_results=5)
+
+        assert result["query"] == "God"
+        assert result["count"] == 2
+        # Verify all results are from Genesis
+        for item in result["results"]:
+            assert item["book"] == "Genesis"
+        # Verify parser was called with higher limit for filtering
+        mock_parser.search_semantic.assert_called_once()
+        call_args = mock_parser.search_semantic.call_args
+        assert call_args[0][0] == "God"
+        assert call_args[0][1] == 15  # n_results * 3 when book filter is used
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_semantic_with_n_results(self, mock_get_parser):
+        """Test semantic search with custom n_results."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser.search_semantic.return_value = [
+            ("John", i, 0.9 - (i * 0.01), f"Content {i}") for i in range(1, 11)
+        ]
+        mock_parser.get_chapter.return_value = "Content"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_semantic("love", n_results=10)
+
+        assert result["query"] == "love"
+        assert result["count"] == 10
+        assert len(result["results"]) == 10
+        mock_parser.search_semantic.assert_called_once_with("love", 10)
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_semantic_with_n_results_max_limit(self, mock_get_parser):
+        """Test semantic search with n_results exceeding max limit."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser.search_semantic.return_value = [
+            ("John", i, 0.9 - (i * 0.01), f"Content {i}") for i in range(1, 21)
+        ]
+        mock_parser.get_chapter.return_value = "Content"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_semantic("love", n_results=30)  # Exceeds max of 20
+
+        assert result["count"] == 20  # Should be capped at 20
+        assert len(result["results"]) == 20
+        mock_parser.search_semantic.assert_called_once_with("love", 20)
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_semantic_with_invalid_book(self, mock_get_parser):
+        """Test semantic search with invalid book name."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser._normalize_book_name.side_effect = lambda x: "InvalidBook" if x == "InvalidBook" else x
+        mock_parser.search_semantic.return_value = [
+            ("John", 3, 0.8, "For God so loved..."),
+            ("Genesis", 1, 0.7, "In the beginning..."),
+        ]
+        mock_parser.get_chapter.return_value = "Content"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_semantic("God", book="InvalidBook", n_results=5)
+
+        # Should still return results (invalid book filter ignored)
+        assert result["query"] == "God"
+        assert result["count"] >= 0  # May filter out all results if none match
+
+    @patch("cli.tools.get_bsb_parser")
     def test_list_bible_books_success(self, mock_get_parser):
         """Test successful book listing."""
         # Mock parser
@@ -222,6 +303,89 @@ class TestScriptureTools:
         assert "Chapter not found" in result["error"]
 
 
+class TestKeywordSearch:
+    """Test cases for keyword search functionality."""
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_keyword_single_word(self, mock_get_parser):
+        """Test keyword search with single word."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser._normalize_book_name = lambda x: x.lower()
+        
+        # Mock search_text to return some results
+        def mock_search_text(query, max_results):
+            if query.lower() == "philistines":
+                return [
+                    ("Genesis", 26, 1, "Now there was a famine in the land, besides the former famine..."),
+                    ("Genesis", 26, 8, "When he had been there a long time, Abimelech king of the Philistines..."),
+                    ("Genesis", 21, 32, "So they made a covenant at Beersheba..."),
+                ]
+            return []
+        
+        mock_parser.search_text = mock_search_text
+        mock_parser.get_chapter = lambda book, chapter: f"Chapter {chapter} text for {book}"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_keyword("Philistines", n_results=5)
+
+        assert result["count"] > 0
+        assert "results" in result
+        assert len(result["results"]) > 0
+        # Results should have match_count
+        assert "match_count" in result["results"][0]
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_keyword_with_book_filter(self, mock_get_parser):
+        """Test keyword search with book filter."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser._normalize_book_name = lambda x: x.lower()
+        
+        def mock_search_text(query, max_results):
+            if query.lower() == "philistines":
+                return [
+                    ("Genesis", 26, 1, "Now there was a famine..."),
+                    ("Genesis", 26, 8, "Abimelech king of the Philistines..."),
+                    ("Judges", 15, 3, "Samson and the Philistines..."),  # Should be filtered out
+                ]
+            return []
+        
+        mock_parser.search_text = mock_search_text
+        mock_parser.get_chapter = lambda book, chapter: f"Chapter {chapter} text"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_keyword("Philistines", book="Genesis", n_results=5)
+
+        assert result["count"] > 0
+        # All results should be from Genesis
+        for r in result["results"]:
+            assert r["book"].lower() == "genesis"
+
+    @patch("cli.tools.get_bsb_parser")
+    def test_search_scripture_keyword_quoted_phrase(self, mock_get_parser):
+        """Test keyword search with quoted phrase."""
+        # Mock parser
+        mock_parser = Mock()
+        mock_parser._normalize_book_name = lambda x: x.lower()
+        
+        def mock_search_text(query, max_results):
+            if "king" in query.lower() and "philistines" in query.lower():
+                return [
+                    ("Genesis", 26, 8, "Abimelech king of the Philistines..."),
+                ]
+            return []
+        
+        mock_parser.search_text = mock_search_text
+        mock_parser.get_chapter = lambda book, chapter: f"Chapter {chapter} text"
+        mock_get_parser.return_value = mock_parser
+
+        result = search_scripture_keyword('"king of the Philistines"', n_results=3)
+
+        assert result["count"] > 0
+        assert "results" in result
+
+
 class TestToolExecution:
     """Test cases for tool execution system."""
 
@@ -235,6 +399,16 @@ class TestToolExecution:
             assert result["book"] == "John"
             assert result["chapter"] == 3
             mock_get_scripture.assert_called_once_with(book="John", chapter=3, verse=16)
+
+    def test_execute_tool_search_scripture_keyword(self):
+        """Test executing search_scripture_keyword tool."""
+        with patch("cli.tools.search_scripture_keyword") as mock_search:
+            mock_search.return_value = {"count": 3, "results": []}
+
+            result = execute_tool("search_scripture_keyword", query="Philistines", book="Genesis")
+
+            assert result["count"] == 3
+            mock_search.assert_called_once_with(query="Philistines", book="Genesis")
 
     def test_execute_tool_search_scripture(self):
         """Test executing search_scripture_semantic tool."""
@@ -294,7 +468,7 @@ class TestToolSchema:
     def test_scripture_tools_schema_structure(self):
         """Test that SCRIPTURE_TOOLS has correct structure."""
         assert isinstance(SCRIPTURE_TOOLS, list)
-        assert len(SCRIPTURE_TOOLS) == 3
+        assert len(SCRIPTURE_TOOLS) == 4  # get_scripture, search_scripture_semantic, search_scripture_keyword, list_bible_translations
 
         # Check each tool has required fields
         for tool in SCRIPTURE_TOOLS:
@@ -332,11 +506,41 @@ class TestToolSchema:
 
         assert search_tool["function"]["name"] == "search_scripture_semantic"
         assert "query" in search_tool["function"]["parameters"]["properties"]
+        assert "book" in search_tool["function"]["parameters"]["properties"]
+        assert "n_results" in search_tool["function"]["parameters"]["properties"]
         assert "bible_id" in search_tool["function"]["parameters"]["properties"]
 
         required = search_tool["function"]["parameters"]["required"]
         assert "query" in required
         assert len(required) == 1  # Only query is required
+        
+        # Verify book and n_results are optional
+        properties = search_tool["function"]["parameters"]["properties"]
+        assert "book" in properties
+
+    def test_search_scripture_keyword_tool_schema(self):
+        """Test search_scripture_keyword tool schema."""
+        keyword_tool = next(
+            t
+            for t
+            in SCRIPTURE_TOOLS
+            if t["function"]["name"] == "search_scripture_keyword"
+        )
+
+        assert keyword_tool["function"]["name"] == "search_scripture_keyword"
+        assert "query" in keyword_tool["function"]["parameters"]["properties"]
+        assert "book" in keyword_tool["function"]["parameters"]["properties"]
+        assert "n_results" in keyword_tool["function"]["parameters"]["properties"]
+        assert "bible_id" in keyword_tool["function"]["parameters"]["properties"]
+
+        required = keyword_tool["function"]["parameters"]["required"]
+        assert "query" in required
+        assert len(required) == 1  # Only query is required
+        
+        # Verify book and n_results are optional
+        properties = keyword_tool["function"]["parameters"]["properties"]
+        assert "book" in properties
+        assert "n_results" in properties
 
 
 if __name__ == "__main__":

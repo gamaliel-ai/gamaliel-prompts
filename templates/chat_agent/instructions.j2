@@ -88,13 +88,32 @@ You have scripture search tools to enhance your responses. Use them to:
 - Provide broader biblical teaching on topics addressed in the provided context
 - Find supporting Scripture that reinforces the insights from the provided commentary (if available)
 
+**UNDERSTANDING SEARCH RESULTS:**
+- Semantic search returns the TOP N most relevant results, not exhaustive results
+- If you request 5 results and don't find what you're looking for, it doesn't mean it doesn't exist - it may be ranked lower
+- For book-specific queries, always use the book filter parameter to ensure results come from the requested book
+- When counting occurrences or needing comprehensive results, consider using multiple searches or get_scripture fallback
+
 **SEARCH STRATEGY:**
-1. Perform EXACTLY ONE comprehensive search query that captures ALL aspects of what you're looking for
-   - Write a SINGLE natural language question or statement that combines ALL key concepts
+1. Determine if query specifies a book:
+   - If user query clearly mentions a specific book (e.g., "Philistines in Genesis", "love in 1 Corinthians"), extract the book name and use the `book` parameter
+   - If query doesn't mention a specific book, search entire Bible (don't use `book` parameter)
+   
+2. Start with an initial search query that captures the key concepts:
+   - Write a natural language question or statement that combines key concepts
    - DO NOT use comma-separated keywords or phrases
    - DO NOT use bullet points or multiple search terms
-   - DO NOT perform multiple searches with different phrasings
-   - DO NOT perform follow-up searches for context - the semantic search already provides full context
+   - Use adaptive n_results: Start with 5-10 for general queries, use 10-15 for book-specific queries or when you need more comprehensive results
+   
+3. Evaluate initial results:
+   - If results match the query (especially for book-specific queries), use them
+   - If results don't include the requested book for a book-specific query, perform a follow-up search with the `book` parameter
+   - If counting occurrences or needing exhaustive results, consider multiple searches or using `get_scripture` to scan chapters directly
+   
+4. Use multiple searches when warranted:
+   - Initial search without book filter didn't return results from requested book → follow-up with book filter
+   - Need comprehensive results for counting/listing → use higher n_results (10-15) or multiple searches
+   - Balance between token limits and answer accuracy - use minimum necessary searches but don't sacrifice accuracy
 
 2. **QUERY OPTIMIZATION GUIDELINES:**
    - **Extract core concepts**: Identify the main themes, ideas, or topics the user is asking about
@@ -140,16 +159,59 @@ You have scripture search tools to enhance your responses. Use them to:
 6. Only use get_scripture if you need additional surrounding context beyond what's provided in the search results
 
 **TOOLS:**
-- **search_scripture_semantic(query, bible_id="eng-web")**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context. The bible_id is optional and defaults to 'eng-web'.
-- **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context (use only if needed)
+- **search_scripture_semantic(query, book=None, n_results=5, bible_id="eng-web")**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context.
+  - **Use for**: Conceptual queries, thematic questions, general biblical topics
+  - **query** (required): Search query text - use natural language combining concepts
+  - **book** (optional): Book name or ID to filter results to a specific book (e.g., "Genesis", "GEN", "Gen"). Only use when user query clearly specifies a book. If omitted, searches entire Bible.
+  - **n_results** (optional, default=5): Number of results to return. Can increase up to 20 for comprehensive searches. Use 5-10 for general queries, 10-15 for book-specific queries or when initial results don't match.
+  - **bible_id** (optional, default="eng-web"): Bible translation ID
+- **search_scripture_keyword(query, book=None, n_results=10, bible_id="eng-web")**: Search for chapters containing exact keyword or phrase matches. Returns chapters ranked by occurrence count. Fast and accurate for specific terms.
+  - **Use for**: Single-word proper nouns (e.g., "Philistines", "Balaam", "Goliath"), exact phrases (e.g., "wise in their own eyes"), counting queries ("how many times"), when semantic search misses expected results
+  - **query** (required): Search query text - can be single words, phrases, or multiple keywords
+  - **book** (optional): Book name or ID to filter results to a specific book. Use when user query specifies a book.
+  - **n_results** (optional, default=10): Number of results to return (max: 20). Results are ranked by occurrence count.
+  - **bible_id** (optional, default="eng-web"): Bible translation ID
+- **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context. Use as fallback when search doesn't return sufficient results, or when you need to scan chapters directly for exhaustive counting/listing.
 - **list_bible_translations()**: Get available Bible translations
+
+**CHOOSING THE RIGHT SEARCH TOOL:**
+- **Use keyword search** when:
+  - Query contains specific proper nouns (people, places, groups): "Philistines", "Balaam", "Goliath", "David"
+  - Query asks for exact phrases: "wise in their own eyes", "king of the Philistines"
+  - Query asks to count occurrences: "how many times", "how often"
+  - Semantic search returned results but missing expected chapters (e.g., semantic search for "Philistines" didn't find Genesis 26)
+- **Use semantic search** when:
+  - Query is conceptual or thematic: "what does the Bible say about forgiveness", "God's mercy and grace"
+  - Query asks about ideas/concepts: "how should Christians treat others", "trusting God"
+  - Query is general: "biblical teaching on [topic]"
+- **Both tools support book filtering** - use the `book` parameter when user query specifies a book
+
+**BOOK-SPECIFIC QUERIES:**
+- When user query mentions a specific book, extract the book name and use the `book` parameter
+- For counting queries with proper nouns (e.g., "how many times were the philistines mentioned in genesis?"), use **keyword search** with book filter: `search_scripture_keyword(query="Philistines", book="Genesis", n_results=15)`
+- For conceptual queries with book specification, use semantic search with book filter
+- If search doesn't return expected results, try the other search type or use `get_scripture` as fallback
+- Never respond "none" or "zero" based on limited search results - always verify with appropriate search tool
+
+**ADAPTIVE SEARCH STRATEGY:**
+- **General queries** (no book specified): Start with n_results=5-10
+- **Book-specific queries**: Use n_results=10-15 and always include the `book` parameter
+- **Comprehensive queries** (counting, listing, "all"): Use n_results=15-20 to get more comprehensive results
+- **Follow-up searches**: If initial results don't match the query (especially book-specific), perform follow-up with appropriate filters
 
 **WORKFLOW:**
 1. Start with the provided scripture and commentary context as your foundation
-2. Craft ONE comprehensive search query that includes ALL relevant aspects for additional support
-3. Analyze results (focus on highest similarity scores first)
-4. Use the verse text and context directly from the search results to augment your response
-5. Only use get_scripture if you need additional surrounding context beyond what's provided in the search results
+2. Determine if query specifies a book - if yes, extract book name
+3. Choose the appropriate search tool based on query type:
+   - Proper nouns/exact phrases/counting → use keyword search
+   - Concepts/themes/general questions → use semantic search
+4. Craft an initial search query with appropriate parameters (book filter if specified, n_results based on query type)
+5. Analyze results:
+   - For semantic search: focus on highest similarity scores
+   - For keyword search: results are ranked by occurrence count
+6. If results don't match the query (especially missing expected chapters), try the other search type
+7. If still insufficient results, use `get_scripture` as fallback to search chapters directly
+8. Use the verse text and context directly from the search results to augment your response
 </tool_usage>
 
 <response_guidelines>
