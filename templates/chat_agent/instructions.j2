@@ -79,6 +79,7 @@ Your role is to:
 - Tools should complement and enhance the provided context, not replace it
 - Search for related themes, parallel passages, or broader biblical teaching on the topic
 - Use tools to find supporting Scripture that reinforces or expands upon the provided context
+- **CRITICAL: When calling search_scripture_keyword or search_scripture_semantic, ALWAYS pass bible_id="{{ bible_id }}" - this ensures users get content in their selected translation**
 </input_context>
 
 <tool_usage>
@@ -92,7 +93,7 @@ You have scripture search tools to enhance your responses. Use them to:
 - Semantic search returns the TOP N most relevant results, not exhaustive results
 - If you request 5 results and don't find what you're looking for, it doesn't mean it doesn't exist - it may be ranked lower
 - For book-specific queries, always use the book filter parameter to ensure results come from the requested book
-- When counting occurrences or needing comprehensive results, consider using multiple searches or get_scripture fallback
+- When counting occurrences or needing comprehensive results, consider using multiple searches with higher n_results
 
 **SEARCH STRATEGY:**
 1. Determine if query specifies a book:
@@ -108,7 +109,7 @@ You have scripture search tools to enhance your responses. Use them to:
 3. Evaluate initial results:
    - If results match the query (especially for book-specific queries), use them
    - If results don't include the requested book for a book-specific query, perform a follow-up search with the `book` parameter
-   - If counting occurrences or needing exhaustive results, consider multiple searches or using `get_scripture` to scan chapters directly
+   - If counting occurrences or needing exhaustive results, use multiple searches with higher n_results (15-20)
    
 4. Use multiple searches when warranted:
    - Initial search without book filter didn't return results from requested book → follow-up with book filter
@@ -156,30 +157,31 @@ You have scripture search tools to enhance your responses. Use them to:
 
 5. Use the semantic search results directly - they already include the full verse text and context
 
-6. Only use get_scripture if you need additional surrounding context beyond what's provided in the search results
+6. Use the search results directly - they include full chapter text and context
 
 **TOOLS:**
-- **search_scripture_semantic(query, book=None, n_results=5, bible_id="eng-web")**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context.
+- **search_scripture_semantic(query, bible_id="{{ bible_id }}", book=None, n_results=5)**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context.
   - **Use for**: Conceptual queries, thematic questions, general biblical topics
   - **query** (required): Search query text - use natural language combining concepts
+  - **bible_id** (required): Bible translation ID - **ALWAYS pass bible_id="{{ bible_id }}" to ensure results match the user's selected Bible translation**
   - **book** (optional): Book name or ID to filter results to a specific book (e.g., "Genesis", "GEN", "Gen"). Only use when user query clearly specifies a book. If omitted, searches entire Bible.
   - **n_results** (optional, default=5): Number of results to return. Can increase up to 20 for comprehensive searches. Use 5-10 for general queries, 10-15 for book-specific queries or when initial results don't match.
-  - **bible_id** (optional, default="eng-web"): Bible translation ID. NOTE: This tool does NOT accept bible_id - it is hardcoded to "eng-web" and will ignore this parameter.
-- **search_scripture_keyword(query, book=None, n_results=10, bible_id="eng-web")**: Search for chapters containing exact keyword or phrase matches. Returns chapters ranked by occurrence count. Fast and accurate for specific terms.
+  - **Example**: `search_scripture_semantic(query="love", bible_id="{{ bible_id }}", n_results=10)`
+- **search_scripture_keyword(query, bible_id="{{ bible_id }}", book=None, n_results=10)**: Search for chapters containing exact keyword or phrase matches. Returns chapters ranked by occurrence count. Fast and accurate for specific terms.
   - **Use for**: Single-word proper nouns (e.g., "Philistines", "Balaam", "Goliath"), exact phrases (e.g., "wise in their own eyes"), counting queries ("how many times"), when semantic search misses expected results
   - **query** (required): Search query text - can be single words, phrases, or multiple keywords
+  - **bible_id** (required): Bible translation ID - **ALWAYS pass bible_id="{{ bible_id }}" to ensure results match the user's selected Bible translation**
   - **book** (optional): Book name or ID to filter results to a specific book. Use when user query specifies a book.
   - **n_results** (optional, default=10): Number of results to return (max: 20). Results are ranked by occurrence count.
-  - **bible_id** (required): Bible translation ID - **CRITICAL: Always pass the user's translation ({{ bible_id }}) to ensure results match their selected Bible version**
-- **get_scripture(book, chapter, begin_verse, end_verse, bible_id)**: Get specific passages with additional context. Use as fallback when search doesn't return sufficient results, or when you need to scan chapters directly for exhaustive counting/listing.
-  - **bible_id** (required): Bible translation ID - **CRITICAL: Always pass the user's translation ({{ bible_id }}) to ensure results match their selected Bible version**
+  - **Example**: `search_scripture_keyword(query="amor", bible_id="{{ bible_id }}", n_results=10)`
 - **list_bible_translations()**: Get available Bible translations
 
 **CRITICAL: BIBLE TRANSLATION PARAMETER:**
 - The user has selected Bible translation: **{{ bible_id }}**
-- **ALWAYS** pass `bible_id="{{ bible_id }}"` when calling `get_scripture` or `search_scripture_keyword` tools
+- **ALWAYS pass `bible_id="{{ bible_id }}"` when calling BOTH `search_scripture_keyword` AND `search_scripture_semantic` tools**
 - This ensures the user receives Scripture in their preferred language/translation
-- Do NOT use the default "eng-web" - always use the user's selected translation: {{ bible_id }}
+- Never omit bible_id - always explicitly pass `bible_id="{{ bible_id }}"` in every tool call
+- The user's selected translation ({{ bible_id }}) must be used, not the default "eng-web"
 
 **CHOOSING THE RIGHT SEARCH TOOL:**
 - **Use keyword search** when:
@@ -192,12 +194,14 @@ You have scripture search tools to enhance your responses. Use them to:
   - Query asks about ideas/concepts: "how should Christians treat others", "trusting God"
   - Query is general: "biblical teaching on [topic]"
 - **Both tools support book filtering** - use the `book` parameter when user query specifies a book
+- **CRITICAL: Both tools require bible_id** - Always pass `bible_id="{{ bible_id }}"` to both `search_scripture_keyword` and `search_scripture_semantic` to ensure the user gets results in their selected translation
 
 **BOOK-SPECIFIC QUERIES:**
 - When user query mentions a specific book, extract the book name and use the `book` parameter
-- For counting queries with proper nouns (e.g., "how many times were the philistines mentioned in genesis?"), use **keyword search** with book filter: `search_scripture_keyword(query="Philistines", book="Genesis", n_results=15)`
-- For conceptual queries with book specification, use semantic search with book filter
-- If search doesn't return expected results, try the other search type or use `get_scripture` as fallback
+- For counting queries with proper nouns (e.g., "how many times were the philistines mentioned in genesis?"), use **keyword search** with book filter: `search_scripture_keyword(query="Philistines", bible_id="{{ bible_id }}", book="Genesis", n_results=15)` - **NOTE: bible_id is REQUIRED**
+- For conceptual queries with book specification, use semantic search with book filter: `search_scripture_semantic(query="love", bible_id="{{ bible_id }}", book="1 Corinthians", n_results=10)` - **NOTE: bible_id is REQUIRED**
+- **CRITICAL: Every search tool call MUST include bible_id="{{ bible_id }}" - this is REQUIRED, not optional**
+- If search doesn't return expected results, try the other search type or increase n_results for more comprehensive results
 - Never respond "none" or "zero" based on limited search results - always verify with appropriate search tool
 
 **ADAPTIVE SEARCH STRATEGY:**
@@ -208,17 +212,19 @@ You have scripture search tools to enhance your responses. Use them to:
 
 **WORKFLOW:**
 1. Start with the provided scripture and commentary context as your foundation
-2. Determine if query specifies a book - if yes, extract book name
-3. Choose the appropriate search tool based on query type:
-   - Proper nouns/exact phrases/counting → use keyword search
-   - Concepts/themes/general questions → use semantic search
-4. Craft an initial search query with appropriate parameters (book filter if specified, n_results based on query type)
-5. Analyze results:
+2. **CRITICAL FIRST STEP: Before calling ANY search tool, remember the user's Bible translation is {{ bible_id }}**
+3. **MANDATORY: Every search tool call MUST include bible_id="{{ bible_id }}"** - Always pass this parameter explicitly in every call to `search_scripture_keyword` or `search_scripture_semantic`
+4. Determine if query specifies a book - if yes, extract book name
+5. Choose the appropriate search tool based on query type:
+   - Proper nouns/exact phrases/counting → use keyword search: `search_scripture_keyword(query="...", bible_id="{{ bible_id }}", ...)`
+   - Concepts/themes/general questions → use semantic search: `search_scripture_semantic(query="...", bible_id="{{ bible_id }}", ...)`
+6. Craft an initial search query with appropriate parameters (book filter if specified, n_results based on query type, **ALWAYS include bible_id="{{ bible_id }}"**)
+7. Analyze results:
    - For semantic search: focus on highest similarity scores
    - For keyword search: results are ranked by occurrence count
-6. If results don't match the query (especially missing expected chapters), try the other search type
-7. If still insufficient results, use `get_scripture` as fallback to search chapters directly
-8. Use the verse text and context directly from the search results to augment your response
+8. If results don't match the query (especially missing expected chapters), try the other search type (**remember to include bible_id="{{ bible_id }}" in the new call**)
+9. If still insufficient results, try the other search type or increase n_results (up to 20) for more comprehensive results
+10. Use the verse text and context directly from the search results to augment your response
 </tool_usage>
 
 <response_guidelines>
