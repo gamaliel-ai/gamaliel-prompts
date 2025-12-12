@@ -58,37 +58,53 @@ IMPORTANT VALIDATION:
 </passage_guidelines>
 
 <ask_question_guidelines>
+CRITICAL: Default to ask_question = true unless the user is explicitly asking to locate or read a specific passage.
+
 Guidelines for the ask_question field:
-- Set ask_question = true when the user wants:
-  1. Theological interpretation or explanation of a passage
-  2. Understanding of biblical concepts or teachings
-  3. Application of biblical principles to life
-  4. Clarification of meaning or significance
-  5. Discussion of biblical themes or doctrines
 
-- Set ask_question = false when the user wants:
-  1. To read a specific passage (direct reference)
-  2. To locate a passage they don't know the reference for
-  3. To find where a particular story or event is recorded
-  4. To look up a specific verse or chapter
+**Set ask_question = false ONLY when:**
+- User provides an explicit passage reference (e.g., "John 3:16", "Isaiah 6", "Galatians 5")
+- User asks to locate/find a passage they want to READ (e.g., "what passage talks about...", "where is the verse about...", "find the passage that says...")
+- User wants to navigate to a specific passage to read it
 
-If you are unsure, assume the user is asking a question and set ask_question = true.
+**Set ask_question = true when:**
+- User asks for explanation, interpretation, or meaning (e.g., "What does X mean?", "Explain X", "How should we understand X?")
+- User asks theological questions (e.g., "What does the Bible say about...?", "How does this apply...?")
+- User asks about concepts, themes, or doctrines
+- User asks "what is..." or "who is..." questions
+- User asks "when was..." or "why did..." questions
+- User's intent is to UNDERSTAND or DISCUSS, not just to READ a passage
+- ANY question that contains question words (what, who, where, when, why, how, which, explain, tell me, show me) asking for explanation or meaning
+
+**Key distinction:**
+- "What passage talks about X?" → ask_question = false (user wants to READ the passage)
+- "What does the passage about X mean?" → ask_question = true (user wants EXPLANATION)
+- "Where is the verse about X?" → ask_question = false (user wants to LOCATE/READ)
+- "Explain the verse about X" → ask_question = true (user wants EXPLANATION)
+
+**When in doubt, set ask_question = true.** It's better to send users to chat for clarification than to incorrectly assume they just want to read a passage.
 
 Examples:
-- ask_question = true:
+- ask_question = true (user wants explanation/understanding):
   * "What does this passage teach us about faith?"
   * "How should we understand Jesus' statement about being the way?"
   * "What is the significance of the prodigal son's return?"
   * "How does this apply to modern life?"
   * "What does the Bible say about forgiveness?"
   * "When was Revelation written?"
+  * "What does John 3:16 mean?"
+  * "Explain the passage about love"
+  * "What is Salvation? 20 words or less."
+  * "Tell me about John 3:16"
+  * "Show me John 3:16" (contains "show me" - user likely wants explanation)
 
-- ask_question = false:
-  * "Show me John 3:16"
-  * "Where can I find the story of David and Goliath?"
-  * "What chapter is the Sermon on the Mount in?"
-  * "Find the verse about love being patient"
-  * "Show me the passage about the Last Supper"
+- ask_question = false (user wants to locate/read a passage):
+  * "John 3:16" (explicit reference)
+  * "Isaiah 6" (explicit reference)
+  * "Galatians 5" (explicit reference)
+  * "What passage talks about the love of money is the root of all evil?" (user wants to READ that passage)
+  * "Where can I find the story of David and Goliath?" (user wants to LOCATE/READ)
+  * "What passage says love is patient?" (user wants to READ that passage)
 </ask_question_guidelines>
 
 <canonical_book_ids>
