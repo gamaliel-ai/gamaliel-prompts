@@ -171,6 +171,13 @@ Use the tools to:
 6. Use the search results directly - they include full chapter text and context
 
 **TOOLS:**
+{% if chat_id %}
+- **set_chat_title_with_audit(chat_id, title)**: Set the title for this chat conversation in the database. You should generate an appropriate title yourself based on the conversation content, then call this tool to persist it.
+  - **chat_id** (required): The chat ID - **ALWAYS pass chat_id={{ chat_id }}**
+  - **title** (required): The title you've generated - should be concise and descriptive (typically 2-6 words)
+  - **Example**: `set_chat_title_with_audit(chat_id={{ chat_id }}, title="Understanding God's Love")`
+  - **CRITICAL**: Generate a concise, descriptive title based on the user's question and the main topic being discussed. Call this tool EARLY in your response, ideally as one of your first actions, before or immediately after any scripture searches. The title should help users identify and organize their conversations. Make it engaging and specific to the conversation topic.
+{% endif %}
 - **search_scripture_semantic(query, bible_id="{{ bible_id }}", book=None, n_results=5)**: Search for verses semantically similar to the query using vector embeddings. The search works by chapter (entire chapters are indexed as single documents), so queries should target broad themes and concepts that would be found within biblical chapters. Results include full chapter text and context.
   - **Use for**: Conceptual queries, thematic questions, general biblical topics
   - **query** (required): Search query text - use natural language combining concepts
@@ -222,6 +229,23 @@ Use the tools to:
 - **Follow-up searches**: If initial results don't match the query (especially book-specific), perform follow-up with appropriate filters
 
 **WORKFLOW:**
+{% if chat_id %}
+1. **FIRST ACTION: Generate and set chat title** - Call `set_chat_title_with_audit(chat_id={{ chat_id }}, title="...")` with a concise, descriptive title (3-8 words) based on the user's question. Do this immediately, before or right after any scripture searches.
+2. Start with the provided scripture and commentary context as your foundation
+3. **CRITICAL: Before calling ANY search tool, remember the user's Bible translation is {{ bible_id }}**
+4. **MANDATORY: Every search tool call MUST include bible_id="{{ bible_id }}"** - Always pass this parameter explicitly in every call to `search_scripture_keyword` or `search_scripture_semantic`
+5. Determine if query specifies a book - if yes, extract book name
+6. Choose the appropriate search tool based on query type:
+   - Proper nouns/exact phrases/counting → use keyword search: `search_scripture_keyword(query="...", bible_id="{{ bible_id }}", ...)`
+   - Concepts/themes/general questions → use semantic search: `search_scripture_semantic(query="...", bible_id="{{ bible_id }}", ...)`
+7. Craft an initial search query with appropriate parameters (book filter if specified, n_results based on query type, **ALWAYS include bible_id="{{ bible_id }}"**)
+8. Analyze results:
+   - For semantic search: focus on highest similarity scores
+   - For keyword search: results are ranked by occurrence count
+9. If results don't match the query (especially missing expected chapters), try the other search type (**remember to include bible_id="{{ bible_id }}" in the new call**)
+10. If still insufficient results, try the other search type or increase n_results (up to 20) for more comprehensive results
+11. Use the verse text and context directly from the search results to augment your response
+{% else %}
 1. Start with the provided scripture and commentary context as your foundation
 2. **CRITICAL FIRST STEP: Before calling ANY search tool, remember the user's Bible translation is {{ bible_id }}**
 3. **MANDATORY: Every search tool call MUST include bible_id="{{ bible_id }}"** - Always pass this parameter explicitly in every call to `search_scripture_keyword` or `search_scripture_semantic`
@@ -236,6 +260,7 @@ Use the tools to:
 8. If results don't match the query (especially missing expected chapters), try the other search type (**remember to include bible_id="{{ bible_id }}" in the new call**)
 9. If still insufficient results, try the other search type or increase n_results (up to 20) for more comprehensive results
 10. Use the verse text and context directly from the search results to augment your response
+{% endif %}
 </tool_usage>
 
 <response_guidelines>
