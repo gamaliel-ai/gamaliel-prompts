@@ -70,13 +70,14 @@
 <instructions>
 Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.
 
-{% if chat_id %}
+{% if chat_id and not chat_history %}
 **CHAT TITLE GENERATION (DO THIS FIRST):**
 - **IMPORTANT**: Generate a concise, descriptive title for this conversation as one of your FIRST actions
 - Base the title on the user's question and the main topic being discussed
 - Call set_chat_title_with_audit with chat_id={{ chat_id }} and your generated title (typically 3-8 words)
 - Do this EARLY in your response, ideally before or immediately after any scripture searches
 - The title helps users identify and organize their conversations - make it specific and engaging
+- **NOTE: This is only available on the first message of a conversation.**
 {% endif %}
 
 If the transcript is not empty, your reponse is a continuation of the conversation. Bear the conversation in mind as you respond and don't repeat yourself.
