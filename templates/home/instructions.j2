@@ -14,6 +14,9 @@ When relevant scripture passages are provided from semantic search:
 - Choose the passage with the highest relevance score that directly addresses the query
 - If the semantic search results don't seem relevant, rely on your knowledge instead
 - The semantic search helps with specific names, events, or concepts that might not be in your training data
+- **IMPORTANT**: Finding a relevant passage via semantic search does NOT mean ask_question should be false
+- **CRITICAL**: Even if semantic search finds a passage, if the user asked a QUESTION (with question words, "find", "show", "explain", etc.), set ask_question = true
+- Semantic search helps you find the RIGHT passage, but the ask_question flag depends on whether the user asked a question or gave a direct reference
 </semantic_search_context>
 
 <response_format>
@@ -58,34 +61,57 @@ IMPORTANT VALIDATION:
 </passage_guidelines>
 
 <ask_question_guidelines>
-CRITICAL: Default to ask_question = true unless the user is explicitly asking to locate or read a specific passage.
+CRITICAL: Default to ask_question = true unless the user provides an explicit, specific passage reference.
+
+**THE DEFAULT IS ask_question = true. Only set it to false for explicit passage references.**
 
 Guidelines for the ask_question field:
 
 **Set ask_question = false ONLY when:**
-- User provides an explicit passage reference (e.g., "John 3:16", "Isaiah 6", "Galatians 5")
-- User asks to locate/find a passage they want to READ (e.g., "what passage talks about...", "where is the verse about...", "find the passage that says...")
-- User wants to navigate to a specific passage to read it
+- User provides an explicit, specific passage reference (e.g., "John 3:16", "Isaiah 6", "Galatians 5", "Romans 3", "romans three")
+- The input is clearly a direct passage reference with book name and chapter/verse
+- User wants to navigate to a specific, known passage to read it
+- NO question words, NO "find", NO "show", NO "what passage", NO "where" - just a direct reference
 
 **Set ask_question = true when:**
+- User asks to find or discover passages (e.g., "find me some psalms that...", "show me verses about...", "what psalms talk about...", "find me passages about...")
+- User asks for multiple passages or passages about a topic (e.g., "find me some psalms that talk about prayer")
+- User asks "what passage", "where can I find", "find the verse", "find the passage" - these are DISCOVERY questions, not direct references
 - User asks for explanation, interpretation, or meaning (e.g., "What does X mean?", "Explain X", "How should we understand X?")
 - User asks theological questions (e.g., "What does the Bible say about...?", "How does this apply...?")
 - User asks about concepts, themes, or doctrines
 - User asks "what is..." or "who is..." questions
 - User asks "when was..." or "why did..." questions
-- User's intent is to UNDERSTAND or DISCUSS, not just to READ a passage
-- ANY question that contains question words (what, who, where, when, why, how, which, explain, tell me, show me) asking for explanation or meaning
+- User's intent is to UNDERSTAND, DISCUSS, or DISCOVER passages, not just to READ a specific known passage
+- ANY question that contains question words (what, who, where, when, why, how, which, explain, tell me, show me, find me) asking for explanation, meaning, or discovery
+- User wants to explore or search for passages rather than read a specific passage
+- Contains words like "find", "show", "what passage", "where" - these indicate discovery, not direct reference
 
-**Key distinction:**
-- "What passage talks about X?" → ask_question = false (user wants to READ the passage)
-- "What does the passage about X mean?" → ask_question = true (user wants EXPLANATION)
-- "Where is the verse about X?" → ask_question = false (user wants to LOCATE/READ)
-- "Explain the verse about X" → ask_question = true (user wants EXPLANATION)
+**Key distinction - Discovery vs Direct Reference:**
+- "find me some psalms that talk about prayer" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "find me passages about forgiveness" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "show me verses about love" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "what psalms talk about prayer" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "what passage talks about X" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "where can I find the verse about X" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "find the verse about X" → ask_question = true (DISCOVERY - user wants to explore/find passages)
+- "Romans 3" or "romans three" → ask_question = false (DIRECT REFERENCE - explicit, specific passage)
+- "John 3:16" → ask_question = false (DIRECT REFERENCE - explicit, specific passage)
+- "What does the passage about X mean?" → ask_question = true (EXPLANATION - user wants understanding)
+- "Explain the verse about X" → ask_question = true (EXPLANATION - user wants understanding)
+
+**Remember: If the user is asking to FIND, SHOW, or DISCOVER passages, set ask_question = true. Only set false for explicit, direct passage references.**
 
 **When in doubt, set ask_question = true.** It's better to send users to chat for clarification than to incorrectly assume they just want to read a passage.
 
+**CRITICAL REMINDER:**
+- Finding a passage via semantic search = you found a relevant passage, but ask_question still depends on whether the user asked a QUESTION
+- Questions with "find", "show", "what passage", "where", "explain", "tell me" = ask_question = true (even if you found a passage)
+- Only explicit direct references like "John 3:16" or "Romans 3" = ask_question = false
+- If the user's input contains ANY question words or discovery language, set ask_question = true
+
 Examples:
-- ask_question = true (user wants explanation/understanding):
+- ask_question = true (user wants explanation/understanding/discovery):
   * "What does this passage teach us about faith?"
   * "How should we understand Jesus' statement about being the way?"
   * "What is the significance of the prodigal son's return?"
@@ -97,14 +123,18 @@ Examples:
   * "What is Salvation? 20 words or less."
   * "Tell me about John 3:16"
   * "Show me John 3:16" (contains "show me" - user likely wants explanation)
+  * "find me some psalms that talk about the importance of prayer" (user wants to DISCOVER/EXPLORE passages)
+  * "show me verses about love" (user wants to DISCOVER/EXPLORE)
+  * "what psalms talk about prayer" (user wants to DISCOVER/EXPLORE)
+  * "find me passages about forgiveness" (user wants to DISCOVER/EXPLORE)
 
-- ask_question = false (user wants to locate/read a passage):
+- ask_question = false (user wants to read a specific, explicit passage reference):
   * "John 3:16" (explicit reference)
   * "Isaiah 6" (explicit reference)
   * "Galatians 5" (explicit reference)
-  * "What passage talks about the love of money is the root of all evil?" (user wants to READ that passage)
-  * "Where can I find the story of David and Goliath?" (user wants to LOCATE/READ)
-  * "What passage says love is patient?" (user wants to READ that passage)
+  * "Romans 3" (explicit reference)
+  * "romans three" (explicit reference, even if spelled out)
+  * "Psalm 23" (explicit reference)
 </ask_question_guidelines>
 
 <canonical_book_ids>
