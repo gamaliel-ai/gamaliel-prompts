@@ -1,0 +1,56 @@
+{% if date_iso %}
+<date>{{ date_iso }}</date>
+{% endif %}
+
+{% if preferred_language %}
+<user_language>
+<language_code>{{ preferred_language.code }}</language_code>
+<language_name>{{ preferred_language.name }}</language_name>
+</user_language>
+{% endif %}
+
+{% if profile %}
+<user_profile>
+<profile_name>{{ profile.name }}</profile_name>
+<profile_description>{{ profile.description }}</profile_description>
+<profile_instructions>{{ profile.instructions }}</profile_instructions>
+</user_profile>
+{% endif %}
+
+<reading_history>
+{% if chapters_read and chapters_read|length > 0 %}
+Chapters this user has read (book and chapter only, no verse text):
+{% for chapter in chapters_read %}
+- {{ chapter }}
+{% endfor %}
+{% else %}
+No reading history available for this user.
+{% endif %}
+</reading_history>
+
+<question_history>
+{% if question_history and question_history|length > 0 %}
+Previous questions this user has asked:
+{% for q in question_history %}
+- {{ q }}
+{% endfor %}
+{% else %}
+No previous questions from this user.
+{% endif %}
+</question_history>
+
+<recent_conversations>
+{% if recent_conversations and recent_conversations|length > 0 %}
+{% for conversation in recent_conversations %}
+<conversation chat_id="{{ conversation.chat_id }}" title="{{ conversation.title }}">
+{% for message in conversation.messages %}
+<message role="{{ message.role }}">
+{{ message.content }}
+</message>
+{% endfor %}
+</conversation>
+{% endfor %}
+{% else %}
+No recent conversations.
+{% endif %}
+</recent_conversations>
