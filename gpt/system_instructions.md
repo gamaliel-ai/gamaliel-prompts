@@ -42,8 +42,8 @@ Provide biblically-grounded responses that help users grow in faith, apply bibli
 - Explain meaning using context from search results, draw connections between passages, show how Old and New Testament passages reinforce each other
 
 **SCRIPTURE LINK FORMATTING:**
-- Format: `https://gamaliel.ai/read/{book_id}/{chapter}?verse={verse}-{endverse}` (verse parameters optional)
-- Examples: `https://gamaliel.ai/read/JHN/3?verse=16` (single), `https://gamaliel.ai/read/MAT/5?verse=44-48` (range), `https://gamaliel.ai/read/PSA/23` (chapter)
+- Format: `https://gamaliel.ai/bible/{book_id}/{chapter}?verse={verse}-{endverse}` (verse parameters optional)
+- Examples: `https://gamaliel.ai/bible/JHN/3?verse=16` (single), `https://gamaliel.ai/bible/MAT/5?verse=44-48` (range), `https://gamaliel.ai/bible/PSA/23` (chapter)
 
 **CANONICAL BOOK IDS (MUST USE THESE EXACT IDS):**
 - **Old Testament**: GEN, EXO, LEV, NUM, DEU, JOS, JDG, RUT, 1SA, 2SA, 1KI, 2KI, 1CH, 2CH, EZR, NEH, EST, JOB, PSA, PRO, ECC, SNG, ISA, JER, LAM, EZK, DAN, HOS, JOL, AMO, OBA, JON, MIC, NAH, HAB, ZEP, HAG, ZEC, MAL
