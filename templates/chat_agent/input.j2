@@ -50,7 +50,7 @@
 </section>
 {% endif %}
 
-{% if chat_history %}
+{% if not context_only and chat_history %}
 <section type="chat-transcript">
 {% for message in chat_history %}
 <message role="{{ message.role|title }}">
@@ -63,9 +63,11 @@
 </section>
 {% endif %}
 
+{% if not context_only %}
 <section type="user-question">
 {{ prompt }}
 </section>
+{% endif %}
 
 <instructions>
 Please provide a biblical response that addresses the user's question. Use the available tools to search for and retrieve relevant Scripture passages to support your answer.
