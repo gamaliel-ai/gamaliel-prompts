@@ -15,8 +15,7 @@ When relevant scripture passages are provided from semantic search:
 - If the semantic search results don't seem relevant, rely on your knowledge instead
 - The semantic search helps with specific names, events, or concepts that might not be in your training data
 - **IMPORTANT**: Finding a relevant passage via semantic search does NOT mean ask_question should be false
-- **CRITICAL**: Even if semantic search finds a passage, if the user asked a QUESTION (with question words, "find", "show", "explain", etc.), set ask_question = true
-- Semantic search helps you find the RIGHT passage, but the ask_question flag depends on whether the user asked a question or gave a direct reference
+- **CRITICAL**: ask_question depends on user intent (seeking an answer vs. citing a passage), in any language. If the user is asking for an answer, explanation, or discussion, set ask_question = true even when semantic search found a passage.
 </semantic_search_context>
 
 <response_format>
@@ -65,6 +64,8 @@ CRITICAL: Default to ask_question = true unless the user provides an explicit, s
 
 **THE DEFAULT IS ask_question = true. Only set it to false for explicit passage references.**
 
+**PERSON-NAME RULE (apply in any language):** If the user is asking about a biblical person or character (e.g. who someone was, who someone's mother/father was, tell me about [person]), set ask_question = true. The name in the question refers to the person, not to a book. Example: "Who was Samuel's mother?" is a question about the person Samuel — set ask_question = true and do NOT treat it as a request for the book 1 Samuel. Same for any question about a figure (David, Esther, Moses, etc.).
+
 Guidelines for the ask_question field:
 
 **Set ask_question = false ONLY when:**
@@ -80,7 +81,7 @@ Guidelines for the ask_question field:
 - User asks for explanation, interpretation, or meaning (e.g., "What does X mean?", "Explain X", "How should we understand X?")
 - User asks theological questions (e.g., "What does the Bible say about...?", "How does this apply...?")
 - User asks about concepts, themes, or doctrines
-- User asks "what is..." or "who is..." questions
+- User asks "what is..." or "who is..." or "who was..." questions (e.g. "Who was Samuel's mother?", "Who was King David?" — these are questions about people, NOT passage references; do not treat "Samuel" or "David" as book references)
 - User asks "when was..." or "why did..." questions
 - User's intent is to UNDERSTAND, DISCUSS, or DISCOVER passages, not just to READ a specific known passage
 - ANY question that contains question words (what, who, where, when, why, how, which, explain, tell me, show me, find me) asking for explanation, meaning, or discovery
@@ -106,8 +107,9 @@ Guidelines for the ask_question field:
 
 **CRITICAL REMINDER:**
 - Finding a passage via semantic search = you found a relevant passage, but ask_question still depends on whether the user asked a QUESTION
-- Questions with "find", "show", "what passage", "where", "explain", "tell me" = ask_question = true (even if you found a passage)
-- Only explicit direct references like "John 3:16" or "Romans 3" = ask_question = false
+- Questions with "find", "show", "what passage", "where", "explain", "tell me", "who was", "who is" = ask_question = true (even if you found a passage)
+- "Who was Samuel's mother?" or "Who was X?" = ask_question = true (question about a person). Do NOT treat the person's name as a book reference (e.g. Samuel → 1 Samuel).
+- Only explicit direct references like "John 3:16" or "Romans 3" or "1 Samuel 1" = ask_question = false
 - If the user's input contains ANY question words or discovery language, set ask_question = true
 
 Examples:
@@ -121,6 +123,8 @@ Examples:
   * "What does John 3:16 mean?"
   * "Explain the passage about love"
   * "What is Salvation? 20 words or less."
+  * "Who was Samuel's mother?" (question about a person — ask_question = true; do NOT treat as "1 Samuel" passage reference)
+  * "Who was King David?" / "Tell me about Esther" (questions about biblical figures = ask_question = true)
   * "Tell me about John 3:16"
   * "Show me John 3:16" (contains "show me" - user likely wants explanation)
   * "find me some psalms that talk about the importance of prayer" (user wants to DISCOVER/EXPLORE passages)
