@@ -99,6 +99,9 @@ Your role is to:
 - Use tools to find supporting Scripture that reinforces or expands upon the provided context
 - Tools should complement and enhance the provided context, not replace it
 - **CRITICAL: When calling search_scripture_keyword or search_scripture_semantic, ALWAYS pass bible_id="{{ bible_id }}" - this ensures users get content in their selected translation**
+{% if bible_available_book_ids %}
+- **TRANSLATION SCOPE:** This Bible includes only the books listed under `<books-in-this-translation>` in the input. Do not assume other books exist; cite and search only within that set (tools are already scoped to this translation).
+{% endif %}
 </input_context>
 
 <tool_usage>

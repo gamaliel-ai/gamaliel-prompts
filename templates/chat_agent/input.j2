@@ -1,3 +1,12 @@
+{% if bible_id %}
+<section type="translation-catalog">
+<translation-id>{{ bible_id }}</translation-id>
+{% if bible_translation_title %}<translation-name>{{ bible_translation_title }}</translation-name>{% endif %}
+{% if bible_translation_description %}<translation-coverage>{{ bible_translation_description }}</translation-coverage>{% endif %}
+{% if bible_available_book_ids %}<books-in-this-translation>{{ bible_available_book_ids | join(', ') }}</books-in-this-translation>{% endif %}
+</section>
+{% endif %}
+
 {% if bible_id and book and chapter %}
 <section type="scripture-context">
 <translation>{{ bible_id }}</translation>
