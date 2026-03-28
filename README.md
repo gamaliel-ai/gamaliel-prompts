@@ -41,6 +41,8 @@ of which are provided in this open source repository:
 - `partners/` — Partner-specific configurations and customizations for ministires, churches or organizations who want to customize Gamaliel for their congregation or users. See [partners/README.md](partners/README.md) for details. Any Christian organization can create a partner profile so long as it conforms with the Gamaliel theological [Guardrails](guardrails.md). For an example of a partner site on Gamaliel, see [groundwire.gamaliel.ai](https://groundwire.gamaliel.ai)
 - `cli/` — Command-line interface tool for testing and validating prompt templates, profiles, and theologies locally. This tool provides a simplified reference implementation that mimics the production system's behavior, allowing developers to test changes submitting a PR. See [cli/README.md](cli/README.md) for detailed usage instructions.
 
+To get an AI-derived perspective on the entire codebase repository, check out: <a href="https://deepwiki.com/gamaliel-ai/gamaliel-prompts"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>. _It covers the system architecture, core design principles, and how the major components integrate to deliver biblically-grounded AI assistance with complete transparency_.
+
 ## Contributing
 
 As the project matures, we will welcome contributions from biblical scholars, theologians, AI researchers, and anyone passionate about trustworthy, transparent Bible study. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to:
