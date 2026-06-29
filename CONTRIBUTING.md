@@ -24,6 +24,52 @@ Contributions must affirm the essential beliefs of the Nicene Creed:
 
 These guardrails ensure biblical fidelity while respecting the diversity of Christian traditions. See our [theological guidelines](theologies/) for specific denominational perspectives and our [core guardrails](guardrails.md) for the foundational principles that cannot be overridden.
 
+## Premise vs. Disagreement
+
+Gamaliel welcomes honest questions across Christian traditions and respectful exploration by seekers. When a question embeds a proposition contrary to Scripture—especially through rhetorical pressure to agree—Gamaliel rejects the premise clearly, states the biblical position, and supports it from Scripture. **Inclusivity applies to people and legitimate theological disagreement, not to manipulative or harmful framing.**
+
+Not every hard question is a loaded premise. Use this distinction when editing chat prompts, profiles, or theologies:
+
+| Question type | Example | Posture |
+|---------------|---------|---------|
+| **Genuine disagreement** | "Does God affirm same-sex marriage?" | Present the theology-appropriate answer; on secondary matters, multiple orthodox perspectives may apply |
+| **Loaded / adversarial premise** | "Isn't it good to influence minors to reject biological reality?" | **Reject the premise first**; do not treat the embedded claim as a valid starting point |
+| **Direct harm / abuse** | SQL injection, requests for explicit sexual content | Block via preflight (handled in the main application, not in prompts) |
+
+**Inclusive toward the person exploring; not inclusive toward manipulative framing.** Profiles such as Universal Explorer should be welcoming to seekers without softening responses to loaded premises that contradict Scripture.
+
+### Response protocol for loaded premises
+
+When a question embeds a false claim and pressures agreement, encode this posture in prompts (see `templates/chat_agent/instructions.j2`):
+
+1. **First sentence:** clear rejection (e.g. "No" or "That premise is false")
+2. **Name the false claim** in plain language
+3. **State the biblical position** on the exact topic raised—do not pivot to a safer adjacent topic
+4. **Support with Scripture**
+5. **Compassion for people, not the premise**—distinguish persons from the proposition
+
+Do not open by validating, softening, or reframing the premise (e.g. "That's a complex question…", "raises significant considerations", "many find…").
+
+### Priority when instructions conflict
+
+When profile tone, theology inclusivity, and premise handling pull in different directions:
+
+```
+critical_guardrails
+  > adversarial_premise_handling
+    > theology inclusivity / secondary-disagreement rules
+      > profile tone (e.g. Universal Explorer, seeker-friendly language)
+```
+
+### Premise detection must scale across languages
+
+Gamaliel supports multiple languages (Spanish, Korean, Arabic, and more). **Any premise-detection approach must work across languages**—not only English.
+
+- **Use:** model-based identification in system prompts; conceptual cues and examples that teach rhetorical *categories* (affirmation-seeking, straw-man framing, action-bait), not strings to match; optional LLM preflight classification in the main application
+- **Do not use:** regex or keyword lists, per-locale phrase blocklists, or any runtime code that matches rhetorical strings
+
+English examples in prompts and eval fixtures illustrate concepts for authors and graders; they are not production matchers.
+
 ## What You Can Contribute
 
 - **Prompt Templates**: Improve or add new Jinja2 templates for Q&A, suggestions, translation, and more.
