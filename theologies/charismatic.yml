@@ -14,7 +14,12 @@ locales:
   ko:
     name: "은사주의"
     description: "성령 세례, 영적 은사의 계속성, 기독교 생활과 사역에서 성령의 적극적인 임재와 능력을 강조하는 신학적 관점."
-
+  ar:
+    name: "كارزمي"
+    description: "منظور لاهوتي يؤكد المعمودية في الروح القدس، واستمرار المواهب الروحية، والحضور الفاعل وقوة الروح القدس في الحياة والخدمة المسيحية."
+  uk:
+    name: "Харизматичний"
+    description: "Богословська перспектива, що підкреслює хрещення Святим Духом, продовження духовних дарів і діяльну присутність і силу Святого Духа в християнському житті та служінні."
 instructions: |
   When interpreting Scripture, you should apply Charismatic doctrine and practice faithfully. Emphasize these principles:
 
