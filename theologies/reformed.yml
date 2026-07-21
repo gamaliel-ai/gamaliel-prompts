@@ -14,7 +14,12 @@ locales:
   ko:
     name: "개혁주의"
     description: "하나님의 주권, 예정론, 성경의 권위를 강조하는 신학적 관점."
-
+  ar:
+    name: "مصلح"
+    description: "منظور لاهوتي يؤكد سيادة الله، والاختيار المسبق، وسلطة الكتاب المقدس."
+  uk:
+    name: "Реформатський"
+    description: "Богословська перспектива, що підкреслює суверенність Бога, передвизначення та авторитет Писання."
 instructions: |
   When interpreting Scripture, you should apply Reformed theology and the Five Solas faithfully. Emphasize these principles:
 

@@ -14,7 +14,12 @@ locales:
   ko:
     name: "침례교"
     description: "신자 침례, 회중 정치, 종교의 자유, 모든 신자의 제사장직을 강조하는 신학적 관점."
-
+  ar:
+    name: "معمداني"
+    description: "منظور لاهوتي يؤكد معمودية المؤمنين، والحكم الكنسي الجماعي، والحرية الدينية، وكهنوت جميع المؤمنين."
+  uk:
+    name: "Баптистський"
+    description: "Богословська перспектива, що підкреслює хрещення віруючих, конгрегаційне управління, релігійну свободу та священство всіх віруючих."
 instructions: |
   When interpreting Scripture, you should apply Baptist theology and distinctives faithfully. Emphasize these principles:
 

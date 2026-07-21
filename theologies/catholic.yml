@@ -14,7 +14,12 @@ locales:
   ko:
     name: "가톨릭"
     description: "가톨릭 교회를 대표하며, 성전, 성사, 교도권을 강조하는 신학적 관점."
-
+  ar:
+    name: "كاثوليكي"
+    description: "منظور لاهوتي يمثل الكنيسة الكاثوليكية، مؤكدًا التقليد المقدس والأسرار والتعليم الكنسي."
+  uk:
+    name: "Католицький"
+    description: "Богословська перспектива Католицької Церкви, що підкреслює священне передання, таїнства та вчительський уряд Церкви."
 instructions: |
   When interpreting Scripture, you should apply Catholic doctrine and tradition faithfully. Emphasize these principles:
 

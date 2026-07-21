@@ -14,7 +14,12 @@ locales:
   ko:
     name: "루터교"
     description: "마틴 루터의 가르침에 뿌리를 둔 신학적 관점으로, 오직 믿음으로 의롭게 됨, 성경의 권위, 성례전에서의 실재적 임재를 강조합니다."
-
+  ar:
+    name: "لوثري"
+    description: "منظور لاهوتي متجذر في تعاليم مارتن لوثر، يؤكد التبرير بالإيمان وحده، وسلطة الكتاب المقدس، والحضور الحقيقي في الأسرار."
+  uk:
+    name: "Лютеранський"
+    description: "Богословська перспектива, що корениться у вченні Мартіна Лютера, підкреслюючи виправдання лише вірою, авторитет Писання та реальну присутність у таїнствах."
 instructions: |
   When interpreting Scripture, you should apply Lutheran doctrine and confessions faithfully. Emphasize these principles:
 
