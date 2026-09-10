@@ -1,27 +1,24 @@
 # User Profiles
 
-This directory contains user profile files that shape how Gamaliel adapts its responses to different audiences. Each profile represents a specific type of user based on their spiritual background, biblical knowledge, and learning needs.
+This directory contains Bible familiarity profiles. Each profile is a rung on a four-step ladder that calibrates how much explanation, navigation help, and study-tool depth Gamaliel includes. Profiles describe how well someone already knows their way around the text. They are not faith-stage, maturity, or academic-credential labels.
 
 ## What is a User Profile?
 
 A user profile is a YAML configuration that defines:
 
-- **User characteristics** (spiritual background, experience level)
+- **Bible familiarity** (how much of the text they already know their way around)
 - **Response adaptation** (language complexity, depth of explanation)
 - **Learning approach** (how to present biblical concepts)
-- **Example questions** (typical inquiries from this user type)
-
-Profiles help Gamaliel tailor responses to be appropriate and helpful for users at different stages of their spiritual journey.
+- **Example questions** (typical inquiries from this familiarity level)
 
 ## How Profiles Work
 
-### User Experience Levels
+### Familiarity ladder (levels 1–4)
 
-Profiles are organized by experience level (0-5):
-
-- **0-1**: Beginners and seekers (no or limited biblical knowledge)
-- **2-3**: Growing in faith (some biblical familiarity)
-- **4-5**: Mature believers (extensive biblical knowledge)
+- **1**: New to the Bible (little reading; few verses; does not yet know where to begin)
+- **2**: Basic familiarity (some stories, verses, or characters; not yet at home finding things in the Bible)
+- **3**: Read regularly (can find books; some context for most passages) — default Ask behavior when unset
+- **4**: Study in depth (narrative structure; cross-references, commentaries, and study tools). This is study practice, not seminary training.
 
 ### Response Adaptation
 
@@ -41,35 +38,22 @@ Profiles influence:
 
 ### Christian Identity and Theology Selection
 
-The `is_christian` field determines whether users can select their theological perspective:
-
-- **`is_christian: true`**: Users who identify as Christian can choose from available theological perspectives (Reformed, Catholic, Lutheran, etc.)
-- **`is_christian: false`**: Non-Christian users receive responses using the default theology, as they wouldn't have a specific Christian theological preference
+Bible familiarity is independent of Christian tradition. All four rungs set `is_christian: true` so tradition selection is not gated on the familiarity ladder. Tradition is a separate control.
 
 ## Current Profiles
 
-### Beginners & Seekers (Levels 0-2)
-
-- **`curious_explorer.yml`** (Level 0) - Never read the Bible, curious about faith
-- **`universal_explorer.yml`** (Level 1) - Exploring life's big questions, open to biblical wisdom
-- **`spiritual_seeker.yml`** (Level 2) - Read some Bible, exploring Christianity specifically
-
-### Growing Believers (Levels 3-4)
-
-- **`new_believer.yml`** (Level 3) - Recently committed to Jesus, learning to read Bible regularly
-- **`growing_christian.yml`** (Level 4) - Reads Bible regularly, wants deeper understanding
-
-### Mature Believers (Level 5)
-
-- **`mature_believer.yml`** (Level 5) - Studies Bible daily, seeks advanced theological insights
+- **`new_to_the_bible.yml`** (Level 1) — Little reading; explain people, books, and terms
+- **`basic_familiarity.yml`** (Level 2) — Knows some stories and names; still needs help finding things in the text
+- **`read_regularly.yml`** (Level 3) — Can find books; default when the user has not chosen a level
+- **`study_in_depth.yml`** (Level 4) — Narrative structure, cross-references, commentaries, and study tools
 
 ## Profile Structure
 
 ```yaml
 name: 'Profile Name'
 description: 'Brief description of the user type'
-is_christian: true/false # Whether the target user identifies as Christian
-experience_level: 0-5
+is_christian: true/false # Compatibility field; not used to gate tradition
+experience_level: 1-4
 instructions: |
   Detailed instructions for adapting responses to this user type:
 
