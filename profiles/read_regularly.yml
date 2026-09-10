@@ -1,0 +1,160 @@
+slug: read_regularly
+is_christian: true
+experience_level: 3
+instructions: |
+  You are helping someone who reads the Bible regularly. They can find books of the Bible and usually have some context for passages they read. This is the default depth when a user has not chosen a familiarity level.
+
+  **Biblical knowledge: assume a working reader's map.** This person:
+  - Knows where books sit and can follow a standard reference
+  - Knows major stories, figures, and the broad shape of the canon
+  - Has some context for most passages, but still benefits from literary and canonical context
+  - Can use core biblical vocabulary; still gloss less common theological terms
+
+  **When answering:**
+  - Cite and connect passages without teaching Bible navigation from scratch
+  - Add context that a regular reader might not have on a first or second read (structure, argument, nearby text)
+  - Use standard terms (covenant, gospel, kingdom) and briefly clarify rarer ones
+  - Focus on clearer reading: how this passage works, how it relates, what is easy to miss
+  - Do not lecture on who Moses or Jesus is unless the question asks for it
+
+  **Never:**
+  - Over-explain Bible basics they already use every week
+  - Jump to scholarly debates, original-language arguments, or commentary surveys unless asked
+locales:
+  en:
+    name: Read regularly
+    description: I read often enough to know where to find books of the Bible. I have at least some context
+      for most passages I read.
+    example_questions:
+    - How can I move from reading to noticing themes across books?
+    - How do I connect passages from different parts of the Bible?
+    - What tools help with historical and cultural context?
+    - How should I read a prophetic book versus a letter?
+    - What's a sound way to interpret a difficult passage?
+    - How do the Gospels relate to one another?
+    - How can I trace a theme like covenant or kingdom through Scripture?
+    - What role should commentaries play when I already know the passage?
+    - How do I balance a daily reading habit with slower study?
+    - What's going on in Paul's letters that I might miss on a first read?
+    - How should I read the Psalms as both prayer and theology?
+    - How do I handle a passage that seems to conflict with another?
+    - What's a good approach to the Old Testament narratives I already know?
+    - How can I study a chapter without losing the book's argument?
+    - What does it mean to read a passage in its literary context?
+    - How do I apply a familiar passage without flattening it?
+    - Where should I look when a reference is unclear?
+    - How can I get more from books I return to often?
+  es:
+    name: Leo con regularidad
+    description: Leo lo bastante como para saber dónde encontrar los libros de la Biblia. Tengo al menos
+      algo de contexto para la mayoría de los pasajes que leo.
+    example_questions:
+    - ¿Cómo paso de leer a notar temas que cruzan varios libros?
+    - ¿Cómo conecto pasajes de distintas partes de la Biblia?
+    - ¿Qué herramientas ayudan con el contexto histórico y cultural?
+    - ¿Cómo debo leer un libro profético frente a una carta?
+    - ¿Cuál es una forma sana de interpretar un pasaje difícil?
+    - ¿Cómo se relacionan los Evangelios entre sí?
+    - ¿Cómo sigo un tema como pacto o reino a lo largo de la Escritura?
+    - ¿Qué papel deben tener los comentarios cuando ya conozco el pasaje?
+    - ¿Cómo equilibrio la lectura diaria con un estudio más lento?
+    - ¿Qué ocurre en las cartas de Pablo que podría pasar por alto?
+    - ¿Cómo leo los Salmos como oración y como teología?
+    - ¿Cómo trato un pasaje que parece contradecir a otro?
+    - ¿Cuál es un buen enfoque para las narraciones del Antiguo Testamento que ya conozco?
+    - ¿Cómo estudio un capítulo sin perder el argumento del libro?
+    - ¿Qué significa leer un pasaje en su contexto literario?
+    - ¿Cómo aplico un pasaje conocido sin simplificarlo demasiado?
+    - ¿Dónde busco cuando una referencia no está clara?
+    - ¿Cómo saco más de los libros a los que vuelvo a menudo?
+  pt:
+    name: Leio com regularidade
+    description: Leio o suficiente para saber onde encontrar os livros da Bíblia. Tenho ao menos algum
+      contexto para a maioria das passagens que leio.
+    example_questions:
+    - Como passo de ler para perceber temas que atravessam os livros?
+    - Como conecto passagens de partes diferentes da Bíblia?
+    - Quais ferramentas ajudam com o contexto histórico e cultural?
+    - Como ler um livro profético em comparação com uma carta?
+    - Qual é um jeito são de interpretar uma passagem difícil?
+    - Como os Evangelhos se relacionam uns com os outros?
+    - Como rastrear um tema como aliança ou reino nas Escrituras?
+    - Que papel os comentários devem ter quando eu já conheço a passagem?
+    - Como equilibrar a leitura diária com um estudo mais lento?
+    - O que acontece nas cartas de Paulo que eu posso perder numa primeira leitura?
+    - Como ler os Salmos como oração e como teologia?
+    - Como lidar com uma passagem que parece conflitar com outra?
+    - Qual é uma boa abordagem para as narrativas do Antigo Testamento que eu já conheço?
+    - Como estudar um capítulo sem perder o argumento do livro?
+    - O que significa ler uma passagem no seu contexto literário?
+    - Como aplicar uma passagem familiar sem achatá-la?
+    - Onde procurar quando uma referência não está clara?
+    - Como aproveitar mais os livros aos quais eu volto com frequência?
+  ko:
+    name: 정기적으로 읽음
+    description: 성경의 책들이 어디에 있는지 알 만큼 자주 읽습니다. 읽는 대부분의 본문에 어느 정도 맥락이 있습니다.
+    example_questions:
+    - 읽기를 넘어서 여러 권에 걸친 주제를 어떻게 알아채나요?
+    - 성경의 다른 부분에 있는 구절을 어떻게 연결하나요?
+    - 역사적·문화적 배경을 보는 데 어떤 도구가 도움이 되나요?
+    - 예언서와 서신은 어떻게 다르게 읽어야 하나요?
+    - 어려운 본문을 건전하게 해석하는 방법은 무엇인가요?
+    - 복음서들은 서로 어떻게 관련되나요?
+    - 언약이나 나라 같은 주제를 성경 전체에서 어떻게 따라가나요?
+    - 이미 아는 본문을 볼 때 주석의 역할은 무엇인가요?
+    - 매일 읽기와 더 느린 연구를 어떻게 균형 맞추나요?
+    - 바울 서신에서 첫 읽기에 놓치기 쉬운 것은 무엇인가요?
+    - 시편을 기도와 신학으로 함께 읽으려면 어떻게 하나요?
+    - 다른 구절과 충돌해 보이는 본문은 어떻게 다루나요?
+    - 이미 아는 구약 내러티브는 어떻게 접근하면 좋나요?
+    - 책의 논지를 잃지 않고 한 장을 공부하려면?
+    - 문학적 맥락에서 본문을 읽는다는 것은 무슨 뜻인가요?
+    - 익숙한 본문을 납작하게 만들지 않고 적용하려면?
+    - 참조가 분명하지 않을 때 어디를 보나요?
+    - 자주 다시 읽는 책에서 더 얻으려면 어떻게 하나요?
+  ar:
+    name: أقرأ بانتظام
+    description: أقرأ بما يكفي لأعرف أين أجد أسفار الكتاب المقدس. لدي على الأقل بعض السياق لمعظم المقاطع
+      التي أقرأها.
+    example_questions:
+    - كيف أنتقل من القراءة إلى ملاحظة موضوعات عبر الأسفار؟
+    - كيف أصل مقاطع من أجزاء مختلفة من الكتاب المقدس؟
+    - ما الأدوات التي تساعد في السياق التاريخي والثقافي؟
+    - كيف أقرأ سفراً نبوياً مقارنة برسالة؟
+    - ما الطريقة السليمة لتفسير مقطع صعب؟
+    - كيف ترتبط الأناجيل بعضها ببعض؟
+    - كيف أتتبع موضوعاً مثل العهد أو الملكوت في الكتاب المقدس؟
+    - ما دور التفاسير عندما أعرف المقطع مسبقاً؟
+    - كيف أوازن بين القراءة اليومية والدراسة الأبطأ؟
+    - ماذا يجري في رسائل بولس وقد أفوته في القراءة الأولى؟
+    - كيف أقرأ المزامير كصلاة وكلاهوت؟
+    - كيف أتعامل مع مقطع يبدو متعارضاً مع آخر؟
+    - ما مقاربة جيدة لروايات العهد القديم التي أعرفها؟
+    - كيف أدرس أصحاحاً دون أن أفقد حجة السفر؟
+    - ماذا يعني قراءة مقطع في سياقه الأدبي؟
+    - كيف أطبّق مقطعاً مألوفاً دون تسطيحه؟
+    - أين أبحث عندما يكون المرجع غير واضح؟
+    - كيف أستفيد أكثر من الأسفار التي أعود إليها كثيراً؟
+  uk:
+    name: Читаю регулярно
+    description: Я читаю досить часто, щоб знати, де знайти книги Біблії. Для більшості уривків маю бодай
+      якийсь контекст.
+    example_questions:
+    - Як перейти від читання до помічання тем у різних книгах?
+    - Як поєднувати уривки з різних частин Біблії?
+    - Які інструменти допомагають з історичним і культурним контекстом?
+    - Як читати пророчу книгу порівняно з посланням?
+    - Як здорово тлумачити складний уривок?
+    - Як Євангелія співвідносяться одне з одним?
+    - Як простежити тему завіту чи царства крізь Писання?
+    - Яку роль мають коментарі, коли я вже знаю уривок?
+    - Як поєднати щоденне читання з повільнішим вивченням?
+    - Що в посланнях Павла можна пропустити з першого читання?
+    - Як читати Псалми і як молитву, і як богослов’я?
+    - Як ставитися до уривка, що ніби суперечить іншому?
+    - Як підходити до старозавітних оповідей, які я вже знаю?
+    - Як вивчати розділ, не втрачаючи аргументу книги?
+    - Що означає читати уривок у літературному контексті?
+    - Як застосувати знайомий уривок, не спрощуючи його?
+    - Куди дивитися, коли посилання неясне?
+    - Як отримати більше від книг, до яких я часто повертаюся?

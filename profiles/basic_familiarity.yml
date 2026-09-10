@@ -1,0 +1,160 @@
+slug: basic_familiarity
+is_christian: true
+experience_level: 2
+instructions: |
+  You are helping someone with basic Bible familiarity. They know some stories, verses, or characters (Abraham, Jesus, and similar), but they are not yet comfortable finding things in the Bible itself.
+
+  **Biblical knowledge: assume partial, story-level knowledge — not navigation.** This person:
+  - Recognizes major figures and some well-known passages
+  - Often does not know where those stories sit in the canon or how to look them up
+  - May not yet hold a clear map of biblical books or of how Testaments relate
+  - Has heard terms like gospel, sin, or prayer, but may not know them in context
+
+  **When answering:**
+  - You can mention well-known figures without a full biography, but still locate the story (book and setting)
+  - Explain how a verse or story fits the larger narrative
+  - Help them build a mental map: where to look, what kind of book it is, what comes before and after
+  - Briefly define theological terms that go beyond everyday use
+  - Prefer orientation ("this is in Exodus, after…") over assuming they can navigate unaided
+
+  **Never:**
+  - Assume they can find a book or follow a dense chain of references
+  - Treat them as having no knowledge of Jesus, Abraham, or other household names
+locales:
+  en:
+    name: Basic familiarity
+    description: I know some stories, verses, or characters like Abraham or Jesus. Not as familiar with
+      finding things in the Bible itself.
+    example_questions:
+    - How do the Bible stories I know fit into a bigger story?
+    - Where would I find the story of Abraham or Jesus in the Bible?
+    - What's the difference between a verse, a chapter, and a book?
+    - I've heard John 3:16 — what does it mean in context?
+    - How is the Old Testament connected to the New Testament?
+    - Who was David, and where is his story?
+    - What are the Gospels, and why are there four?
+    - How do I look up a Bible reference like Romans 8:28?
+    - What should I know before I try to read a whole book?
+    - How can I tell a famous verse from the passage around it?
+    - What is the Bible's main storyline in simple terms?
+    - Where do the Psalms and Proverbs fit?
+    - Why do some stories appear more than once?
+    - What does 'gospel' mean beyond the name of the books?
+    - How do I start finding my way around the Bible itself?
+    - What's a good next book after the stories I already know?
+    - How are people like Moses, David, and Jesus connected?
+    - What does the Bible mean by covenant?
+  es:
+    name: Familiaridad básica
+    description: Conozco algunas historias, versículos o personajes como Abraham o Jesús. No me resulta
+      tan fácil encontrar las cosas en la Biblia misma.
+    example_questions:
+    - ¿Cómo encajan las historias que conozco en una historia más grande?
+    - ¿Dónde encuentro la historia de Abraham o de Jesús en la Biblia?
+    - ¿Cuál es la diferencia entre un versículo, un capítulo y un libro?
+    - He oído Juan 3:16 — ¿qué significa en su contexto?
+    - ¿Cómo se conecta el Antiguo Testamento con el Nuevo?
+    - ¿Quién fue David y dónde está su historia?
+    - ¿Qué son los Evangelios y por qué hay cuatro?
+    - ¿Cómo busco una referencia como Romanos 8:28?
+    - ¿Qué debo saber antes de leer un libro entero?
+    - ¿Cómo distingo un versículo famoso del pasaje que lo rodea?
+    - ¿Cuál es el hilo principal de la Biblia, en términos sencillos?
+    - ¿Dónde encajan los Salmos y Proverbios?
+    - ¿Por qué algunas historias aparecen más de una vez?
+    - ¿Qué significa 'evangelio' más allá del nombre de los libros?
+    - ¿Cómo empiezo a orientarme en la Biblia misma?
+    - ¿Qué libro conviene leer después de las historias que ya conozco?
+    - ¿Cómo se conectan Moisés, David y Jesús?
+    - ¿Qué significa pacto en la Biblia?
+  pt:
+    name: Familiaridade básica
+    description: Conheço algumas histórias, versículos ou personagens como Abraão ou Jesus. Ainda não
+      me oriento tão bem na própria Bíblia.
+    example_questions:
+    - Como as histórias que eu conheço se encaixam numa história maior?
+    - Onde encontro a história de Abraão ou de Jesus na Bíblia?
+    - Qual é a diferença entre um versículo, um capítulo e um livro?
+    - Já ouvi João 3:16 — o que isso significa no contexto?
+    - Como o Antigo Testamento se conecta ao Novo?
+    - Quem foi Davi e onde está a história dele?
+    - O que são os Evangelhos e por que há quatro?
+    - Como procuro uma referência como Romanos 8:28?
+    - O que eu preciso saber antes de ler um livro inteiro?
+    - Como distinguir um versículo famoso da passagem ao redor?
+    - Qual é o enredo principal da Bíblia, em termos simples?
+    - Onde se encaixam os Salmos e Provérbios?
+    - Por que algumas histórias aparecem mais de uma vez?
+    - O que 'evangelho' significa além do nome dos livros?
+    - Como começo a me orientar na própria Bíblia?
+    - Qual é um bom próximo livro depois das histórias que já conheço?
+    - Como Moisés, Davi e Jesus se conectam?
+    - O que a Bíblia quer dizer com aliança?
+  ko:
+    name: 기본적인 익숙함
+    description: 아브라함이나 예수님 같은 이야기, 구절, 인물은 어느 정도 압니다. 성경 안에서 찾아가는 일은 아직 익숙하지 않습니다.
+    example_questions:
+    - 내가 아는 성경 이야기들은 더 큰 이야기와 어떻게 이어지나요?
+    - 아브라함이나 예수님의 이야기는 성경 어디에 있나요?
+    - 절, 장, 권의 차이는 무엇인가요?
+    - 요한복음 3:16을 들어봤는데, 문맥에서는 무슨 뜻인가요?
+    - 구약과 신약은 어떻게 연결되나요?
+    - 다윗은 누구이며 그의 이야기는 어디에 있나요?
+    - 복음서는 무엇이고 왜 네 권이 있나요?
+    - 로마서 8:28 같은 성경 구절은 어떻게 찾나요?
+    - 책 한 권을 읽기 전에 무엇을 알아야 하나요?
+    - 유명한 구절과 그 주변 본문을 어떻게 구별하나요?
+    - 성경의 큰 줄거리를 쉽게 말하면 무엇인가요?
+    - 시편과 잠언은 어디에 자리하나요?
+    - 어떤 이야기는 왜 여러 번 나오나요?
+    - '''복음''은 책 이름 외에 무슨 뜻인가요?'
+    - 성경 자체에서 길을 찾으려면 어떻게 시작하나요?
+    - 이미 아는 이야기 다음에 읽기 좋은 책은 무엇인가요?
+    - 모세, 다윗, 예수님은 어떻게 연결되나요?
+    - 성경에서 언약은 무슨 뜻인가요?
+  ar:
+    name: إلمام أساسي
+    description: أعرف بعض القصص أو الآيات أو الشخصيات مثل إبراهيم أو يسوع. لست متمكناً بعد من إيجاد الأمور
+      في الكتاب المقدس نفسه.
+    example_questions:
+    - كيف تتلاءم القصص التي أعرفها في قصة أكبر؟
+    - أين أجد قصة إبراهيم أو يسوع في الكتاب المقدس؟
+    - ما الفرق بين آية وأصحاح وسفر؟
+    - سمعت يوحنا 3:16 — ماذا يعني في سياقه؟
+    - كيف يرتبط العهد القديم بالعهد الجديد؟
+    - من كان داود وأين قصته؟
+    - ما هي الأناجيل ولماذا يوجد أربعة؟
+    - كيف أبحث عن مرجع مثل رومية 8:28؟
+    - ماذا يجب أن أعرف قبل قراءة سفر كامل؟
+    - كيف أميّز آية مشهورة عن المقطع المحيط بها؟
+    - ما هو الخط الرئيسي لقصة الكتاب المقدس بكلمات بسيطة؟
+    - أين يناسب المزامير والأمثال؟
+    - لماذا تظهر بعض القصص أكثر من مرة؟
+    - ماذا تعني 'الإنجيل' إلى جانب اسم الأسفار؟
+    - كيف أبدأ في التعرف على الكتاب المقدس نفسه؟
+    - ما السفر المناسب بعد القصص التي أعرفها؟
+    - كيف يرتبط موسى وداود ويسوع؟
+    - ماذا يعني العهد في الكتاب المقدس؟
+  uk:
+    name: Базова обізнаність
+    description: Я знаю деякі історії, вірші чи постаті, як-от Авраам чи Ісус. Ще не так легко знаходжу
+      речі в самій Біблії.
+    example_questions:
+    - Як історії, які я знаю, вписуються в більшу розповідь?
+    - Де в Біблії знайти історію Авраама чи Ісуса?
+    - Чим відрізняються вірш, розділ і книга?
+    - Я чув Івана 3:16 — що це означає в контексті?
+    - Як Старий Завіт пов’язаний із Новим?
+    - Хто такий Давид і де його історія?
+    - Що таке Євангелія і чому їх чотири?
+    - Як знайти посилання на кшталт Римлян 8:28?
+    - Що варто знати перед читанням цілої книги?
+    - Як відрізнити відомий вірш від уривка навколо нього?
+    - Яка головна сюжетна лінія Біблії простими словами?
+    - Де місце Псалмів і Приповістей?
+    - Чому деякі історії повторюються?
+    - Що означає «євангеліє» поза назвою книг?
+    - Як почати орієнтуватися в самій Біблії?
+    - Яку книгу читати після історій, які я вже знаю?
+    - Як пов’язані Мойсей, Давид і Ісус?
+    - Що Біблія має на увазі під завітом?

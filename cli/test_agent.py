@@ -41,8 +41,8 @@ class TestSimpleAgentIntegration:
         assert len(self.agent.profiles) > 0
         assert len(self.agent.theologies) > 0
 
-        # Check that universal_explorer profile exists (default)
-        assert "universal_explorer" in self.agent.profiles
+        # Check that read_regularly profile exists (default)
+        assert "read_regularly" in self.agent.profiles
         assert "default" in self.agent.theologies
 
     def test_template_rendering(self):
@@ -104,7 +104,7 @@ class TestSimpleAgentIntegration:
         """Test basic chat functionality with a simple question."""
         response = self.agent.chat(
             prompt="What is the meaning of John 3:16?",
-            profile="universal_explorer",
+            profile="read_regularly",
             theology="default",
             verbose=False,
         )
@@ -118,7 +118,7 @@ class TestSimpleAgentIntegration:
         """Test that the agent can use scripture tools when needed."""
         response = self.agent.chat(
             prompt="What does the Bible say about love in 1 Corinthians 13?",
-            profile="universal_explorer",
+            profile="read_regularly",
             theology="default",
             verbose=False,
         )
@@ -229,7 +229,7 @@ Please provide a biblical response that addresses the user's question.
             mock_openai_class.return_value = mock_client
 
             agent = self.create_mock_agent()
-            response = agent.chat("Test prompt", profile="universal_explorer")
+            response = agent.chat("Test prompt", profile="read_regularly")
 
             assert response == "Mocked response"
 
@@ -258,7 +258,7 @@ Please provide a biblical response that addresses the user's question.
             mock_execute_tool.return_value = {"text": "Mocked scripture text"}
 
             agent = self.create_mock_agent()
-            response = agent.chat("Test prompt", profile="universal_explorer")
+            response = agent.chat("Test prompt", profile="read_regularly")
 
             assert isinstance(response, str)
             assert len(response) > 0
@@ -286,7 +286,7 @@ Please provide a biblical response that addresses the user's question.
             response = agent.chat(
                 "What is the main theme?",
                 context={"book": "John", "chapter": 3},
-                profile="universal_explorer",
+                profile="read_regularly",
             )
 
             assert isinstance(response, str)
@@ -374,7 +374,7 @@ Please provide a biblical response that addresses the user's question.
 
             agent = self.create_mock_agent()
             response = agent.chat(
-                "Test prompt", profile="universal_explorer", verbose=True
+                "Test prompt", profile="read_regularly", verbose=True
             )
 
             assert isinstance(response, str)
@@ -405,7 +405,7 @@ Please provide a biblical response that addresses the user's question.
             response = agent.chat(
                 "What do these specific verses mean?",
                 context={"book": "John", "chapter": 3, "verses": [16, 17, 18]},
-                profile="universal_explorer",
+                profile="read_regularly",
             )
 
             assert isinstance(response, str)
@@ -427,7 +427,7 @@ class TestSimpleAgentEdgeCases:
             pytest.skip("Configuration validation failed")
 
         agent = SimpleAgent(config)
-        response = agent.chat("", profile="universal_explorer")
+        response = agent.chat("", profile="read_regularly")
 
         assert isinstance(response, str)
         # Should handle empty prompt gracefully
@@ -444,7 +444,7 @@ class TestSimpleAgentEdgeCases:
         agent = SimpleAgent(config)
         long_prompt = "What is the meaning of life? " * 100  # Very long prompt
 
-        response = agent.chat(long_prompt, profile="universal_explorer")
+        response = agent.chat(long_prompt, profile="read_regularly")
 
         assert isinstance(response, str)
         assert len(response) > 0
@@ -462,7 +462,7 @@ class TestSimpleAgentEdgeCases:
         agent = SimpleAgent(config)
         special_prompt = "What does 'faith' mean? (John 3:16) - [Bible study]"
 
-        response = agent.chat(special_prompt, profile="universal_explorer")
+        response = agent.chat(special_prompt, profile="read_regularly")
 
         assert isinstance(response, str)
         assert len(response) > 0
