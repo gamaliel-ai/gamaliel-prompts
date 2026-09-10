@@ -26,7 +26,7 @@ class TestCLIHandlers:
         args.chapter = 3
         args.max_words = 100
         args.prompt = "What does this mean?"
-        args.profile = "curious_explorer"
+        args.profile = "new_to_the_bible"
         args.theology = "default"
         args.verbose = False
 
@@ -45,7 +45,7 @@ class TestCLIHandlers:
         mock_agent.chat.assert_called_once_with(
             prompt="What does this mean?",
             context={"book": "John", "chapter": 3, "max_words": 100},
-            profile="curious_explorer",
+            profile="new_to_the_bible",
             theology="default",
             verbose=False,
         )

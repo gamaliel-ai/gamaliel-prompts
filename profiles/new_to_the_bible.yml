@@ -1,0 +1,158 @@
+slug: new_to_the_bible
+is_christian: true
+experience_level: 1
+instructions: |
+  You are helping someone who is new to the Bible. They may know a few verses, but they do not yet know their way around the text. This is a starting position, not a deficiency. Do not assume they are a seeker, a Christian, or anything about their faith.
+
+  **Biblical knowledge: assume almost none.** This person:
+  - May not know how the Bible is organized (books, chapters, verses; Old and New Testament)
+  - May not know where to begin reading
+  - May recognize a famous verse or name without knowing the story around it
+  - Does not yet have a map of biblical narrative
+
+  **When answering:**
+  - Explain who biblical figures are when you first mention them
+  - Say where a story or teaching is found (book, and a simple sense of the larger section)
+  - Define biblical and theological terms in everyday language
+  - Do not assume they can look up a reference unaided — give the context with the citation
+  - Be welcoming and non-shaming. Offer a clear next place to start when it helps.
+
+  **Never:**
+  - Treat their questions as naive or as a test of faith
+  - Assume church vocabulary, academic terms, or that they already know the story
+locales:
+  en:
+    name: New to the Bible
+    description: I haven't really read the Bible much. I might know a few verses, but I don't really know
+      where to begin.
+    example_questions:
+    - What is the Bible and why do people read it?
+    - How is the Bible organized and where should I start?
+    - Who was Jesus and why is he important?
+    - What are some of the main stories in the Bible?
+    - What does 'salvation' mean?
+    - Who was Moses and what did he do?
+    - What's the story of Noah's ark?
+    - What are the Ten Commandments?
+    - What's the difference between the Old and New Testament?
+    - Who were Abraham, David, and Paul?
+    - What is prayer and how does it work?
+    - Why did Jesus die on a cross?
+    - What is Genesis about?
+    - How can I find a passage if I don't know the books yet?
+    - What does it mean that Jesus rose from the dead?
+    - Why are there so many different Bible translations?
+    - What is the Gospel?
+    - What happens when we die, according to the Bible?
+  es:
+    name: Nuevo en la Biblia
+    description: No he leído mucho la Biblia. Quizá conozco algunos versículos, pero no sé bien por dónde
+      empezar.
+    example_questions:
+    - ¿Qué es la Biblia y por qué la gente la lee?
+    - ¿Cómo está organizada la Biblia y por dónde empiezo?
+    - ¿Quién fue Jesús y por qué es importante?
+    - ¿Cuáles son algunas de las historias principales de la Biblia?
+    - ¿Qué significa 'salvación'?
+    - ¿Quién fue Moisés y qué hizo?
+    - ¿Cuál es la historia del arca de Noé?
+    - ¿Cuáles son los Diez Mandamientos?
+    - ¿Cuál es la diferencia entre el Antiguo y el Nuevo Testamento?
+    - ¿Quiénes fueron Abraham, David y Pablo?
+    - ¿Qué es la oración y cómo funciona?
+    - ¿Por qué murió Jesús en una cruz?
+    - ¿De qué trata Génesis?
+    - ¿Cómo encuentro un pasaje si aún no conozco los libros?
+    - ¿Qué significa que Jesús resucitó?
+    - ¿Por qué hay tantas traducciones de la Biblia?
+    - ¿Qué es el Evangelio?
+    - ¿Qué ocurre cuando morimos, según la Biblia?
+  pt:
+    name: Novo na Bíblia
+    description: Eu ainda não li a Bíblia de fato. Posso conhecer alguns versículos, mas não sei bem por
+      onde começar.
+    example_questions:
+    - O que é a Bíblia e por que as pessoas a leem?
+    - Como a Bíblia está organizada e por onde eu começo?
+    - Quem foi Jesus e por que ele é importante?
+    - Quais são algumas das principais histórias da Bíblia?
+    - O que significa 'salvação'?
+    - Quem foi Moisés e o que ele fez?
+    - Qual é a história da arca de Noé?
+    - Quais são os Dez Mandamentos?
+    - Qual é a diferença entre o Antigo e o Novo Testamento?
+    - Quem foram Abraão, Davi e Paulo?
+    - O que é oração e como funciona?
+    - Por que Jesus morreu na cruz?
+    - Do que trata Gênesis?
+    - Como encontro uma passagem se ainda não conheço os livros?
+    - O que significa que Jesus ressuscitou?
+    - Por que existem tantas traduções da Bíblia?
+    - O que é o Evangelho?
+    - O que acontece quando morremos, segundo a Bíblia?
+  ko:
+    name: 성경이 생소함
+    description: 성경을 거의 읽어 본 적이 없습니다. 몇몇 구절은 알 수 있지만, 어디서부터 시작해야 할지는 잘 모릅니다.
+    example_questions:
+    - 성경이 무엇이며 사람들은 왜 읽나요?
+    - 성경은 어떻게 구성되어 있고 어디서 시작해야 하나요?
+    - 예수님은 누구시며 왜 중요한가요?
+    - 성경의 주요 이야기는 어떤 것들이 있나요?
+    - '''구원''은 무엇을 의미하나요?'
+    - 모세는 누구이며 무엇을 했나요?
+    - 노아의 방주 이야기는 무엇인가요?
+    - 십계명은 무엇인가요?
+    - 구약과 신약의 차이점은 무엇인가요?
+    - 아브라함, 다윗, 바울은 누구인가요?
+    - 기도는 무엇이며 어떻게 하나요?
+    - 예수님은 왜 십자가에서 돌아가셨나요?
+    - 창세기는 무엇에 관한 책인가요?
+    - 책 이름을 잘 모를 때 구절을 어떻게 찾나요?
+    - 예수님이 죽은 자 가운데서 살아나셨다는 것은 무슨 뜻인가요?
+    - 성경 번역이 왜 이렇게 많은가요?
+    - 복음은 무엇인가요?
+    - 성경에 따르면 우리가 죽으면 어떻게 되나요?
+  ar:
+    name: جديد على الكتاب المقدس
+    description: لم أقرأ الكتاب المقدس كثيراً. قد أعرف بعض الآيات، لكنني لا أعرف حقاً من أين أبدأ.
+    example_questions:
+    - ما هو الكتاب المقدس ولماذا يقرأه الناس؟
+    - كيف يُنظَّم الكتاب المقدس ومن أين أبدأ؟
+    - من كان يسوع ولماذا هو مهم؟
+    - ما هي بعض القصص الرئيسية في الكتاب المقدس؟
+    - ماذا تعني 'الخلاص'؟
+    - من كان موسى وماذا فعل؟
+    - ما هي قصة فلك نوح؟
+    - ما هي الوصايا العشر؟
+    - ما الفرق بين العهد القديم والعهد الجديد؟
+    - من هم إبراهيم وداود وبولس؟
+    - ما هي الصلاة وكيف تعمل؟
+    - لماذا مات يسوع على الصليب؟
+    - عمَّ يتحدث سفر التكوين؟
+    - كيف أجد مقطعاً إذا كنت لا أعرف أسفار الكتاب بعد؟
+    - ماذا يعني أن يسوع قام من الموت؟
+    - لماذا توجد ترجمات كثيرة للكتاب المقدس؟
+    - ما هو الإنجيل؟
+    - ماذا يحدث عندما نموت حسب الكتاب المقدس؟
+  uk:
+    name: Новий у Біблії
+    description: Я майже не читав Біблію. Можу знати кілька віршів, але не дуже розумію, з чого почати.
+    example_questions:
+    - Що таке Біблія і чому її читають?
+    - Як влаштована Біблія і з чого почати?
+    - Хто такий Ісус і чому він важливий?
+    - Які головні історії є в Біблії?
+    - Що означає «спасіння»?
+    - Хто такий Мойсей і що він зробив?
+    - Яка історія про Ноїв ковчег?
+    - Що таке Десять заповідей?
+    - У чому різниця між Старим і Новим Завітом?
+    - Хто такі Авраам, Давид і Павло?
+    - Що таке молитва і як вона працює?
+    - Чому Ісус помер на хресті?
+    - Про що книга Буття?
+    - Як знайти уривок, якщо я ще не знаю книг?
+    - Що означає, що Ісус воскрес із мертвих?
+    - Чому є стільки різних перекладів Біблії?
+    - Що таке Євангеліє?
+    - Що, за Біблією, відбувається після смерті?

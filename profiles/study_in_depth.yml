@@ -1,0 +1,161 @@
+slug: study_in_depth
+is_christian: true
+experience_level: 4
+instructions: |
+  You are helping someone who studies the Bible in depth. They understand biblical narrative structure and are used to cross-references, commentaries, and study tools. This is a claim about study practice, not about seminary credentials, spiritual maturity, or original-language training.
+
+  **Biblical knowledge: assume a practiced student of the text.** This person:
+  - Can follow structure, argument, and cross-references without a primer
+  - Is comfortable with study notes, commentaries, and comparing related texts
+  - Does not need characters, books, or basic doctrine introduced
+  - May or may not know Hebrew, Greek, or academic guild debates — do not require that of them
+
+  **When answering:**
+  - Work with structure, literary features, and canonical connections
+  - Use cross-references that actually affect the reading
+  - You may discuss how study tools weigh options; keep the biblical text primary
+  - Use theological vocabulary; briefly clarify only genuinely technical terms
+  - Note where Christian traditions typically diverge when that helps the question
+  - Treat them as a peer who wants a careful reading, not a lecture
+
+  **Never:**
+  - Explain who biblical figures are or retell famous stories from scratch
+  - Equate depth with academic jargon, language work, or named scholars
+  - Cite external scholars or treatises as authorities (stay grounded in Scripture and the tools already in use)
+locales:
+  en:
+    name: Study in depth
+    description: I understand Biblical narrative structure and am familiar with cross-referencing, commentaries,
+      and study tools.
+    example_questions:
+    - How does this passage sit in the book's structure?
+    - What cross-references actually change how I read this text?
+    - How should I weigh a commentary when the text is disputed?
+    - What literary features should I notice in this genre?
+    - How do I trace a theme without forcing a system onto the text?
+    - What's a responsible way to use study notes and original-language tools?
+    - How does canonical context affect this passage?
+    - Where do Christian traditions typically differ on this text?
+    - How do I teach or discuss this passage without flattening tensions?
+    - What patterns connect this text to earlier Scripture?
+    - How should narrative, law, and letter be read differently here?
+    - What's at stake in the main interpretive options for this verse?
+    - How do I keep close to the text while using study tools?
+    - What would a careful outline of this chapter look like?
+    - How does this passage function in the argument of the book?
+    - When is historical background essential, and when is it a distraction?
+    - How do I handle a difficult text that others use as a proof text?
+    - What questions should I bring to a commentary rather than from it?
+  es:
+    name: Estudio en profundidad
+    description: Entiendo la estructura narrativa de la Biblia y estoy familiarizado con las referencias
+      cruzadas, los comentarios y las herramientas de estudio.
+    example_questions:
+    - ¿Cómo se sitúa este pasaje en la estructura del libro?
+    - ¿Qué referencias cruzadas cambian de verdad cómo leo este texto?
+    - ¿Cómo sopeso un comentario cuando el texto está discutido?
+    - ¿Qué rasgos literarios debo notar en este género?
+    - ¿Cómo sigo un tema sin imponerle un sistema al texto?
+    - ¿Cuál es un uso responsable de notas de estudio y herramientas de lenguas originales?
+    - ¿Cómo afecta el contexto canónico a este pasaje?
+    - ¿Dónde suelen diferir las tradiciones cristianas sobre este texto?
+    - ¿Cómo enseño o converso este pasaje sin aplanar las tensiones?
+    - ¿Qué patrones conectan este texto con Escritura anterior?
+    - ¿Cómo se leen de modo distinto narración, ley y carta aquí?
+    - ¿Qué está en juego en las opciones interpretativas principales de este versículo?
+    - ¿Cómo me mantengo cerca del texto al usar herramientas de estudio?
+    - ¿Cómo se vería un bosquejo cuidadoso de este capítulo?
+    - ¿Qué función tiene este pasaje en el argumento del libro?
+    - ¿Cuándo es esencial el trasfondo histórico y cuándo distrae?
+    - ¿Cómo trato un texto difícil que otros usan como prueba?
+    - ¿Qué preguntas debo llevar a un comentario, en vez de tomarlas de él?
+  pt:
+    name: Estudo em profundidade
+    description: Entendo a estrutura narrativa da Bíblia e estou familiarizado com referências cruzadas,
+      comentários e ferramentas de estudo.
+    example_questions:
+    - Como esta passagem se situa na estrutura do livro?
+    - Quais referências cruzadas realmente mudam a leitura deste texto?
+    - Como sopesar um comentário quando o texto é disputado?
+    - Que traços literários eu devo notar neste gênero?
+    - Como rastrear um tema sem forçar um sistema sobre o texto?
+    - Qual é um uso responsável de notas de estudo e ferramentas de línguas originais?
+    - Como o contexto canônico afeta esta passagem?
+    - Onde as tradições cristãs costumam divergir neste texto?
+    - Como ensinar ou discutir esta passagem sem achatar tensões?
+    - Que padrões ligam este texto a Escritura anterior?
+    - Como narrativa, lei e carta devem ser lidas de modos diferentes aqui?
+    - O que está em jogo nas principais opções interpretativas deste versículo?
+    - Como permanecer perto do texto ao usar ferramentas de estudo?
+    - Como seria um esboço cuidadoso deste capítulo?
+    - Qual é a função desta passagem no argumento do livro?
+    - Quando o pano de fundo histórico é essencial e quando distrai?
+    - Como lidar com um texto difícil que outros usam como prova?
+    - Que perguntas eu devo levar a um comentário, em vez de tirá-las dele?
+  ko:
+    name: 깊이 연구함
+    description: 성경 내러티브 구조를 이해하고, 상호 참조와 주석, 연구 도구에 익숙합니다.
+    example_questions:
+    - 이 본문은 책의 구조에서 어디에 자리하나요?
+    - 이 텍스트를 읽는 방식을 실제로 바꾸는 상호 참조는 무엇인가요?
+    - 본문이 논쟁적일 때 주석을 어떻게 저울질하나요?
+    - 이 장르에서 어떤 문학적 특징을 봐야 하나요?
+    - 본문에 체계를 억지로 얹지 않고 주제를 따라가려면?
+    - 연구 노트와 원어 도구를 책임 있게 쓰려면 어떻게 하나요?
+    - 정경적 맥락이 이 본문에 어떤 영향을 주나요?
+    - 이 본문에서 그리스도교 전통은 보통 어디서 갈라지나요?
+    - 긴장을 납작하게 만들지 않고 이 본문을 가르치거나 나누려면?
+    - 이 본문을 앞선 성경과 잇는 패턴은 무엇인가요?
+    - 여기서 내러티브, 율법, 서신은 어떻게 다르게 읽어야 하나요?
+    - 이 절의 주요 해석 선택지에서 무엇이 걸려 있나요?
+    - 연구 도구를 쓰면서도 본문에 가깝게 있으려면?
+    - 이 장의 신중한 개요는 어떤 모습인가요?
+    - 이 본문은 책의 논지에서 어떤 역할을 하나요?
+    - 역사적 배경이 필수일 때와 방해가 될 때는 언제인가요?
+    - 다른 사람이 증거 구절로 쓰는 어려운 본문은 어떻게 다루나요?
+    - 주석에서 가져오기보다 주석에 가져가야 할 질문은 무엇인가요?
+  ar:
+    name: أدرس بعمق
+    description: أفهم بنية السرد الكتابي وأعتاد الإحالات المتقاطعة والتفاسير وأدوات الدراسة.
+    example_questions:
+    - كيف يقع هذا المقطع في بنية السفر؟
+    - ما الإحالات المتقاطعة التي تغيّر فعلاً قراءة هذا النص؟
+    - كيف أزن تفسيراً عندما يكون النص موضع خلاف؟
+    - ما السمات الأدبية التي ينبغي أن ألاحظها في هذا الجنس الأدبي؟
+    - كيف أتتبع موضوعاً دون فرض نظام على النص؟
+    - ما الاستخدام المسؤول للحواشي وأدوات اللغات الأصلية؟
+    - كيف يؤثر السياق القانوني على هذا المقطع؟
+    - أين تختلف التقاليد المسيحية عادة حول هذا النص؟
+    - كيف أعلّم أو أناقش هذا المقطع دون تسطيح التوترات؟
+    - ما الأنماط التي تربط هذا النص بكتاب مقدس سابق؟
+    - كيف تُقرأ السرد والشريعة والرسالة بشكل مختلف هنا؟
+    - ما الذي على المحك في الخيارات التفسيرية الرئيسية لهذه الآية؟
+    - كيف أبقى قريباً من النص أثناء استخدام أدوات الدراسة؟
+    - كيف يبدو مخطط متأنٍ لهذا الأصحاح؟
+    - ما وظيفة هذا المقطع في حجة السفر؟
+    - متى تكون الخلفية التاريخية ضرورية ومتى تكون إلهاء؟
+    - كيف أتعامل مع نص صعب يستخدمه آخرون كدليل؟
+    - ما الأسئلة التي ينبغي أن أحملها إلى التفسير لا أن آخذها منه؟
+  uk:
+    name: Вивчаю поглиблено
+    description: Я розумію наративну структуру Біблії і знайомий із перехресними посиланнями, коментарями
+      та знаряддями вивчення.
+    example_questions:
+    - Як цей уривок стоїть у структурі книги?
+    - Які перехресні посилання справді змінюють читання цього тексту?
+    - Як зважувати коментар, коли текст спірний?
+    - Які літературні риси варто помічати в цьому жанрі?
+    - Як простежити тему, не накидаючи системі на текст?
+    - Як відповідально користуватися примітками та інструментами оригінальних мов?
+    - Як канонічний контекст впливає на цей уривок?
+    - Де християнські традиції зазвичай розходяться щодо цього тексту?
+    - Як викладати чи обговорювати цей уривок, не згладжуючи напруги?
+    - Які закономірності пов’язують цей текст із ранішим Писанням?
+    - Як тут інакше читати оповідь, закон і послання?
+    - Що стоїть на кону в головних тлумаченнях цього вірша?
+    - Як лишатися близько до тексту, користуючись знаряддями вивчення?
+    - Як виглядав би уважний план цього розділу?
+    - Яку функцію має цей уривок в аргументі книги?
+    - Коли історичний фон необхідний, а коли він відволікає?
+    - Як ставитися до складного тексту, який інші беруть як доказ?
+    - Які питання нести до коментаря, а не брати з нього?
