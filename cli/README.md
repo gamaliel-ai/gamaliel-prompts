@@ -94,7 +94,7 @@ gamaliel-prompts chat "What does John 3:16 mean?"
 gamaliel-prompts chat --book John --chapter 3 "Explain this chapter"
 
 # Chat with profile and theology
-gamaliel-prompts chat --profile curious_explorer --theology reformed "What is salvation?"
+gamaliel-prompts chat --profile new_to_the_bible --theology reformed "What is salvation?"
 
 # Verbose output (shows instructions, input, tool queries, and results)
 gamaliel-prompts --verbose chat "What does John 3:16 mean?"
@@ -145,7 +145,7 @@ gamaliel-prompts validate --profiles-only
 
 - `OPENAI_API_KEY`: Your OpenAI API key (required)
 - `GAMALIEL_MODEL`: LLM model to use (default: gpt-4o-mini)
-- `GAMALIEL_PROFILE`: Default user profile (default: universal_explorer)
+- `GAMALIEL_PROFILE`: Default user profile (default: read_regularly)
 - `GAMALIEL_THEOLOGY`: Default theology guidelines (default: default)
 
 ## Key Features

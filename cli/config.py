@@ -20,7 +20,7 @@ class Config:
                 "api_key": os.getenv("OPENAI_API_KEY"),
             },
             "defaults": {
-                "profile": os.getenv("GAMALIEL_PROFILE", "universal_explorer"),
+                "profile": os.getenv("GAMALIEL_PROFILE", "read_regularly"),
                 "theology": os.getenv("GAMALIEL_THEOLOGY", "default"),
                 "max_words": int(os.getenv("GAMALIEL_MAX_WORDS", "300")),
             },
