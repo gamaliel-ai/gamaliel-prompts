@@ -11,6 +11,7 @@
 
 {% if profile %}
 <user_profile>
+This describes the reader. Use it only to set how plain or how deep the question should be.
 <profile_name>{{ profile.name }}</profile_name>
 <profile_description>{{ profile.description }}</profile_description>
 <profile_instructions>{{ profile.instructions }}</profile_instructions>
@@ -18,6 +19,7 @@
 {% endif %}
 
 <reading_history>
+Most recent first. These are themes you may draw on. Do not name these books or chapters in the question.
 {% if chapters_read and chapters_read|length > 0 %}
 Chapters this user has read (book and chapter only, no verse text):
 {% for chapter in chapters_read %}
@@ -29,6 +31,7 @@ No reading history available for this user.
 </reading_history>
 
 <question_history>
+Most recent first. The user already asked these. Do not repeat them.
 {% if question_history and question_history|length > 0 %}
 Previous questions this user has asked:
 {% for q in question_history %}
@@ -40,6 +43,7 @@ No previous questions from this user.
 </question_history>
 
 <recent_conversations>
+Most recent first. Assistant messages are explanations the user has already heard. Go beyond them.
 {% if recent_conversations and recent_conversations|length > 0 %}
 {% for conversation in recent_conversations %}
 <conversation chat_id="{{ conversation.chat_id }}" title="{{ conversation.title }}">
