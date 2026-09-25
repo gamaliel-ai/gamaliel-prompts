@@ -1,0 +1,24 @@
+---
+description: Assign, project, and sprint steps to run after opening a pull request
+alwaysApply: true
+---
+
+# After opening a pull request
+
+Every time you open a PR (`gh pr create` or equivalent), immediately run the
+setup script against the PR you just created, from the repo root:
+
+```bash
+.cursor/scripts/pr-setup.sh <pr-url>
+```
+
+The script assigns `@me` to the PR, adds it to the `Gamaliel Roadmap` project
+(org `gamaliel-ai`, project number 1), and sets the project item's `Sprint`
+field to whichever iteration covers today's date.
+
+Run it as a separate command after `gh pr create` returns, so a failure in the
+setup step never hides the PR URL. Report the PR URL and the sprint it landed in.
+
+If the script fails with a missing-scope error, the fix is
+`gh auth refresh -h github.com -s project,read:project`. Tell the user to run
+that rather than working around it.
