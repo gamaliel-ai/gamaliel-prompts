@@ -13,8 +13,9 @@ setup script against the PR you just created, from the repo root:
 ```
 
 The script assigns `@me` to the PR, adds it to the `Gamaliel Roadmap` project
-(org `gamaliel-ai`, project number 1), and sets the project item's `Sprint`
-field to whichever iteration covers today's date.
+(org `gamaliel-ai`, project number 1), sets Status to **In progress**, sets
+Sprint to whichever iteration covers today, and sets **Project Start date**
+to today.
 
 Run it as a separate command after `gh pr create` returns, so a failure in the
 setup step never hides the PR URL. Report the PR URL and the sprint it landed in.
