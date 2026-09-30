@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Assigns the current user to a PR, adds it to the Gamaliel Roadmap project,
-# and sets the project's Sprint field to whichever iteration covers today.
+# and sets Status to In progress, Sprint to the current iteration, and
+# Project Start date to today.
 #
 # Usage: .cursor/scripts/pr-setup.sh [pr-url-or-number]
 #        (defaults to the PR for the current branch)
@@ -26,33 +27,66 @@ ITEM_ID=$(gh project item-add "$PROJECT_NUMBER" --owner "$OWNER" --url "$PR_URL"
   | python3 -c 'import json,sys; print(json.load(sys.stdin)["id"])')
 echo "Added to project $PROJECT_NUMBER as item $ITEM_ID"
 
-SPRINT_JSON=$(gh api graphql -f owner="$OWNER" -F number="$PROJECT_NUMBER" -f query='
+FIELDS_JSON=$(gh api graphql -f owner="$OWNER" -F number="$PROJECT_NUMBER" -f query='
 query($owner: String!, $number: Int!) {
   organization(login: $owner) {
     projectV2(number: $number) {
-      field(name: "Sprint") {
+      sprint: field(name: "Sprint") {
         ... on ProjectV2IterationField {
           id
           configuration { iterations { id title startDate duration } }
         }
       }
+      status: field(name: "Status") {
+        ... on ProjectV2SingleSelectField {
+          id
+          options { id name }
+        }
+      }
+      start: field(name: "Project Start date") {
+        ... on ProjectV2Field { id }
+      }
     }
   }
 }')
 
-read -r FIELD_ID ITERATION_ID ITERATION_TITLE <<<"$(echo "$SPRINT_JSON" | python3 -c '
+eval "$(echo "$FIELDS_JSON" | python3 -c '
 import datetime, json, sys
-field = json.load(sys.stdin)["data"]["organization"]["projectV2"]["field"]
+proj = json.load(sys.stdin)["data"]["organization"]["projectV2"]
 today = datetime.date.today()
-for it in field["configuration"]["iterations"]:
+
+sprint = proj["sprint"]
+for it in sprint["configuration"]["iterations"]:
     start = datetime.date.fromisoformat(it["startDate"])
     if start <= today < start + datetime.timedelta(days=it["duration"]):
-        print(field["id"], it["id"], it["title"])
+        print("SPRINT_FIELD_ID=" + sprint["id"])
+        print("ITERATION_ID=" + it["id"])
+        print("ITERATION_TITLE=" + json.dumps(it["title"]))
         break
 else:
     sys.exit("No Sprint iteration covers " + today.isoformat())
+
+status = proj["status"]
+for opt in status["options"]:
+    if opt["name"] == "In progress":
+        print("STATUS_FIELD_ID=" + status["id"])
+        print("STATUS_OPTION_ID=" + opt["id"])
+        break
+else:
+    sys.exit("Status option \"In progress\" not found")
+
+print("START_FIELD_ID=" + proj["start"]["id"])
+print("TODAY=" + today.isoformat())
 ')"
 
 gh project item-edit --id "$ITEM_ID" --project-id "$PROJECT_ID" \
-  --field-id "$FIELD_ID" --iteration-id "$ITERATION_ID" >/dev/null
+  --field-id "$STATUS_FIELD_ID" --single-select-option-id "$STATUS_OPTION_ID" >/dev/null
+echo "Set Status to In progress"
+
+gh project item-edit --id "$ITEM_ID" --project-id "$PROJECT_ID" \
+  --field-id "$SPRINT_FIELD_ID" --iteration-id "$ITERATION_ID" >/dev/null
 echo "Set Sprint to $ITERATION_TITLE"
+
+gh project item-edit --id "$ITEM_ID" --project-id "$PROJECT_ID" \
+  --field-id "$START_FIELD_ID" --date "$TODAY" >/dev/null
+echo "Set Project Start date to $TODAY"
