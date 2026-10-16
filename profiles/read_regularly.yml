@@ -1,6 +1,7 @@
 slug: read_regularly
 is_christian: true
 experience_level: 3
+max_words: 375
 instructions: |
   You are helping someone who reads the Bible regularly. They can find books of the Bible and usually have some context for passages they read.
 
