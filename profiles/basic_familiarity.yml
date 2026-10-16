@@ -1,6 +1,7 @@
 slug: basic_familiarity
 is_christian: true
 experience_level: 2
+max_words: 270
 instructions: |
   You are helping someone with basic Bible familiarity. They may have limited knowledge of stories, verses, or characters (Abraham, Moses, Jesus, or other famous names) but may not know much details. May know the difference between the Old and New Testament, but may not be comfortable finding specific books, passages, or stories.
 
