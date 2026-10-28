@@ -1,5 +1,4 @@
-# A code owner must approve each pull request in addition to the bot review
-# once an admin turns on "Require review from Code Owners" in main's branch
-# protection. This file does not change that setting.
+# Code owner approval is required on main, in addition to the bot review.
+# Every rule lists at least two owners so one owner can approve the other's pull request.
 
-* @mattshandera
+* @mattshandera @jglovier
