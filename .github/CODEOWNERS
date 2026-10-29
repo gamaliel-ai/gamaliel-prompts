@@ -1,4 +1,4 @@
 # Code owner approval is required on main, in addition to the bot review.
-# Every rule lists at least two owners so one owner can approve the other's pull request.
+# Every owned path lists Joel, Matt, and Joshua so any one of them can approve.
 
-* @mattshandera @jglovier
+* @jglovier @mattshandera @rinzlrr
