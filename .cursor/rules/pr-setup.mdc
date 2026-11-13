@@ -12,14 +12,19 @@ setup script against the PR you just created, from the repo root:
 .cursor/scripts/pr-setup.sh <pr-url>
 ```
 
-The script assigns `@me` to the PR, adds it to the `Gamaliel Roadmap` project
-(org `gamaliel-ai`, project number 1), sets Status to **In progress**, sets
-Sprint to whichever iteration covers today, and sets **Project Start date**
-to today.
+The script assigns the pull request's author, adds the PR to the `Gamaliel Roadmap`
+project (org `gamaliel-ai`, project number 1), sets Status to **In progress**,
+sets Sprint to whichever iteration covers today, and sets **Project Start date**
+to today. The author comes from `gh pr view <url> --json author`. The script
+does not assign `@me` and does not hardcode a login.
+
+When `GH_PROJECT_TOKEN` is set, the script passes it only to assignment and
+Roadmap project commands (`GH_TOKEN="$GH_PROJECT_TOKEN" gh ...`). That value
+is a fine-grained token owned by the `belovedbot` machine user, with Projects,
+Pull requests, and Issues read/write on gamaliel-ai. It is not exported for
+the rest of the script. If assignment or a Roadmap command fails, the script
+prints an error and exits non-zero. It does not fall back to another token.
+Report that error. Do not retry with a personal token or `gh auth refresh`.
 
 Run it as a separate command after `gh pr create` returns, so a failure in the
 setup step never hides the PR URL. Report the PR URL and the sprint it landed in.
-
-If the script fails with a missing-scope error, the fix is
-`gh auth refresh -h github.com -s project,read:project`. Tell the user to run
-that rather than working around it.
