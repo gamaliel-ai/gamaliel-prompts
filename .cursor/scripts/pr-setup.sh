@@ -5,10 +5,12 @@
 #
 # GH_PROJECT_TOKEN, when set, is a fine-grained token owned by the belovedbot
 # machine user, with Projects, Pull requests, and Issues read/write on
-# gamaliel-ai. Pass it only to assignment and Roadmap project commands:
+# gamaliel-ai. Pass it only to the pull request read, the assignment, and the
+# Roadmap project commands:
 #   GH_TOKEN="$GH_PROJECT_TOKEN" gh ...
-# Never export it for the rest of the script. If one of those commands fails,
-# print an error and exit non-zero. Do not retry with another token.
+# Never export it for the rest of the script, and never use it for reviews or
+# approvals. If one of those commands fails, print an error and exit non-zero.
+# Do not retry with another token.
 #
 # Usage: .cursor/scripts/pr-setup.sh [pr-url-or-number]
 #        (defaults to the PR for the current branch)
@@ -17,8 +19,8 @@ set -euo pipefail
 OWNER="${GAMALIEL_PROJECT_OWNER:-gamaliel-ai}"
 PROJECT_NUMBER="${GAMALIEL_PROJECT_NUMBER:-1}"
 
-# Prefixes a single gh command. The assignment stays in this command's
-# environment and is not exported to the rest of the script.
+# The cloud-agent token cannot read pull requests, assign them, or edit org
+# Projects. Prefix GH_TOKEN per command so the ambient token is left unchanged.
 project_gh() {
   if [[ -n "${GH_PROJECT_TOKEN:-}" ]]; then
     GH_TOKEN="$GH_PROJECT_TOKEN" gh "$@"
@@ -35,13 +37,15 @@ die() {
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
+# Read the pull request with the same credential as assignment. A failed
+# lookup is not retried with another token.
 PR_REF="${1:-}"
 if [[ -n "$PR_REF" ]]; then
-  if ! pr_json=$(gh pr view "$PR_REF" --json url,number,author); then
+  if ! pr_json=$(project_gh pr view "$PR_REF" --json url,number,author); then
     die "Failed to read the pull request."
   fi
 else
-  if ! pr_json=$(gh pr view --json url,number,author); then
+  if ! pr_json=$(project_gh pr view --json url,number,author); then
     die "Failed to read the pull request."
   fi
 fi
@@ -117,6 +121,8 @@ fi
 ITEM_ID=$(printf '%s' "$item_json" | python3 -c 'import json,sys; print(json.load(sys.stdin)["id"])')
 printf 'Added to project %s as item %s\n' "$PROJECT_NUMBER" "$ITEM_ID"
 
+# GraphQL uses $owner and $number; those are not shell expansions.
+# shellcheck disable=SC2016
 if ! FIELDS_JSON=$(project_gh api graphql -f owner="$OWNER" -F number="$PROJECT_NUMBER" -f query='
 query($owner: String!, $number: Int!) {
   organization(login: $owner) {
@@ -142,10 +148,23 @@ query($owner: String!, $number: Int!) {
   die "Failed to read Gamaliel Roadmap fields."
 fi
 
+# Project API values are data, not shell. Python writes NUL-separated fields
+# and bash reads them.
+#
+# Cloud agents run in UTC, so the UTC date is already the next day during
+# the Pacific evening. Sprint matching and Project Start date use the
+# America/Los_Angeles calendar date.
+TEAM_TODAY=$(TZ=America/Los_Angeles date +%Y-%m-%d)
+if [[ ! "$TEAM_TODAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+  printf 'Error: America/Los_Angeles date %q is not YYYY-MM-DD.\n' "$TEAM_TODAY" >&2
+  exit 1
+fi
+export TEAM_TODAY
+
 printf '%s' "$FIELDS_JSON" | python3 -c '
-import datetime, json, sys
+import datetime, json, os, sys
 proj = json.load(sys.stdin)["data"]["organization"]["projectV2"]
-today = datetime.date.today()
+today = datetime.date.fromisoformat(os.environ["TEAM_TODAY"])
 
 def emit(value):
     sys.stdout.write(str(value) + "\0")
